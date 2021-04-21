@@ -208,12 +208,14 @@ function NombredanslePanier(){
              type: "POST",
              data: {idss:ids,datera:dateram},
              url: "gestion/ramassage.php",
-             success: function(){
-                 window.open('Send_Mail', '_blank');
-                 Swal.fire({
-                 icon: 'success',
-                 title: 'Demande de ramassage effectuée!'
+             success: function(res){
+                 //window.open('Send_Mail', '_blank');
+                if (res=="ramasse") {
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Demande de ramassage effectuée!'      
                });
+              }
                  getDeclarations();
                  NombredanslePanier();
              }

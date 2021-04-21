@@ -1,8 +1,9 @@
 <?php
-#use App\Client_lve;
-/**
- *
- */
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 class Clients
 {
   public $CLIENT_ID, $CLIENT_COD, $NOM, $PRENOM, $CIVILITE_COD, $CLIENT_TYP, $IDENTITE_TYP, $IDENTITE_VAL, $ID_FISCALE, $CAPITAL_SOC, $CREATION_DAT, $CLIENT_ETA, $MOTIF_ETA, $SECTEUR_COD, $EMPLOYE_ID, $SAISIE_DAT, $AGENCE_COD, $commentaire, $mail, $ICE, $telephone;
@@ -40,10 +41,6 @@ class Clients
   {
     $client = (get_class($this) == 'ClientLve') ? "client1_id" : "client2_id";
     return Declarations::DeclarationsClient($client, $this->CLIENT_ID);
-    /*
-    return Connection::getConnection()
-      ->query("SELECT * FROM `declaration_v` WHERE " . $client . "=$this->CLIENT_ID AND `supprime_le` IS NULL")
-      ->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Declarations');*/
   }
   #Les déclarations non-ramassées de l'utilisateur connecté
   public function MesDNR()
@@ -308,14 +305,47 @@ class ClientLve extends Clients
     else
       return false;
   }
+
+  public function EnvoyerMailRamassage($code)
+  {
+    require 'vendor/autoload.php';
+    $mail = new PHPMailer(true);
+    try {
+      $mail->SMTPDebug = 0;
+      $mail->isSMTP();
+      $mail->Host       = 'smtp.gmail.com';
+      $mail->SMTPAuth   = true;
+      $mail->Username   = 'lavoieexpressmaroc@gmail.com';
+      $mail->Password   = 'L@voieexpre$$96';
+      $mail->SMTPSecure = "ssl";
+      $mail->Port       = 465;
+      $mail->setFrom('lavoieexpressmaroc@gmail.com', 'Reclamation');
+      $mail->addAddress('j.hassou@lavoieexpress.ma', 'Jawhar HASSOU');
+      #$mail->addCC('s.zaki@lavoieexpress.ma');
+      $mail->isHTML(true);
+      $mail->Subject = 'Ramassage du client ' . $this->NOM;
+      $body = "Bonjour,<br /><br />Je tiens a vous informer que le client " . $this->NOM . " - " . $this->CLIENT_COD . " a une nouvelle demande de ramassage,
+       merci de la prendre en consideration, vous trouverez ci-dessous les informations necessaires pour effectuer cette operation au bonnes conditions:";
+      $body .= "<h5> Code de ramassage : " . $code . "</h5>";
+      $body .= "<h5> Numero de telephone : " . $this->telephone . "</h5>";
+      $body .= "Cordialement.";
+      $mail->Body    = $body;
+      return ($mail->send()) ? true : false;
+    } catch (Exception $e) {
+      return false;
+    }
+  }
+
   public function CreerRamassage($declarations, $date)
   {
     $dateram = date('Y-m-d', strtotime(date($date)));
     $rand = ($this->CLIENT_COD == '15443') ? 554488 : rand(1, 500000);
     if (!$this->carnetEncours()) {
       $carnet = Connection::getConnection()->prepare("INSERT INTO `ramasse`(`dateramassage`, `user_id`,`code_ramassage`) VALUES (?,?,?)");
-      if ($carnet->execute([$dateram, $this->CLIENT_ID, $rand]))
+      if ($carnet->execute([$dateram, $this->CLIENT_ID, $rand])) {
         $last_id = Connection::getConnection()->query("SELECT * from `ramasse` ORDER BY `numeroCarnet` desc LIMIT 1")->fetchObject()->numeroCarnet;
+        $this->EnvoyerMailRamassage($rand);
+      }
     } else
       $last_id = $this->carnetEncours();
     foreach ($declarations as $declaration) {
@@ -323,15 +353,17 @@ class ClientLve extends Clients
       if (!$stmt->execute([$last_id, $declaration]))
         return false;
     }
+    return true;
   }
 
   public function AnnulerCarnet($motif)
   {
-    $motif(!empty($motif)) ? $motif : 'Retard';
+    $carnet = $this->carnetEncours();
+    $motif = (!empty($motif)) ? $motif : 'Retard';
     $stmt = Connection::getConnection()->prepare("UPDATE `panierramasse` SET `etat`='annule',`date_modification`=now(),`motif_annulation`=? WHERE `numeroCarnet`=?");
-    if ($stmt->execute([$motif, $this->carnetEncours()])) {
+    if ($stmt->execute([$motif, $carnet])) {
       $valide = Connection::getConnection()->prepare("UPDATE `ramasse` SET `code_ramassage`='0' WHERE `numeroCarnet`=?");
-      return ($valide->execute([$this->carnetEncours()])) ? true : false;
+      return ($valide->execute([$carnet])) ? true : false;
     } else
       return false;
   }

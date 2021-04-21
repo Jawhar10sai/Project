@@ -10,7 +10,7 @@ if (isset($_POST['supprimer_declaration'])) {
 }
 if (isset($_POST['annuler_carnet'])) {
   $_POST['motif'] = (!empty($_POST['motif'])) ? $_POST['motif'] : '';
-  $client_lve->AnnulerCarnet();
+  $client_lve->AnnulerCarnet($_POST['motif']);
 }
 if (isset($_POST['supprimer_session'])) {
   $messessions = Clientsession::TrouverSession($_POST['suppsession']);
