@@ -1,0 +1,26 @@
+/* CSS Document */
+.catalogue-item{
+	padding:16px 0;
+	display:inline-block;
+	width:222px;
+	margin-right:38px;
+}
+.catalogue-preview{
+}
+.catalogue-preview img{
+	width:100%;
+}
+.catalogue-title h2{
+	font-size:24px;
+	font-weight:bold;
+	margin:0;
+}
+.catalogue-info{
+	border:1px solid #DADADA;
+	border-right:0;
+	border-left:0;
+}
+.catalogue_content{
+	width:100%;
+	float:left;
+}

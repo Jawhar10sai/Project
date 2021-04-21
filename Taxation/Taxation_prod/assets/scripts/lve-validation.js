@@ -1,0 +1,9 @@
+$('#mess').hide();
+$('#codecli').val('');
+$('.agdiv').hide();
+$('.vildes').hide();
+$('.respr').hide();
+$('#blocbl').hide();
+$('.affret').hide();
+$('#blocnumsbl').hide();
+$('#typpalet').hide();

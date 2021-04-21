@@ -1,0 +1,134 @@
+[12/27/2013 3:40 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=10.60 
+protection_eligibility=Ineligible 
+address_status=confirmed 
+payer_id=EPEGF45AEFDY6 
+tax=0.00 
+address_street=1 Main St 
+payment_date=06:40:42 Dec 27, 2013 PST 
+payment_status=Pending 
+charset=windows-1252 
+address_zip=95131 
+first_name=loolcool 
+address_country_code=US 
+address_name=loolcool SISSINE 
+notify_version=3.7 
+custom=12 
+payer_status=verified 
+business=aitelbaz.yassine-facilitator@gmail.com 
+address_country=United States 
+address_city=San Jose 
+quantity=1 
+verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31AspFpKHusFhIbdCRplalstPhQ0tR 
+payer_email=enissay128@looooool.fr 
+txn_id=9F626009AG775344J 
+payment_type=instant 
+last_name=SISSINE 
+address_state=CA 
+receiver_email=aitelbaz.yassine-facilitator@gmail.com 
+receiver_id=VWYZE3839P6R8 
+pending_reason=multi_currency 
+txn_type=web_accept 
+item_name=Paypal Test Transaction 
+mc_currency=EUR 
+item_number= 
+residence_country=US 
+test_ipn=1 
+handling_amount=0.00 
+transaction_subject=12 
+payment_gross= 
+shipping=0.00 
+ipn_track_id=3c9bc0c732558 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 27 Dec 2013 14:40:49 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=aooSLjkSx3VBunkt-umhtYrpU03H16PLL1nIDUjCEjlQnoZwamIGfQydtakG7-bNxLmmHyxiMRwpMw3zPtEfexiPT1z4dLbIZZ5eYqNblxMPKzQGdVK45A60CEt-9d5QxaIXzg79z4PVR_Otlm9XfoRGyGnDMM-Vpzs_sQep1AISQIpS2ip3fhkkOr9Xo1f3wrrBC2B5AuHA0lJDqfqeAt9y2L-ExZNBn_q5iuosr-Yzb7kojT-0TBLMT15A69oQxR3jl7qY27_R5o5jg8XBBM9ARPyq5nszpRmocvpHtM8Nyy3ri0RIaj_C7tbgz4RfKNZNYiMZC6ra6esGosAu0s966Dh3Hya3Cu_lPw_rAKYHmgC6Uu0V0fy-hjleuIxvEGuVCDN-eLGmzJJWVTIJyliVNQX5RShR0XWkeOvNG1XwVfSCQiEV7H3zRIG; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 25-Dec-2023 14:40:50 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 27-Dec-2015 14:40:50 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.109.11.1388155249892618; path=/; expires=Sun, 20-Dec-43 14:40:49 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D1905376594; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1388155249883154; path=/; expires=Sun, 20-Dec-43 14:40:49 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+
+[12/27/2013 4:05 PM] - SUCCESS:IPN VERIFIED!
+[From:ipn.sandbox.paypal.com|173.0.82.126]IPN POST Vars Received By Paypal_IPN Response API:
+mc_gross=15.00 
+protection_eligibility=Ineligible 
+address_status=confirmed 
+payer_id=EPEGF45AEFDY6 
+tax=0.00 
+address_street=1 Main St 
+payment_date=07:04:55 Dec 27, 2013 PST 
+payment_status=Pending 
+charset=windows-1252 
+address_zip=95131 
+first_name=loolcool 
+address_country_code=US 
+address_name=loolcool SISSINE 
+notify_version=3.7 
+custom=7 
+payer_status=verified 
+business=aitelbaz.yassine-facilitator@gmail.com 
+address_country=United States 
+address_city=San Jose 
+quantity=1 
+verify_sign=AFcWxV21C7fd0v3bYYYRCpSSRl31As5lcedZ19O7ntr7yBsJhAYIMPv6 
+payer_email=enissay128@looooool.fr 
+txn_id=50M335459W587120E 
+payment_type=instant 
+last_name=SISSINE 
+address_state=CA 
+receiver_email=aitelbaz.yassine-facilitator@gmail.com 
+receiver_id=VWYZE3839P6R8 
+pending_reason=multi_currency 
+txn_type=web_accept 
+item_name=Paypal Test Transaction 
+mc_currency=EUR 
+item_number= 
+residence_country=US 
+test_ipn=1 
+handling_amount=0.00 
+transaction_subject=7 
+payment_gross= 
+shipping=0.00 
+ipn_track_id=a2e1603a9ef7b 
+IPN Response from Paypal Server:
+HTTP/1.1 200 OK
+Date: Fri, 27 Dec 2013 15:04:59 GMT
+Server: Apache
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: c9MWDuvPtT9GIMyPc3jwol1VSlO=SNFkgM10XwVI9ydydkk9kr9ObcwZRtowdwWgarygcM4Z5BWg56PulqTOJiXdGLeHdWc0WTm0yg3n9JZL_0UDT_bPgbw7M_8YjMc1QyzIPRJjHhbzOk0py1YZbkxu3SSfmktcLP1yqsK2DNPeZqm6AchV6T6vI7VuHmluQ1sygoO7jQ8KtFFbwDwO4vgKmX8ndmq5Jm3UKo3y2nDKmp9Nw3GuCCXDb1PYkGqpoAjTPnzCbRkjnEZVAOeRhdpv8MfoFbF1VsHzgJJW9H0BtVkSyMp4l7wnWv9u2WbG9oPC4pwpJ-zogB95lV_0-D-yK9GtxIGRWvVPbb4LAD9chVN8ZZ4wQ-Zvee9aKZxCt4TH5SoPUmmuLtMKYXIJapZaQTf2dCPCFKj60Oq1G4pSiYMYJ8AfXrCXsuUS0lNH6RylSTJB1WZikE1nVxYmzv8; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: cookie_check=yes; expires=Mon, 25-Dec-2023 15:05:00 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navcmd=_notify-validate; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: navlns=0.0; expires=Sun, 27-Dec-2015 15:05:00 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: Apache=10.72.109.11.1388156699795498; path=/; expires=Sun, 20-Dec-43 15:04:59 GMT
+Connection: close
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.WEB.1%26silo_version%3D880%26app%3Dslingshot%26TIME%3D462929234; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Set-Cookie: Apache=10.72.128.11.1388156699783349; path=/; expires=Sun, 20-Dec-43 15:04:59 GMT
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=14400
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+8
+VERIFIED
+0
+
+
+

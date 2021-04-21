@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Document sans nom</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script language="javascript">
+$(document).ready(function(){
+	
+	 $("#envoi_num").click(function(){ 
+		 $("#load_num_envoi").show(); 
+	 $.ajax({
+		 
+		 url: "content_webservice.php",
+		 data : "NUM="+$("#num_envoi").val()    
+	 
+	 }).then(function(data) {
+		 if($(data).find("declaration").text() != ''){
+		 $("#resultat_num_envoi").html('<strong>DECLARATION : </strong>'+$(data).find("declaration").text()+'<br><strong>STATUT :</strong> '+$(data).find("statut").text()+'<br><strong>DEPUIS : </strong> Depuis le '+$(data).find("depuis").text()+'<br><strong>LIEU :</strong> '+$(data).find("lieu").text()+'<br><strong>LIVREUR :</strong> '+$(data).find("livreur").text()+'<br><strong>TEL :</strong>'+$(data).find("tel").text()+'');
+		 }else{
+		 $("#resultat_num_envoi").html('Aucun résultat trouvé');
+			 }
+		 
+		 
+		 $("#load_num_envoi").hide();
+		 
+		 	});
+		});
+	
+	});
+
+
+
+</script>
+</head>
+
+<body>
+<p style="text-align: justify;"><input type="text" style="width: 100%; border: 1px solid; margin: 2px 0px;" name="num_envoi" id="num_envoi"><br><input type="button" style="border: 1px solid; background: none repeat scroll 0% 0% black; color: white;" name="envoi" value="VALIDER" id="envoi_num"><img width="20" id="load_num_envoi" style="padding-top: 1px; float: right; display: none;" src="http://lavoieexpress.oneoweb.com/images/lightbox-ico-loading.gif"></p>
+
+<div id="resultat_num_envoi"></div>
+</body>
+</html>

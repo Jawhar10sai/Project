@@ -1,0 +1,481 @@
+
+		<!--[if IE 9]>
+			 <style type="text/css">
+				.form-panel .input, .form-panel input, .form-panel textarea {
+					border-radius: 0;
+				}
+			 </style>
+		<![endif]-->
+<script language="javascript">
+$(document).ready(function() {
+
+
+$('#formID .select_option').change(function(){
+	
+	if($(this).val() == 'Autres : Précisez' ||$(this).val() == 'Autres : Pr&eacute;cisez' ){
+	$nom = "#div_autres_"+$(this).attr('name');
+	$($nom).show();
+	}else{
+	$($nom).hide();
+		}
+	});
+
+	});
+</script>
+		<div class="ex-form ui-helper-clearfix ui-corner-all">
+			<h1>Formulaire inscription</h1>
+		<form id="formID" class="formular" method="post" action="">
+        <div id="panel1" class="form-panel">
+				  <h3>Identification</h3>
+					<fieldset class="ui-corner-all">
+        
+        
+        
+        
+				
+						<label>
+							<span class="title">Civilité :</span>
+							<span class="input"><select name="civilite">
+							  <option value="M.">M.</option>
+							  <option value="Mmme">Mmme</option>
+							  <option value="Mlle">Mlle</option>
+						  </select></span>
+						</label>
+						<label>
+							<span class="title">Nom :</span>
+							<span class="input"><input class="validate[required,custom[onlyLetter],length[0,100]] text-input" type="text" name="nom" id="nom" /></span>
+						</label>
+						<label>
+							<span class="title">Prénom :</span>
+							<span class="input"><input class="validate[required,custom[onlyLetter],length[0,100]] text-input" type="text" name="prenom" id="prenom" /></span>
+						</label>
+						<label>
+							<span class="title">Age :</span>
+							<span class="input"><select name="age">
+							  <option value="Entre 15 - 25 ans">Entre 15 - 25 ans</option>
+							  <option value="Entre 26 - 35 ans">Entre 26 - 35 ans</option>
+							  <option value="Entre 36 - 45 ans">Entre 36 - 45 ans</option>
+							  <option value="Entre 46 - 55 ans">Entre 46 - 55 ans</option>
+							  <option value="Supérieur à 55 ans">Supérieur à 55 ans</option>
+						  </select></span>
+						</label>
+						<label>
+							<span class="title">Situation matrimoniale :</span>
+							<span class="input"><select name="situation_matrimoniale">
+							  <option value="Célibataire">Célibataire</option>
+							  <option value="Marié(e)">Marié(e)</option>
+							  <option value="Divorcé(e)">Divorcé(e)</option>
+							  <option value="Veuf(ve)">Veuf(ve)</option>
+						  </select></span>
+						</label>
+                        
+						<label>
+							<span class="title">Nombre d'enfants :</span>
+							<span class="input"><select name="nombre_enfants">
+							  <option value="0">0</option>
+							  <option value="1">1</option>
+							  <option value="2">2</option>
+							  <option value="3">3</option>
+							  <option value="4">4</option>
+							  <option value="5">5</option>
+							  <option value="6">6</option>
+							  <option value="7">7</option>
+							  <option value="8">8</option>
+							  <option value="9">9</option>
+							  <option value="10">10</option>
+						  </select></span>
+						</label>
+				  <h3>Adresse de résidence principale</h3>
+						<label>
+							<span class="title">Rue :</span>
+							<span class="input"><input class="validate[required,custom[onlyLetter],length[0,100]] text-input" type="text" name="rue" id="rue"></span>
+						</label>
+						<label>
+							<span class="title">Bloc :</span>
+							<span class="input"><input class="validate[required,custom[onlyLetter],length[0,100]] text-input" type="text" name="bloc" id="bloc"></span>
+						</label>
+						<label>
+							<span class="title">Quartier :</span>
+							<span class="input"><input class="validate[required,custom[onlyLetter],length[0,100]] text-input" type="text" name="quartier" id="quartier"></span>
+						</label>
+						<label>
+							<span class="title">Boîte postale :</span>
+							<span class="input"><input class="validate[required,custom[onlyLetter],length[0,100]] text-input" type="text" name="boite_postale" id="boite_postale"></span>
+						</label>
+						<label>
+							<span class="title">Code postale :</span>
+							<span class="input"><input class="validate[required,custom[onlyNumber]] text-input" type="text" name="code_postale" id="code_postale"></span>
+						</label>
+						<label>
+							<span class="title">Ville :</span>
+							<span class="input"><input class="validate[required,custom[onlyLetter],length[0,100]] text-input" type="text" name="ville" id="ville"></span>
+						</label>
+                        <h3>N° Téléphone</h3>
+						<label>
+							<span class="title">Domicile :</span>
+							<span class="input"><input class="validate[required,custom[telephone]] text-input" type="text" name="domicile" id="domicile"></span>
+						</label>
+						<label>
+							<span class="title">Bureau :</span>
+							<span class="input"><input class="validate[required,custom[telephone]] text-input" type="text" name="bureau" id="bureau"></span>
+						</label>
+						<label>
+							<span class="title">Mobile :</span>
+							<span class="input"><input class="validate[required,custom[telephone]] text-input" type="text" name="mobile" id="mobile"></span>
+						</label>
+						<label>
+							<span class="title">N° C.I.N. :</span>
+							<span class="input"><input class="validate[required] text-input" type="text" name="cin" id="cin"></span>
+						</label>
+						<label>
+							<span class="title">E-mail :</span>
+							<span class="input"><input class="validate[required,custom[email]] text-input" type="text" name="email" id="email"></span>
+						</label>
+						<label>
+							<span class="title">Mode de contact préféré :</span>
+                            <span class="input"><select name="mode_contact">
+							  <option value="Téléphone">Téléphone</option>
+							  <option value="E-mail">E-mail</option>
+							  <option value="Fax">Fax</option>
+							  <option value="Courrier postal">Courrier postal</option>
+						  </select></span>
+                            
+						</label>
+						<label>
+							<span class="title">Mot de passe :</span>
+							<span class="input"><input class="validate[required,length[6,11]] text-input" type="password" name="mot_passe" id="mot_passe"></span>
+						</label>
+						<label>
+							<span class="title">Confirmer le mot de passe :</span>
+							<span class="input"><input class="validate[required,confirm[mot_passe]] text-input" type="password" name="confirme_mot_passe" id="confirme_mot_passe"></span>
+						</label>
+                        
+                    </fieldset>
+				</div>
+				<div id="panel2" class="form-panel ui-helper-hidden">
+				  <h2>Critères socioprofessionnels</h2>
+					<fieldset class="ui-corner-all">
+						<label>
+							<span class="title">Niveau d'instruction :</span>
+							<span class="input"><select name="niveau_instruction">
+							  <option value="Primaire">Primaire</option>
+							  <option value="Secondaire">Secondaire</option>
+							  <option value="Niveau Baccalauriéat">Niveau Baccalauriéat</option>
+							  <option value="Baccalauriéat">Baccalauriéat</option>
+							  <option value="Bac +1 ou Bac +2">Bac +1 ou Bac +2</option>
+							  <option value="Bac +3 ou Bac +4">Bac +3 ou Bac +4</option>
+							  <option value="Bac +5 ou plus">Bac +5 ou plus</option>
+							  <option value="Sans">Sans</option>
+						  </select></span>
+						</label>
+						<label>
+							<span class="title">Catégorie socioprofessionnelle :</span>
+							<span class="input"><select name="categorie_socioprofessionnelle">
+							  <option value="AGRICULTURE"><strong>AGRICULTURE</strong></option>
+							  <option value="Agriculteur exploitant">Agriculteur exploitant</option>
+                              
+							  <option value="ARTISANTS, COMMERCANTS & CHEFS D'ENTREPRISE"><strong>ARTISANTS, COMMERCANTS & CHEFS D'ENTREPRISE</strong></option>
+							  <option value="Artisan">Artisan</option>
+							  <option value="">Commerçant et assimilés</option>
+							  <option value="">Chef d'entreprise de 10 salariés ou plus</option>
+                              
+							  <option value="CADRES, PROFESSIONS INTELLECTUELLES SUPERIEURES"><strong>CADRES, PROFESSIONS INTELLECTUELLES SUPERIEURES</strong></option>
+							  <option value="Profession libérale">Profession libérale</option>
+							  <option value="Cadre de la fonction publique">Cadre de la fonction publique</option>
+							  <option value="Officier et élève officier des armées">Officier et élève officier des armées</option>
+							  <option value="Professeur et profession scientifique">Professeur et profession scientifique</option>
+							  <option value="Médecins hospitaliers et internes des hôpitaux">Médecins hospitaliers et internes des hôpitaux</option>
+							  <option value="Profession de l'information, des arts et du spectacle">Profession de l'information, des arts et du spectacle</option>
+							  <option value="Cadre administratif et commercial d'entreprise">Cadre administratif et commercial d'entreprise</option>
+							  <option value="Ingénieur et cadre technique d'entreprise">Ingénieur et cadre technique d'entreprise</option>
+                              
+							  <option value="PROFESSIONS INTERMEDIAIRES"><strong>PROFESSIONS INTERMEDIAIRES</strong></option>
+							  <option value="Instituteur et assimiliés">Instituteur et assimiliés</option>
+							  <option value="Conseiller d'éducation, maître auxiliare">Conseiller d'éducation, maître auxiliare</option>
+							  <option value="Maître d'internat, surveillant d'externat">Maître d'internat, surveillant d'externat</option>
+							  <option value="Professions de la santé et du travail social">Professions de la santé et du travail social</option>
+							  <option value="Employés des lieux de culte religieux">Employés des lieux de culte religieux</option>
+							  <option value="Professions intermédiaires administratives de la fonction publique">Professions intermédiaires administratives de la fonction publique</option>
+							  <option value="Professions intermédiaires administratives et commerciales d'entreprise">Professions intermédiaires administratives et commerciales d'entreprise</option>
+							  <option value="Technicien">Technicien</option>
+							  <option value="Contremaitre, agent de maîtrise ">Contremaitre, agent de maîtrise </option>
+                              
+							  <option value="EMPLOYES"><strong>EMPLOYES</strong></option>
+							  <option value="Employé civil, agent de service de la fonction publique, aide éducateur">Employé civil, agent de service de la fonction publique, aide éducateur</option>
+							  <option value="Policier, militaire">Policier, militaire</option>
+							  <option value="Employé administratif d'entreprise">Employé administratif d'entreprise</option>
+							  <option value="Employé de commerce">Employé de commerce</option>
+							  <option value="Personnel des services directs aux particuliers">Personnel des services directs aux particuliers</option>
+                              
+							  <option value="OUVRIERS"><strong>OUVRIERS</strong></option>
+							  <option value="Ouvrier qualifié">Ouvrier qualifié</option>
+							  <option value="Ouvrier non qualifié">Ouvrier non qualifié</option>
+							  <option value="Ouvrier agricole">Ouvrier agricole</option>
+                              
+							  <option value="RETRAITES"><strong>RETRAITES</strong></option>
+							  <option value="Ancien agriculteur exploitant">Ancien agriculteur exploitant</option>
+							  <option value="Ancien artisan, commerçant ou chef d'entreprise">Ancien artisan, commerçant ou chef d'entreprise</option>
+							  <option value="Ancien cadre et professions intermédiaires">Ancien cadre et professions intermédiaires</option>
+							  <option value="Ancien employé et ouvrier">Ancien employé et ouvrier</option>
+                              
+							  <option value="AUTRES INACTIFS"><strong>AUTRES INACTIFS</strong></option>
+							  <option value="Chômeur(se) n'ayant jamais travaillé">Chômeur(se) n'ayant jamais travaillé</option>
+							  <option value="Chômeur(se) à la recherche d'emploi">Chômeur(se) à la recherche d'emploi</option>
+							  <option value="Etudiant(e) ou lycéen(ne)">Etudiant(e) ou lycéen(ne)</option>
+						  </select></span>
+						</label>
+						<label>
+							<span class="title">Secteur d'activité :</span>
+							<span class="input">
+								<select name="secteur_activite">
+							  <option value="Agricole">Agricole</option>
+							  <option value="Industriel">Industriel</option>
+							  <option value="Commercial">Commercial</option>
+							  <option value="Services">Services</option>
+                              </select>
+							</span>
+                        </label>
+                        
+						<label>
+							<span class="title">Statut Profession du conjoint :</span>
+							<span class="input"><select name="statut_conjoint">
+							  <option value="Indépendant(e)">Indépendant(e)</option>
+							  <option value="Libéral(e)">Libéral(e)</option>
+							  <option value="Etudiant(e)">Etudiant(e)</option>
+							  <option value="Employé(e)">Employé(e)</option>
+							  <option value="Retraité(e)">Retraité(e)</option>
+							  <option value="Fonctionnaire">Fonctionnaire</option>
+							  <option value="Chef d'entreprise">Chef d'entreprise</option>
+							  <option value="Femme au foyer">Femme au foyer</option>
+							  <option value="Sans emploi">Sans emploi</option>
+						  </select></span>
+						</label>
+                        
+						<label>
+							<span class="title">Voyagez-vous dans le cadre de votre travail ? </span>
+							<span class="input"><select name="cadre_travail">
+							  <option value="Oui">Oui</option>
+							  <option value="Non">Non</option>
+						  </select></span>
+						</label>
+                        
+						<label>
+							<span class="title">Si oui, vous effectuez des voyages ? </span>
+							<span class="input"><select name="voyage_travail">
+							  <option value="A travers le Maroc">A travers le Maroc</option>
+							  <option value="A l'étranger">A l'étranger</option>
+						  </select></span>
+						</label>
+					</fieldset>
+				</div>
+                <div id="panel3" class="form-panel ui-helper-hidden">
+				  <h2>Informations complémentaires</h2>
+					<fieldset class="ui-corner-all">
+						<label>
+							<span class="title">Situation patrimoniale :</span>
+							<span class="input"><select name="situation_patrimoniale">
+							  <option value="Locataire">Locataire</option>
+							  <option value="Propriétaire">Propriétaire</option>
+						  </select></span>
+						</label>
+                        
+						<label>
+							<span class="title">Vous habitez :</span>
+							<span class="input"><select name="vous_habitez" class="select_option">
+							  <option value="Un appartement">Un appartement</option>
+							  <option value="Un studio">Un studio</option>
+							  <option value="Une villa">Une villa</option>
+							  <option value="Une maison individuelle">Une maison individuelle</option>
+							  <option value="Une maison de campagne">Une maison de campagne</option>
+							  <option value="Autres : Précisez">Autres : Précisez</option>
+						  </select>
+                          </span>
+						</label>
+                        
+                          <label>
+                          <div class="label" id="div_autres_vous_habitez" style="display:none">
+							<label class="title" for="text">Autres</label>
+							<div class="input textarea">
+								<textarea rows="3" cols="25" name="autres_vous_habitez" id="autres_vous_habitez"></textarea>
+							</div>
+						</div>
+						</label>
+						<label>
+							<span class="title">Vos revenus globaux du foyer :</span>
+							<span class="input"><select name="Vos_revenus_globaux_du_foyer">
+							  <option value="Entre 0 et 24.000 Dhs.">Entre 0 et 24.000 Dhs.</option>
+							  <option value="Entre 24.001 et 42.000 Dhs.">Entre 24.001 et 42.000 Dhs.</option>
+							  <option value="Entre 42.001 et 72.000 Dhs.">Entre 42.001 et 72.000 Dhs.</option>
+							  <option value="Entre 72.001 et 120.000 Dhs.">Entre 72.001 et 120.000 Dhs.</option>
+							  <option value="Supérieur à 120.000 Dhs.">Supérieur à 120.000 Dhs.</option>
+						  </select></span>
+						</label>
+                        
+						<label>
+							<span class="title">Possédez-vous un ou des véhicules automobiles ?  </span>
+							<span class="input"><select name="vehicules_automobiles">
+							  <option value="Oui">Oui</option>
+							  <option value="Non">Non</option>
+						  </select></span>
+						</label>
+                        
+						<label>
+							<span class="title">Etes-vous équipés en matériel informatique ?  </span>
+							<span class="input"><select name="materiel_informatique">
+							  <option value="Oui">Oui</option>
+							  <option value="Non">Non</option>
+						  </select></span>
+						</label>
+                        
+						<label>
+							<span class="title">Avez-vous une connexion Internet à domicile ?  </span>
+							<span class="input"><select name="connexion_internet">
+							  <option value="Oui">Oui</option>
+							  <option value="Non">Non</option>
+						  </select></span>
+						</label>
+                        
+						<label>
+							<span class="title">Etes-vous bancarisés ? </span>
+							<span class="input"><select name="bancarises">
+							  <option value="Oui">Oui</option>
+							  <option value="Non">Non</option>
+						  </select></span>
+						</label>
+                        
+						<label>
+							<span class="title">Etes-vous couvert par des assurances ? </span>
+							<span class="input"><select name="assurances">
+							  <option value="Oui">Oui</option>
+							  <option value="Non">Non</option>
+						  </select></span>
+						</label>
+                        
+						<label>
+							<span class="title">Quels sont vos centres d'intérêt ? </span>
+							<span class="input"><select name="centres_interet" class="select_option">
+							  <option value="Architecture">Architecture</option>
+							  <option value="Sport">Sport</option>
+							  <option value="Lecture">Lecture</option>
+							  <option value="Musique">Musique</option>
+							  <option value="Cinéma">Cinéma</option>
+							  <option value="Economie & Finance">Economie & Finance</option>
+							  <option value="Arts">Arts</option>
+							  <option value="Histoire">Histoire</option>
+							  <option value="Voyages">Voyages</option>
+							  <option value="Droits">Droits</option>
+							  <option value="Jeux">Jeux</option>
+							  <option value="Environnement">Environnement</option>
+							  <option value="Autres : Précisez">Autres : Précisez</option>
+						  </select>
+                          </span>
+						</label>
+                        
+                          <label>
+                          <div class="label" id="div_autres_centres_interet" style="display:none">
+							<label class="title" for="text">Autres</label>
+							<div class="input textarea">
+								<textarea rows="3" cols="25" name="autres_centres_interet" id="autres_centres_interet"></textarea>
+							</div>
+						</div>
+						</label>
+                        
+						<label>
+							<span class="title">Vous avez pris connaissance du site Marketstudies.ma à travers :</span>
+							<span class="input"><select name="connaissance_site" class="select_option">
+							  <option value="La publicité">La publicité</option>
+							  <option value="Les réseaux sociaux">Les réseaux sociaux</option>
+							  <option value="La recherche sur les moteurs de recherche">La recherche sur les moteurs de recherche</option>
+							  <option value="L'E-mailing">L'E-mailing</option>
+							  <option value="Un ami ou collaborateur">Un ami ou collaborateur</option>
+							  <option value="Un contact professionnel">Un contact professionnel</option>
+							  <option value="Par hasard">Par hasard</option>
+							  <option value="Autres : Précisez">Autres : Précisez</option>
+						  </select>
+                          </span>
+						</label>
+                        
+                          <label>
+                          <div class="label" id="div_autres_connaissance_site" style="display:none">
+							<label class="title" for="text">Autres</label>
+							<div class="input textarea">
+								<textarea rows="3" cols="25" name="autres_connaissance_site" id="autres_connaissance_site"></textarea>
+							</div>
+						</div>
+						</label>
+                        
+						<label>
+							<span class="title">Souhaitez-vous participer à  nos réunions de groupe* ? </span>
+							<span class="input"><select name="participer_reunions">
+							  <option value="Oui">Oui</option>
+							  <option value="Non">Non</option>
+						  </select></span>
+						</label>
+                      <!-- <label> <span>(*) N.b. : Les réunions de groupe sont des participations où les panelistes sont rémunérés.</span></label>-->
+					</fieldset>
+				</div>
+				<div id="panel4" class="form-panel ui-helper-hidden">
+				  <h2>Vos projets professionnels</h2>
+					<fieldset class="ui-corner-all">
+						
+						<label>
+							<span class="title">Avez-vous un projet de création d'entreprise dans un futur proche ?</span>
+							<span class="input"><select name="creation_entreprise">
+							  <option value="Oui">Oui</option>
+							  <option value="Non">Non</option>
+						  </select></span>
+						</label>
+                        
+						<label>
+							<span class="title">Si oui, dans quels secteurs d'activité, souhaitez-vous investir ?</span>
+							<span class="input"><select name="secteurs_activite_investir" class="select_option">
+							  <option value="Agriculture & Elevage">Agriculture & Elevage</option>
+							  <option value="Artisanat">Artisanat</option>
+							  <option value="Commerce">Commerce</option>
+							  <option value="Communication">Communication</option>
+							  <option value="Culture & Art">Culture & Art</option>
+							  <option value="Energie">Energie</option>
+							  <option value="Equipements & Transport">Equipements & Transport</option>
+							  <option value="Education & Enseignement">Education & Enseignement</option>
+							  <option value="Formation">Formation</option>
+							  <option value="Industrie">Industrie</option>
+							  <option value="Nouvelles technologies">Nouvelles technologies</option>
+							  <option value="Pêches maritimes">Pêches maritimes</option>
+							  <option value="Santé">Santé</option>
+							  <option value="Sport">Sport</option>
+							  <option value="Tourisme & Loisirs">Tourisme & Loisirs</option>
+							  <option value="Services">Services</option>
+							  <option value="Autres : Précisez">Autres : Précisez</option>
+						  </select>
+                          
+                          </span>
+                          </label>
+                        
+                          <label>
+                          <div class="label" id="div_autres_secteurs_activite_investir" style="display:none">
+							<label class="title" for="text">Autres</label>
+							<div class="input textarea">
+								<textarea rows="3" cols="25" name="autres_secteurs_activite_investir" id="autres_secteurs_activite_investir"></textarea>
+							</div>
+						</div>
+						</label>
+                        
+						<label>
+							<span class="title">Comptez-vous vous faire accompagner lors de la phase de réalisation et de lancement de votre projet ?</span>
+							<span class="input"><select name="accompagner">
+							  <option value="Oui">Oui</option>
+							  <option value="Non">Non</option>
+						  </select></span>
+						</label>
+					</fieldset>
+				</div>
+				<div id="panel5" class="form-panel ui-helper-hidden">
+				  <h2>Validation</h2>
+					<fieldset class="ui-corner-all">
+					<p>Cher(e) M. ……….. ou Mme <strong>…………</strong> ou Mle …………</p>
+                    <p>    Nous  vous remercions pour votre inscription. Nous vous confirmerons - par mail, votre  adhésion à notre panel, une fois la validation établie par notre comité.  </p>
+                    </fieldset>
+				</div><input type="button" value="&#9664; Précedent" id="back" class="btn_inscription" disabled data-site="<?php echo $idsite; ?>" > 
+				<input type="submit" value="Suivant &#9654;" id="next" class="btn_inscription" data-site="<?php echo $idsite; ?>" > 
+			</form>
+		</div>

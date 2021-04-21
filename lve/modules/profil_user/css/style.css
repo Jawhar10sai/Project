@@ -1,0 +1,325 @@
+.redBold {
+    font-weight: bold !important;
+}
+.redRegular {
+    color: #D90D0D !important;
+}
+#container h1 {
+    float: left !important;
+    font-size: 24px !important;
+    margin: 0 !important;
+}
+#container .deconnexion_profil {
+    float: right !important;
+}
+.whiteColor {
+    color: #FFFFFF !important;
+}
+.RedColor{ color:red;}
+#container .deconnexion_compte input {
+    background-image: url("../img/powerOff.png") !important;
+    background-position: 6px center !important;
+    background-repeat: no-repeat !important;
+    border: medium none !important;
+    cursor: pointer !important;
+    float: right !important;
+    margin-left: 10px;
+    padding: 5px 5px 5px 30px !important;
+}
+#container .espace_client input {
+    background-image: url("../img/profil.png") !important;
+    background-position: 6px center !important;
+    background-repeat: no-repeat !important;
+    border: medium none !important;
+    cursor: pointer !important;
+    float: right !important;
+    padding: 5px 5px 5px 30px !important;
+}
+#corps, .staticHeader {
+    float: left !important;
+    width: 100% !important;
+}
+#corps{padding: 50px 0px;}
+.monCompteContent ul {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 9px !important;
+    padding: 0 150px 0 0 !important;
+    text-align: center;
+    width: 100% !important;
+}
+.monCompteContent ul li {
+    float: left !important;
+    list-style: none outside none !important;
+    padding: 0 6% !important;
+    width: 21% !important;
+}
+.monCompteContent ul li hr, #blocLeftParams hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom: 0 none;
+    border-image: none;
+    border-left: 0 none;
+    border-right: 0 none;
+    border-top: 1px solid #C5C5C5 !important;
+}
+.monCompteContent li h2 {
+    font-size: 19px !important;
+    margin: 0 !important;
+}
+div.profilIcon {
+    margin: auto !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+div.cartIcon {
+    margin: auto !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+div.avantIcon {
+    margin: auto !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+ul.textMonCompte li {
+    float: none !important;
+    font-size: 14px !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+.blocLeft {
+    float: left !important;
+    margin-left: 2%;
+    width: 17% !important;
+}
+.blocRight {
+    float: right !important;
+    width: 76% !important;
+}
+ul#blocLeftParams {
+    padding: 0 !important;
+}
+ul#blocLeftParams > li {
+    float: none !important;
+    list-style: none outside none !important;
+    margin-top: 40px !important;
+}
+ul#blocLeftParams > li ul li {
+    float: none !important;
+    list-style: none outside none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+ul#blocLeftParams > li ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+}
+ul#blocLeftParams h2 {
+    margin: 0 !important;
+}
+.bar_infos {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 40px !important;
+    padding: 3px 10px !important;
+    text-transform: uppercase !important;
+    width: auto !important;
+}
+.formulaire_adresse {
+    margin: 20px !important;
+}
+.formulaire_adresse input[type="text"], .formulaire_adresse input[type="password"], .formulaire_adresse select {
+    border: 1px solid #D7D6D5;
+    color: #9A9895;
+    float: left;
+    font-size: 12px;
+    height: auto !important;
+    line-height: 12px;
+    padding: 6px !important;
+    width: 240px;
+}
+.formulaire_adresse select {
+    margin-right: 10px;
+    width: 70px;
+}
+.formulaire_adresse input[type="submit"] {
+    border: medium none !important;
+    border-radius: 0 !important;
+}
+.blocRight h2 {
+    font-size: 13px !important;
+}
+.mes_adresses, .mes_commandes {
+    margin-top: 8px !important;
+    width: auto !important;
+}
+.mes_adresses div{
+    float: left !important;
+    padding: 6px 12px;
+    width: auto !important;
+}
+.mes_adresses div.nom_adresse{
+    width: 160px !important;
+}
+.mes_commandes div {
+    float: left !important;
+    width: auto !important;
+}
+.mes_adresses .adresse_adresse {
+    margin-left: 10px !important;
+    width: auto !important;
+}
+.ligne_adresse {
+    clear: both !important;
+    float: left;
+    height: 1px !important;
+    margin: 10px 0;
+    width: 100% !important;
+}
+.mes_commandes .nom_cmd {
+    width: 21% !important;
+}
+.mes_commandes .des_cmd {
+    width: 41% !important;
+}
+.mes_commandes .action_cmd {
+    float: right !important;
+    text-align: right;
+    width: 28% !important;
+}
+.action_cmd input {
+    border: medium none;
+    float: left;
+    margin-top: 5px;
+    padding: 2px 5px;
+    width: 200px !important;
+	cursor:pointer;
+}
+.price {
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+.pagination {
+    float: left;
+    margin-left: 35% !important;
+}
+.pagination ul li {
+    float: left !important;
+    list-style-type: none !important;
+    margin-left: 10px !important;
+}
+.points {
+    float: right !important;
+    margin-left: 60% !important;
+	padding:5px 10px !important;
+}
+.recompenses {
+    float: left;
+    margin: 10px 0;
+    width: 100% !important;
+}
+.recompenses span {
+    color: #FF0000 !important;
+    float: left !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
+.recompenses span.total {
+    float: left;
+    width: 50% !important;
+}
+.recompenses span.total_point {
+    float: right !important;
+    margin: 0;
+    text-align: right;
+}
+.detais_cmd div {
+    float: right !important;
+    width: 46% !important;
+}
+.detais_cmd .div1 {
+    border: 1px solid #CCCCCC !important;
+    float: left !important;
+    margin-right: 5px !important;
+    padding: 0 5px 6px;
+    width: 25% !important;
+}
+.detais_cmd {
+    float: left;
+    margin-top: 30px !important;
+	margin-bottom: 10px !important;
+}
+.div1 .bar_infos {
+    font-size: 12px;
+    margin: 0 -2% 0 0 !important;
+    padding: 5px 2% !important;
+    width: 100% !important;
+}
+.detais_cmd .div2 {
+    border: 1px solid #CCCCCC !important;
+    float: none !important;
+    margin-bottom: 7px !important;
+    padding: 20px 5%;
+    width: 90% !important;
+}
+.mes_adresses .editer_adresse {
+    float: right !important;
+}
+#pied_details_cmd {
+    float: left !important;
+    width: 100% !important;
+}
+#pied_details_cmd div {
+    float: left;
+    width: 70%;
+}
+#pied_details_cmd div#pied1 {
+    float: left;
+    padding: 20px 0;
+    width: 70% !important;
+}
+#pied_details_cmd div#pied2 {
+    float: right;
+    width: 30% !important;
+}
+#pied_details_cmd div h1 {
+    float: none !important;
+}
+.barre_montant {
+    font-size: 19px;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    text-transform: uppercase !important;
+    width: auto !important;
+}
+#corps #GlobalPanierResult {
+    float: left;
+    height: auto !important;
+    min-height: inherit !important;
+    width: 100% !important;
+}
+.pointsgeneral{
+float:right !important;
+}
+div.recompensesspan{
+float: left;
+margin: 0;
+width: 100% !important;
+}
+span.soustot{
+font-size:14px !important;
+color:#595959 !important;
+}
+div.recompensesspan span.total {
+float: left;
+width: 50% !important;
+}
+div.recompensesspan span.total_point {
+float: right !important;
+margin: 2px 0;
+text-align: right;
+}

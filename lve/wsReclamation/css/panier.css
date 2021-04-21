@@ -1,0 +1,540 @@
+#GlobalPanierResult div{
+	width:auto !important;}
+#wrap {
+    background: none repeat scroll 0 0 #CCCCCC;
+    bottom: 0;
+    position: relative;
+    top: 20px;
+    width: 600px;
+}
+#wrap ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+img#cart {
+    bottom: 0;
+    margin-left: 30px;
+    position: fixed;
+}
+#wrap ul li {
+    cursor: pointer;
+}
+div#bottomBar {
+    bottom: 0;
+    height: 130px;
+    position: fixed;
+    z-index: 9999;
+}
+div#bottomBar {
+    width: 600px;
+}
+em {
+    font-style: normal;
+}
+button {
+    background: none repeat scroll 0 0 #AD7B05;
+    border: medium none;
+    border-radius: 8px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-right: -14px;
+    padding: 10px;
+}
+.shopp, .cart-total {
+    background-color: rgba(255, 255, 255, 0.66);
+    border-radius: 8px;
+    float: left;
+    font-size: 12px;
+    margin-bottom: 3px;
+    padding: 8px;
+    width: 260px !important;
+}
+.cart-total {
+    border: medium none !important;
+    color: #FFFFFF;
+    margin: 10px 0;
+}
+div.shopp #shopp-quantity {
+    float: right;
+    text-align: left;
+    width: 77% !important;
+}
+div.shopp #img_shop {
+    border: 1px solid #CCCCCC;
+    float: left;
+    margin-right: 5px;
+    width: auto !important;
+}
+div.shopp span {
+    width: 20px !important;
+}
+div.shopp div.label {
+    float: right;
+    text-align: left;
+    width: 77% !important;
+}
+div.shopp div.shopp-price {
+    float: left;
+    margin-left: 3px;
+    width: auto !important;
+}
+.quantity {
+    float: left;
+    margin-top: -3px;
+    width: 20px !important;
+}
+img.remove {
+    cursor: pointer;
+    float: right;
+    position: absolute;
+    right: 16px;
+}
+.cart-total b {
+    width: 130px !important;
+}
+#cart_form {
+    float: left;
+    width: 260px;
+}
+.result {
+}
+#globalPanier {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #FF0000;
+    height: auto !important;
+    margin-bottom: 3px;
+    padding: 0 15px;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    width: 280px !important;
+    z-index: 100;
+	border-width:0px;
+}
+#globalPanier #littlePanier {
+    cursor: pointer;
+    padding: 5px;
+    position: absolute;
+    right: -35px;
+    top: -31px;
+}
+#left_bar {
+    float: left;
+    height: auto;
+    margin: 15px 0;
+    width: 100% !important;
+	display:none;
+}
+#left_bar #title_left_bar {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #FF0000 #FF0000 -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 1px 0;
+    font-size: 16px;
+    height: 19px;
+    padding: 6px;
+    position: absolute;
+    right: -1px;
+    text-transform: uppercase;
+    top: -32px;
+    width: 175px;
+}
+#left_bar #title_left_bar span.icone_title {
+    float: left;
+    margin-right: 10px;
+}
+#imgbas {
+    height: 30px;
+    margin-left: 230px;
+    position: relative;
+    top: -25px;
+    width: 30px;
+}
+#panierText, #panierText_cat {
+    background-color: rgba(0, 0, 0, 0);
+    border-style: none;
+    cursor: pointer;
+    float: left;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    width: 100%;
+}
+.cart-info {
+    width: auto !important;
+}
+#GlobalPanierResult td.cart_product img {
+    border: 1px solid #CCCCCC;
+}
+a.cart_quantity_delete {
+    border: 1px solid #CCCCCC;
+    border-radius: 12px;
+    font-size: 10px;
+    padding: 2px 5px;
+}
+#GlobalPanierResult td.cart_delete div {
+    width: auto !important;
+}
+#GlobalPanierResult h3 {
+    font-size: 18px !important;
+    margin-bottom: 10px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+#GlobalPanierResult table th, #GlobalPanierResult table tfoot td {
+    padding: 10px 0;
+}
+#GlobalPanierResult table, #GlobalPanierResult table th, #GlobalPanierResult table td {
+    border: 1px solid #FFFFFF;
+}
+#GlobalPanierResult .cart_quantity_up, #GlobalPanierResult .cart_quantity_down, #GlobalPanierResult .step_panier li {
+    color: #FBFBFB;
+    padding: 10px;
+    text-transform: uppercase;
+}
+#GlobalPanierResult .total_panier {
+    font-size: 18px;
+    text-align: right;
+}
+#GlobalPanierResult .cart_total_price_last .total_panier_last {
+    padding: 0 !important;
+}
+#GlobalPanierResult .cart_total_price_last .total_panier_last {
+    font-size: 14px;
+}
+#GlobalPanierResult .cart_total_price_last .total_panier_last div {
+   color: #FFFFFF;
+    float: right;
+    margin: 10px 0;
+    padding: 3px 0px;
+    text-align: center;
+    width: 100% !important;
+}
+#GlobalPanierResult .cart_total_price_last .total_panier_last span {
+    clear: right;
+    text-align: right;
+    width: 70px;
+}
+#GlobalPanierResult #total_product {
+    font-size: 18px;
+}
+#GlobalPanierResult table td.cart_description {
+    padding: 0 10px;
+}
+#GlobalPanierResult .cart_quantity_up, #GlobalPanierResult .cart_quantity_down {
+    float: left;
+    font-size: 10px;
+    margin-bottom: 2px;
+    padding: 0 3px;
+    text-decoration: none;
+}
+#GlobalPanierResult .cart_quantity_down {
+    font-family: Trebuchet MS !important;
+    padding: 0 4px;
+}
+#GlobalPanierResult .cart_quantity_input {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #F0F0F0;
+    float: right;
+    margin: 4px;
+    text-align: center;
+    width: 20px;
+}
+#GlobalPanierResult .cart_quantity_button {
+    float: right;
+    padding-right: 24px;
+    text-align: left;
+    width: 20px !important;
+}
+#GlobalPanierResult .next_step, #GlobalPanierResult .prev_step, #GlobalPanierResult .address_update a {
+    text-decoration: none;
+}
+#GlobalPanierResult .next_step span, #GlobalPanierResult .prev_step span, #GlobalPanierResult .address_update a span {
+    border-radius: 12px;
+    padding: 0 5px;
+}
+#GlobalPanierResult .address_update a span {
+    padding: 6px 6px 3px;
+}
+#GlobalPanierResult .next_step {
+    color: #FFFFFF !important;
+    float: left;
+    padding: 5px 10px;
+	margin-right:10px;
+}
+#GlobalPanierResult .account_creation {
+    height: 20px;
+    margin-top: -2px;
+    padding: 8px 2px;
+}
+#added_panier {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 0 3px #000000;
+    display: none;
+    font-size: 18px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 26px;
+    position: fixed;
+    right: 10px;
+    text-align: center;
+    top: 65px;
+    width: 283px !important;
+}
+#GlobalPanierResult {
+    height: auto !important;
+    min-height: 300px;
+    width: auto !important;
+}
+#GlobalPanierResult form {
+    float: right;
+    width: 49%;
+}
+#GlobalPanierResult form#account-creation_form {
+    width: 100%;
+}
+#GlobalPanierResult form#formPoll {
+    float: left;
+}
+#GlobalPanierResult form fieldset {
+    border: 1px solid #CCCCCC;
+    height: 235px !important;
+    padding: 0;
+}
+#GlobalPanierResult p.text {
+    margin: 0;
+}
+#GlobalPanierResult .error {
+    border: 1px solid #FF0000;
+    color: #FF0000;
+    font-size: 13px;
+    margin: 7px 0 10px;
+    padding: 10px;
+}
+#GlobalPanierResult .load_panier {
+    float: left;
+    margin-left: -16px;
+    padding: 200px 50%;
+    position: absolute;
+    top: 130px;
+}
+#GlobalPanierResult .step_panier {
+    display: inline-flex;
+    float: left;
+    margin: 10px 0;
+    padding: 0;
+    width: 100%;
+}
+#GlobalPanierResult .step_panier li {
+    cursor: pointer;
+    list-style: none outside none;
+    margin: 0 2%;
+    padding: 5px 0 !important;
+    text-align: center;
+    width: 18%;
+}
+#GlobalPanierResult .step_panier li.current {
+    border: 1px dashed #FFFFFF;
+    box-shadow: 0 0 3px 1px #999999;
+}
+#GlobalPanierResult #address_delivery {
+    margin-right: 8px;
+    margin-top: 0;
+    padding-bottom: 10px;
+}
+#GlobalPanierResult #address_invoice {
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 10px;
+}
+#GlobalPanierResult ul.address {
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: 180px;
+    list-style-type: none;
+    padding: 0;
+    position: relative;
+    width: 49% !important;
+}
+#GlobalPanierResult ul.addressPanier {
+    border: 1px solid #CCCCCC;
+    float: left;
+    height: 144px;
+    list-style-type: none;
+    margin-top: 20px !important;
+    padding: 0;
+    position: relative;
+    width: 24% !important;
+}
+#GlobalPanierResult div#livraisonPanier {
+    border: 1px solid #CCCCCC;
+    float: right;
+    font-weight: bold;
+    list-style-type: none;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    padding: 20px 3%;
+    position: relative;
+    width: 44% !important;
+}
+#GlobalPanierResult div#livraisonPanier2 {
+    border: 1px solid #CCCCCC;
+    float: right;
+    font-weight: bold;
+    list-style-type: none;
+    padding: 13px 3%;
+    position: relative;
+    width: 44% !important;
+}
+#GlobalPanierResult div#livraisonPanier2 span {
+    float: left;
+    margin-top: 6px;
+}
+#GlobalPanierResult ul.address li, #GlobalPanierResult ul.addressPanier li {
+    font-weight: lighter;
+    line-height: 22px;
+    padding: 0 15px;
+}
+#GlobalPanierResult ul.address .address_update, #GlobalPanierResult ul.address .address_delete {
+    border-radius: 7px;
+    bottom: 10px;
+    float: right;
+    font-size: 11px;
+    padding: 3px 19px;
+    position: absolute;
+    right: 10px;
+    text-transform: none;
+    z-index: 20;
+}
+#GlobalPanierResult .delai_livraison {
+    float: right;
+    text-align: center;
+    width: 33%;
+}
+#GlobalPanierResult .taxe_transport {
+    float: right;
+    text-align: center;
+    width: 10%;
+}
+#GlobalPanierResult form input[type="text"], #GlobalPanierResult form input[type="password"] {
+    border: 1px solid #CCCCCC;
+    color: #9A9895;
+    cursor: text;
+    float: left;
+    font-size: 12px;
+    height: 12px;
+    line-height: 12px;
+    padding: 8px 0;
+    width: 100% !important;
+}
+#GlobalPanierResult form .form_content.clearfix {
+    padding: 10px 39px;
+    width: auto !important;
+}
+#GlobalPanierResult .lost_password, #GlobalPanierResult .recup_password {
+    clear: left;
+}
+#GlobalPanierResult form fieldset h3, #GlobalPanierResult ul.address .address_title, #GlobalPanierResult ul.addressPanier .address_title {
+    color: #FFFFFF;
+    font-weight: normal;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+#GlobalPanierResult #create-account_form .submit, #GlobalPanierResult #formPoll .submit {
+    float: right;
+    width: auto;
+}
+#GlobalPanierResult #formPoll .msg_error, #GlobalPanierResult #create-account_form .msg_error {
+    color: #FF0000;
+    display: none;
+    float: left !important;
+    padding: 25px 0 0 11px;
+    width: 50% !important;
+}
+#GlobalPanierResult .infos {
+    float: left;
+    font-size: 12px;
+    margin: 10px;
+    padding: 0 !important;
+    width: 100%;
+}
+#GlobalPanierResult table tr.header_table td, #GlobalPanierResult table tr.header_table th, #GlobalPanierResult table tfoot tr td {
+    background: none repeat scroll 0 0 #CCCCCC;
+    font-weight: bold;
+    text-transform: uppercase;
+} 
+#GlobalPanierResult table tfoot tr.cart_total_price_last td {
+    background: none ;
+}
+#GlobalPanierResult table tfoot tr td {
+    border: medium none;
+    padding: 20px 12px !important;
+}
+#GlobalPanierResult .mode_payement {
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 20px;
+}
+#open_panier {
+    border: 0 none;
+}
+table#cart_summary {
+    border: 1px solid #CCCCCC;
+    padding: 2px;
+}
+#GlobalPanierResult #center_column form {
+    float: right;
+    width: 47%;
+}
+#GlobalPanierResult #center_column form#formPoll {
+    float: left;
+}
+#GlobalPanierResult #center_column form fieldset {
+    height: 235px;
+}
+#GlobalPanierResult #center_column p.text {
+    margin: 0;
+}
+#GlobalPanierResult #center_column .error {
+    border: 1px solid #FF0000;
+    color: #FF0000;
+    font-size: 13px;
+    margin: 7px 0 10px;
+    padding: 10px;
+}
+#GlobalPanierResult input,#GlobalPanierResult select {
+    border-radius: 0 !important;
+}
+#GlobalPanierResult .input_input div{
+	width:80px !important;}
+#GlobalPanierResult .input_input{
+	margin-bottom: 5px;
+    margin-top: 0;
+	width:100% !important;}
+#GlobalPanierResult #panel1_1,#GlobalPanierResult #panel1_2,#GlobalPanierResult #panel1_3{
+		margin: 0px 20px 0px 0px; 
+		width: 244px !important;}
+#GlobalPanierResult .form-panel input[type="text"],#GlobalPanierResult  .form-panel input[type="password"],#GlobalPanierResult  .form-panel textarea, #GlobalPanierResult .form-panel select {
+    border-radius: 0;
+    padding: 6px !important;
+	height: auto !important;
+	border-width:1px !important;
+}
+#GlobalPanierResult .titre_input,#GlobalPanierResult .titre_label{
+	clear:left;
+	width:100% !important;}
+#GlobalPanierResult .titre_label span,#GlobalPanierResult .titre_input span{ color:#F00;}
+#GlobalPanierResult .input_input div input[type="radio"]{
+	width:auto !important;}

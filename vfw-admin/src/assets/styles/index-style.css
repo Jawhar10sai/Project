@@ -1,0 +1,60 @@
+/*
+      *Afficher le formulaire sous format Mobile
+      */
+@media (max-width: 1020px) {
+  #inputPassword {
+    width: 100%;
+  }
+  /*
+      *Afficher le formulaire sous format Pc/Tablet
+      */
+  @media (min-width: 1020px) {
+    .min-cont {
+      display: none;
+    }
+  }
+  .container-fluid {
+    background-color: rgba(29, 28, 28, 0.575);
+  }
+  body {
+    background-image: url("../images/34.jpg") !important;
+    background-size: cover;
+    /*background-color: #fff;*/
+    margin: 0px;
+    padding: 0px;
+    max-width: 100vw;
+  }
+  .min-cont input {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+  .min-cont #imgs {
+    height: 30vh;
+  }
+  .min-cont form {
+    height: 70vh;
+  }
+  .min-cont input {
+    width: 100%;
+  }
+}
+.btn-secondary {
+  background-image: linear-gradient(
+    115deg,
+    #dc1e2d,
+    #d5d8dc,
+    #dc1e2d,
+    #d5d8dc,
+    #dc1e2d
+  );
+}
+.btn-secondary:hover {
+  background-image: linear-gradient(
+    115deg,
+    #dc1e2d,
+    #dc1e2d,
+    #dc1e2d,
+    #dc1e2d,
+    #dc1e2d
+  );
+}

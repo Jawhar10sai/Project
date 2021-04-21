@@ -1,0 +1,40 @@
+/* jQuery Countdown styles 1.6.3. */
+
+#defaultCountdown { 
+    border-radius: 5px;
+    color: #FFFFFF;
+    float: left;
+    font-weight: bold;
+    padding: 1px 10px;
+    width: auto !important;
+}
+.hasCountdown {
+}
+.countdown_rtl {
+	direction: rtl;
+}
+.countdown_holding span {
+	color: #888;
+}
+.countdown_row {
+	clear: both;
+	width: 100%;
+	padding: 0px 2px;
+	text-align: left;
+}
+
+.countdown_section {
+	display: block;
+	float: left;
+	font-size: 12px;
+	float:left;
+	text-align:left;
+	margin-right:2px;
+}
+.countdown_amount {
+	font-size: 12px;
+}
+.countdown_descr {
+	display: block;
+	width: 100%;
+}

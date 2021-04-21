@@ -1,0 +1,10 @@
+.theatre {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	list-style: none;
+	padding: 0px;
+}
+.theatre-3d .theatre-actor {
+	position: absolute;
+}

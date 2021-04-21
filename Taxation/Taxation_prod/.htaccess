@@ -1,0 +1,20 @@
+RewriteEngine On
+RewriteRule ^Déclarations?$ declarations.php
+RewriteRule ^Consultation?$ consultation.php
+RewriteRule ^Réclamations?$ reclamations.php
+RewriteRule ^Sessions?$ agences.php
+RewriteRule ^Tracking?$ tracking.php
+RewriteRule ^Mes_sessions?$ client_session.php
+RewriteRule ^Panier?$ panierramass.php
+RewriteRule ^Profile?$ profile.php
+RewriteRule ^Modification?$ gestion/modification.php
+RewriteRule ^Suppression?$ gestion/suppression.php
+RewriteRule ^Carnet/([0-9]+)?$ impression/carnet.php?numero=$1
+RewriteRule ^Déclaration/([0-9a-zA-Z]+)?$ impression/declaration.php?numero=$1
+RewriteRule ^etiquettes/([0-9a-zA-Z]+)?$ impression/etiquette.php?numero=$1
+RewriteRule ^Deconnexion?$ gestion/deconnexion.php
+RewriteRule ^Facture?$ impression/facture.php
+RewriteRule ^Avoir?$ impression/avoir.php
+RewriteRule ^Send_Mail?$ gestion/envoiMail.php
+RewriteRule ^Exportation_Excel?$ gestion/exportationExcel.php
+RewriteRule ^ImprimerTracking?$ impression/trackingPDF.php

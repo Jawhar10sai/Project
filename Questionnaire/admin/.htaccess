@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteRule ^Questionnaires?$ questionnaires.php
+#RewriteRule ^Questionnaires/([0-9]+)?$ questionnaires.php?id=$1
+#RewriteRule ^Questions/([0-9]+)?$ questions.php?id=$1
+#RewriteRule ^Questions/([0-9]+)?$ questions.php?id_question=$1
+RewriteRule ^Erruer?$ 404.php

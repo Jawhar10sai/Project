@@ -1,0 +1,89 @@
+body  {
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	background: #F9D4F3;
+	margin: 0; /* il est conseill&eacute; de mettre à z&eacute;ro la marge et le remplissage de l'&eacute;l&eacute;ment body, pour tenir compte des diff&eacute;rentes valeurs par d&eacute;faut des navigateurs */
+	padding: 0;
+	text-align: center; /* ce param&eacute;trage centre le conteneur dans les navigateurs IE 5.x. Le texte est ensuite align&eacute; à gauche (valeur par d&eacute;faut) dans le s&eacute;lecteur #container */
+	color: #000000;
+}
+
+
+.monBlog #container { 
+	width: 1068px;  /* param&eacute;trage de la largeur à 20 pixels de moins que le plein &eacute;cran (800 pixels) pour tenir compte de l'habillage du navigateur et &eacute;viter l'apparition d'un ascenseur horizontal */
+	background: #F9D4F3;
+	margin: 0 auto; /* les marges automatiques (et dot&eacute;es d'une largeur positive) centrent la page */
+	text-align: left; /* ce param&eacute;trage annule le param&egrave;tre text-align:center de l'&eacute;l&eacute;ment body. */
+} 
+
+
+.monBlog #menu {
+	width:400px;
+	list-style:none;
+	text-decoration:none;
+	margin-left:50px;
+	font-size:13px;
+	font-weight:bold;
+	
+} 
+.monBlog #menu a {
+	list-style:none;
+	text-decoration:none;
+	color:#000;
+} 
+
+.monBlog #sep { 
+	background: #9B0082;
+	width:960px;
+	height:9px;
+	margin-left:33px;
+	padding: 0 33px 0 10px;
+} 
+
+
+.monBlog #footer { 
+	padding: 0 10px 0 20px; /* ce remplissage correspond à l'alignement à gauche des &eacute;l&eacute;ments des div qui apparaissent au-dessus. */
+	background:#FFFFFF;
+} 
+.monBlog #footer p {
+	margin: 0; /* la mise à z&eacute;ro de la marge du premier &eacute;l&eacute;ment du pied de page permet d'&eacute;viter une possible disparition de la marge (espace entre les &eacute;l&eacute;ments div) */
+	padding: 10px 0; /* l'utilisation d'un remplissage pour cet &eacute;l&eacute;ment cr&eacute;e un espace, tout comme une marge l'aurait fait, mais en &eacute;vitant le risque de disparition de la marge */
+}
+.fltrt { /* cette classe permet de rendre flottant le côt&eacute; droit d'un &eacute;l&eacute;ment dans la page. L'&eacute;l&eacute;ment flottant doit pr&eacute;c&eacute;der l'&eacute;l&eacute;ment à côt&eacute; duquel il doit se trouver dans la page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* cette classe permet de rendre flottant le côt&eacute; gauche d'un &eacute;l&eacute;ment dans la page */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* cette classe doit être plac&eacute;e pour un &eacute;l&eacute;ment div ou break et doit être l'&eacute;l&eacute;ment final avant la balise de fin d'un conteneur qui doit contenir enti&egrave;rement un &eacute;l&eacute;ment flottant */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+.blog-head{
+	background:url(../images/bg_top.png) no-repeat;
+	width:1028px;
+	height:54px;
+	
+}
+.blog{
+	margin: 0 auto; /* les marges automatiques (et dot&eacute;es d'une largeur positive) centrent la page */
+	background:url(../images/bg_cnt.png) repeat-y;
+	width:1028px;
+	height:auto;
+}
+.blog-footer{
+	background:url(../images/bg_ftr.png) no-repeat;
+	width:1028px;
+	height:66px;
+}
+.blog-img{
+	background:url(../images/fot_home.jpg);
+	width:960px;
+}
+.stabilisateur {
+clear:both;
+overflow:hidden;
+}

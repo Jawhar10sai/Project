@@ -1,0 +1,80 @@
+div.Espace_Securise label,div.Sondage label,#formPoll label
+{
+padding:0;
+margin-top:4px;
+float:left;
+}
+div.Espace_Securise .input,div.Sondage .input,#formPoll .input
+{
+padding:3px 0;
+border-radius:3px;
+border: solid 1px #cecece;
+width:100%;
+margin-top:5px;
+background:transparent ;
+}
+div.Espace_Securise .log,div.Sondage .log,#formPoll .log
+{
+	background:url(../images/login.png) 2px center no-repeat; padding-left:10%; width:90% !important;
+}
+div.Espace_Securise .password,div.Sondage .password,#formPoll .password
+{
+	background:url(../images/password.png) 2px center no-repeat; padding-left:10%; width:90% !important;
+}
+div.Espace_Securise .send,div.Sondage .send,div.SondageFiltre .send,#formPoll .send{
+border-radius:3px;
+	}
+div.Espace_Securise .radio,div.Sondage .radio,#formPoll .radio
+{
+margin:4px;
+width:auto !important;
+
+}
+div.Espace_Securise .button,div.Sondage .button,div.SondageFiltre .button,#formPoll .button
+{
+color: #FEFEFE;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+padding:4px 10px;
+font-weight:bold;
+margin-top:6px !important;
+}
+div.Espace_Securise label.error,div.Sondage label.error,div.SondageFiltre label.error,#formPoll .error
+{
+background-color:red;
+padding:2px 1px;
+margin-top:0px;
+display:block !important;
+width:100% !important;
+height:auto !important;
+}
+div.Espace_Securise .signup_block,div.Sondage .signup_block,div.SondageFiltre .signup_block,#formPoll .signup_block
+{
+display:none;
+}
+div.Espace_Securise #msg_error,div.Sondage #msg_error,div.SondageFiltre #msg_error,#formPoll .msg_error{
+	float:left;
+	width:100%;
+	padding:5px 0;
+	color:red;
+	display:none;
+	}
+	div#account_client{
+		display:none;
+		position:absolute;
+		 z-index:99;
+		 padding:0;
+		 box-shadow:1px 1px 1px #999;}
+		div#account_client ul{
+		 background:#CCC;
+		margin:10px 0 0 0;
+		 padding:0 10px 10px 0;}
+	div#account_client ul li{
+		list-style:none;
+		line-height:15px;}
+div#account_client ul li a{
+	padding-left:6px;
+	font-size:12px;
+}
+.menuGauche{
+	cursor:pointer;}

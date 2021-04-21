@@ -1,0 +1,111 @@
+input {
+  margin-left: 2px;
+}
+@media (max-width: 460px) {
+  .col-md-6 {
+    width: 100%;
+  }
+  .card {
+    width: 100%;
+  }
+}
+@media (min-width: 1370px) {
+  .firstrow {
+    min-height: 460px;
+  }
+  .secondrow {
+    min-height: 385px;
+  }
+  #btn-envois {
+    max-height: 75px;
+    padding: 20px;
+  }
+}
+.dropleft a:hover {
+  cursor: hand;
+}
+.btn-details {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #3f3f3f;
+}
+.btn-details:hover {
+  border: 0;
+  background-color: #969292;
+  color: antiquewhite;
+}
+.card {
+  margin: 5px;
+  border-color: #a9a9a9;
+  border-radius: 0.65rem;
+  margin-bottom: 15px;
+  -webkit-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.75);
+}
+.card-header {
+  font-family: "Font Awesome\ 5 Free";
+  font-size: 20;
+  color: #3f3f3f;
+  background-color: #a9a9a9;
+}
+.sidd {
+  background-color: #a9a9a9;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: #3f3f3f;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #c60101;
+}
+
+.active {
+  background-color: #c60101;
+  border-radius: 25px;
+}
+.active:hover {
+  background-color: #d6d6d6;
+}
+.lve-content {
+  margin-top: 100px;
+}
+body {
+  background-image: url("../images/LOGOSANS150.jpg");
+  background-size: 150px 104px;
+  background-repeat: repeat;
+}
+.foot {
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid;
+}
+nav ul li a {
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+}
+.btn-lve {
+  border-radius: 2.5rem;
+  border: 0px;
+}
+.mesdocs {
+  margin: 3px;
+  padding: 20px;
+  background-color: #b30000;
+  color: #fff;
+  border-radius: 2.5rem;
+}
+.mesdocs:hover {
+  background-color: #e60000;
+  color: #fff;
+}
+.mesdocs label {
+  cursor: hand;
+}
+.card-body a {
+  text-decoration: none;
+}

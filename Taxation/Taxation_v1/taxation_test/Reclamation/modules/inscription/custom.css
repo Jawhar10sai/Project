@@ -1,0 +1,235 @@
+
+.ex-form {
+    float: left;
+    font-size: 12px;
+    margin: 0 auto;
+    min-height: 400px;
+}
+.Inscription h1, .Inscription h2, .Inscription h3 {
+    font-size: 18px;
+    margin-top: 50px;
+}
+.Inscription h2 {
+    font-size: 14px;
+    margin: 30px 0 10px;
+}
+.Inscription h3 {
+    clear: left;
+    font-size: 12px;
+}
+.ui-progressbar {
+    border: medium none;
+    border-radius: 15px;
+    box-shadow: 0 1px 2px #AAAAAA inset;
+}
+.ui-progressbar .ui-progressbar-value {
+    background: linear-gradient(to right, #98C8A9, #E9E1A8) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    border-radius: 15px;
+    box-shadow: 0 1px 2px #999999 inset;
+}
+#amount {
+    font-size: 10px;
+    font-weight: bold;
+    margin: -19px 0 0 -30px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+.form-panel fieldset {
+    border: medium none;
+    padding: 0;
+    width: 800px;
+}
+.form-panel label, .form-panel .label {
+    clear: left;
+    cursor: pointer;
+    width: 100%;
+}
+.form-panel .title {
+    color: #6E6A65;
+    float: left;
+    margin-right: 10px;
+    padding-top: 5px;
+    text-align: left;
+    width: 225px;
+}
+.form-panel .input {
+    border-radius: 12px;
+    clear: left;
+    margin-bottom: 13px;
+    padding: 3px;
+    width: auto !important;
+}
+.form-panel input[type="text"], .form-panel input[type="password"], .form-panel textarea, .form-panel select {
+    border: 1px solid #D7D6D5;
+    color: #9A9895;
+    float: left;
+    font-size: 12px;
+    height: auto !important;
+    line-height: 12px;
+    margin: 10px -3px;
+    padding: 6px !important;
+    width: 240px;
+}
+.form-panel input[type="checkbox"] {
+    box-shadow: none;
+    cursor: auto;
+    margin: 0;
+    width: auto;
+}
+.form-panel select {
+    height: 33px;
+    width: 266px;
+}
+.form-panel textarea {
+    height: 60px;
+}
+#thanks {
+    text-align: center;
+}
+#thanks p {
+    color: #6E6A65;
+    font-size: 18px;
+    margin-top: 58px;
+}
+.ex-form button {
+    background: linear-gradient(to bottom, #FFFFFF, #EAECED) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #FFFFFF;
+    border-radius: 25px;
+    box-shadow: 0 1px 2px #787878;
+    color: #9CA1A2;
+    cursor: pointer;
+    float: right;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 30px;
+    padding: 15px 20px 14px;
+    text-transform: uppercase;
+}
+.ex-form button:hover {
+    opacity: 0.8;
+}
+.ex-form button:disabled {
+    cursor: default;
+    opacity: 0.6;
+}
+#next, #back {
+    color: #FEFEFE;
+}
+#parinnage_email {
+    display: none;
+}
+#afficher_parrinage {
+    cursor: pointer;
+}
+#parinage_email {
+    background: none repeat scroll 0 0 #C81717 !important;
+    border: 0 none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    height: 24px;
+    margin-top: 6px !important;
+    padding: 4px 10px;
+}
+.titre_input {
+    float: left;
+    width: auto !important;
+}
+.input_input {
+    clear: left;
+    margin-top: -7px;
+    width: 388px !important;
+}
+.input_input div {
+    float: left;
+    width: 82px !important;
+}
+.input_input div input[type="radio"] {
+    float: none;
+}
+.titre_label {
+   clear: left;
+    width: auto !important;
+}
+.titre_input span,.titre_label span {
+
+}
+#jours_naissance {
+    margin-right: 10px;
+    width: 70px;
+}
+#mois_naissance {
+    margin-right: 10px;
+    width: 70px;
+}
+#annee_naissance {
+    width: 70px;
+}
+#panel1_2 {
+    float: left;
+    width: 277px !important;
+}
+#panel1_1 {
+    float: left;
+    width: 280px !important;
+}
+#panel1_3 {
+    float: left;
+    margin-top: 430px;
+    width: 200px !important;
+	-bracket-:hack(;
+         margin-top: 437px;
+    );
+}
+#mode_contact {
+    width: 200px;
+}
+.titreh2 {
+    font-size: 14px;
+}
+#les_etapes {
+}
+#etape_texte {
+    margin-bottom: 10px;
+}
+#etape_button {
+    margin-left: 23px;
+}
+.etdiv {
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 50px;
+    width: 80px !important;
+}
+.etdiv-active {
+    color: #D01717;
+}
+.btdiv {
+    background: url("bt.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    height: 50px !important;
+    margin-right: 50px;
+    width: 80px !important;
+}
+.btdiv-active {
+    background: url("bt_active.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+}
+#espace_etape {
+    height: 30px;
+}
+.bt_progress {
+    background: none repeat scroll 0 0 #ABABAB !important;
+    height: 2px !important;
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 120px !important;
+}
+.bt_progress_active {
+    background: none repeat scroll 0 0 #D01717 !important;
+}
+#response_email{color: red; font-size: 10px; width: auto ! important; margin: 0 24px 0 0; float: right;}

@@ -1,0 +1,54 @@
+/**********************************************************
+
+ * Block stylesheet
+
+ *********************************************************/
+
+
+#socialLink{ width:96%; min-height:50px; height:auto; float:left; padding:10px 2%;}
+.block-socialprofiles {
+
+	padding: 0;
+
+	margin: 0;
+
+	list-style: none;
+
+}
+
+
+
+.block-socialprofiles li img {
+
+	float: right;
+
+	display: inline;
+
+	margin-left:10px;
+	margin-bottom: 10px;
+
+
+    -moz-opacity: 1.0;
+
+    opacity: 1.0;
+
+	filter: alpha(opacity=100);	
+
+
+
+}
+
+
+
+
+
+
+.block-socialprofiles li a:hover img {
+
+	-moz-opacity: .35;
+
+	opacity: .35;	
+
+	filter: alpha(opacity=35);
+
+}

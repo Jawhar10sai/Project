@@ -1,0 +1,17 @@
+#header {
+	left: 0;
+    position: fixed;
+    top: 0;
+	width:-moz-min-content; width:-webkit-min-content;width:-o-min-content; width:min-content; width:-min-content; width:-ms-min-content;
+    z-index: 10;
+}
+
+#logo {
+	 float: left;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+    z-index: 1000;
+	margin-top:50px;
+}

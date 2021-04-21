@@ -1,0 +1,22 @@
+p{
+    color: red;
+  }
+  img{
+    width: 150px;
+    height: 150px;
+  }
+  img.minimg{
+    display: none;
+  }
+@media (max-width : 500px){
+  p{
+    color: green;
+  }
+  img.bigimg{
+    display: none;
+  }
+  img.minimg{
+    display: block;
+    width: 100%;
+  }
+}

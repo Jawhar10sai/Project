@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule ^déclaration?$ declaration.php
+RewriteRule ^consultation?$ consultation.php
+RewriteRule ^Sessions?$ agences.php
+RewriteRule ^Suivis?$ tracking.php

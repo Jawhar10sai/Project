@@ -1,0 +1,175 @@
+	/* Tables */
+
+.hastable table {
+	margin:0 0 10px 0;
+	background:#fff;
+	width:100%;
+	border:1px solid #dedede;
+	border-bottom:none;
+}
+.hastable1 table {
+	margin:0 0 70px 0;
+	background:#fff;
+	width:100%;
+	border:1px solid #dedede;
+	border-bottom:none;
+}
+.hastable li {
+	margin-left:10px;
+}
+.hastable1 li {
+	margin-left:10px;
+}
+
+.hastable thead td, .hastable thead th {
+	background-color:#e6e6e6;
+}
+.hastable1 thead td, .hastable1 thead th {
+	background-color:#e6e6e6;
+}
+.trhead {
+	background-color:#e6e6e6;
+	font-weight:bold;
+}
+
+.hastable tr td, .hastable thead th {
+	border-left:1px solid #ccc;
+	text-align:left;
+	padding:8px;
+	color:#616161;
+	vertical-align:middle;
+}
+.hastable1 tr td, .hastable1 thead th {
+	border-left:1px solid #ccc;
+	text-align:center;
+	padding:8px;
+	color:#616161;
+	vertical-align:middle;
+}
+.hastable thead td, .hastable thead th {
+	font-weight:bold;
+	padding:10px 6px;
+	text-align:center;
+}
+.hastable1 thead td, .hastable1 thead th {
+	font-weight:bold;
+	padding:10px 6px;
+	text-align:center;
+}
+.hastable th, .hastable td {
+	border-bottom:1px solid #dedede;
+}
+.hastable1 th, .hastable1 td {
+	border-bottom:1px solid #dedede;
+}
+.hastable tbody th {
+	padding:8px 8px;
+	text-align:left;
+}
+.hastable1 tbody th {
+	padding:8px 8px;
+	text-align:left;
+}
+
+
+.hastable tbody tr.alt td, .hastable tbody tr.odd td {
+	color:#464646;
+}
+
+.hastable1 tbody tr.alt td, .hastable1 tbody tr.odd td {
+	color:#464646;
+}
+
+.hastable tbody tr.alt td, .hastable tbody tr.alt th, .hastable tbody tr.odd {
+	background-color:#f5f5f5;
+}
+ .hastable tbody tr:hover th {
+	background-color:#FFFFCF;
+}
+.hastable1 tbody tr.alt td, .hastable1 tbody tr.alt th, .hastable1 tbody tr.odd {
+	background-color:#f5f5f5;
+}
+.hastable1 tbody tr:hover td, .hastable1 tbody tr:hover th {
+	background-color:#FFFFCF;
+}
+.headerSortDown, .headerSortUp {
+	background-repeat:no-repeat;
+	background-color:#dcdcdc!important;
+	color:#404040!important;
+}
+
+.header span {
+	float:right;
+}
+
+.hastable tr .center {
+	padding:15px;
+	width:5px;
+}
+.hastable1 tr .center {
+	padding:15px;
+	width:5px;
+}
+
+.hastable table a.btn span.ui-icon {
+	left:0.1em;
+}
+.hastable1 table a.btn span.ui-icon {
+	left:0.1em;
+}
+	/* Tables Pagination */
+
+#pager {
+	padding: 0 15px 15px 15px;
+	margin-top:10px;
+	height:20px;
+}
+
+#pager input, #pager .pagesize {
+	float: left;
+}
+#pager1 {
+	height:20px;
+	padding-left:20px;
+	padding-bottom:10px;
+	
+}
+#pager1 input, #pager1 .pagesize {
+	float: left;
+	margin:3px;
+	
+}
+#pager3 {
+	height:20px;
+	padding-left:20px;
+	padding-bottom:10px;
+	
+}
+#pager3 input, #pager3 .pagesize {
+	float: left;
+	margin:3px;
+	
+}
+#pager4 {
+	height:20px;
+	padding-left:20px;
+	padding-bottom:10px;
+	
+}
+#pager4 input, #pager4 .pagesize {
+	float: left;
+	margin:3px;
+	
+}
+.pager_ {
+	height:20px;
+	padding-left:20px;
+	padding-bottom:10px;
+	margin:-60px auto 30px auto;
+	
+}
+.pager_ input{
+	float:left;
+	margin:3px;
+	
+}

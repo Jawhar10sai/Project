@@ -1,0 +1,288 @@
+#deg{ float:left; width:100%; height:50px; background:-moz-linear-gradient(center top , #AAEEFF, #3399CC) repeat scroll 0 0 transparent;}
+#deg_c{ float:left; width:100%; height:50px; background:-moz-linear-gradient(center top , #AAEEFF, #3399CC) repeat scroll 0 0 transparent;}
+#deg_f{ float:left; width:100%; height:50px; background:-moz-linear-gradient(center top , #AAEEFF, #3399CC) repeat scroll 0 0 transparent;}
+#result{
+	border: 1px solid #00CCFF;
+    font-size: 12px;
+    padding: 10px;
+    width: 450px;
+	position:fixed;
+	top:140px;
+	right:0px;
+	
+	}
+	#result div#r_corp{
+	width:80%; margin:0 auto;
+	
+	}
+	#result div#r_corp div{
+		padding:4px;
+	
+	}
+	#titre_result{
+	border: 1px solid #00CCFF;
+    font-size: 12px;
+    padding:0 10px;
+    width: 450px;
+	position:fixed;
+	top:86px;
+	right:0px;
+	
+	}
+	#result img{
+		width:100%;
+		height:1px;
+	}
+.bg{ display:none;}
+form.formular{
+	font-family: "Century Gothic", Century;
+	font-size: 12px;
+	margin: 0 auto;
+}
+form.formular h1{
+	text-align:center;
+	font-size:18px;
+	color:#00CCFF;	
+}
+form.formular h2{
+	font-size:16px;
+	color:#00CCFF;	
+}
+iframe#formular {
+	font-family: "Century Gothic", Century;
+	font-size: 12px;
+	border: 1px solid #A5A8B8;
+	width:600px;
+	margin: 0 auto;
+}
+.formular fieldset {
+	margin-top: 20px;
+	padding : 15px;
+	border: 1px solid #B5B8C8;
+	
+}
+
+.formular legend {
+	font-size: 12px;
+	color: #15428B;
+	font-weight: 900;
+}
+
+.formular fieldset label {
+	float: none;
+	text-align: inherit;
+	width: auto;
+}
+
+.formular label span {
+	color: #000;
+}
+.formular label a {
+	margin:0;
+	padding:0;
+	float:right;
+	font-size:11px;
+	text-decoration:none;
+}
+.formular label a:hover {
+	text-decoration:underline;
+}
+.formular input, .formular select, .formular textarea {
+	display : block;
+	margin-bottom: 5px;
+}
+
+.formular .text-input {
+	width: 100%;
+	color: #555;
+	padding: 4px;
+	border: 1px solid #CCC;
+	font-size: 14px;
+	margin-top: 4px;
+	
+}
+.formular textarea {
+	width: 250px;
+	height:70px;
+	color: #555;
+	padding: 4px;
+	border: 1px solid #B5B8C8;
+	font-size: 14px;
+	margin-top: 4px;
+	
+}
+.formular .infos {
+	background: #FFF;
+	color: #333;
+	font-size: 12px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.formular span.checkbox, .formular .checkbox {
+	display: inline;
+}
+
+.formular .submit {
+	border: 1px solid #AAA;
+	padding: 4px;
+	margin-top: 20px;
+	float: right;
+	text-decoration: none;
+	cursor:pointer;
+}
+
+.formular hr {
+	clear: both;
+	visibility: hidden;
+}
+
+.formular .fc-error {
+	width: 350px;
+	color: 555;
+	padding: 4px;
+	border: 1px solid #B5B8C8;
+	font-size: 12px;
+	margin-bottom: 15px;
+	background: #FFEAEA;
+}
+#supersized {
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -999;
+}
+#bg1{ display:none;}
+.data_table td ,.data_table th{
+	border:none;
+	background:none;
+}
+a.add_user{
+	background:url(../images/add_user_icone.png) no-repeat center center;
+	height:34px;
+	width:32px;
+	display:inline-block;
+	float:right;
+}
+a.add_site{
+	background:url(../images/add_site_icone.png) no-repeat center center;
+	height:34px;
+	width:34px;
+	display:inline-block;
+	float:right;
+}
+a.add_article{
+	background:url(../images/plus.png) no-repeat center center;
+	height:56px;
+	width:56px;
+	display:inline-block;
+	float:right;
+	
+}
+.data_table th span{
+border:#AAADB1 1px solid;
+-moz-border-radius: 5px;
+border-radius: 5px;
+width:100%;
+display:block;
+color:#0D9FDB;
+background:#FFF;
+min-width:100px;
+text-align:center;
+text-transform:uppercase;
+font-size:14px;
+} 
+.data_table td{
+	color:#A9ADB1;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:12px;
+	vertical-align:top;
+}
+.data_table td a.icone, a.icone{
+	width:24px;
+	height:24px;
+	display:inline-block;
+	margin-right:0;
+	background-repeat:no-repeat;
+}
+
+.data_table td a.delete{
+	background-image:url(../images/delete_icone.png);
+}
+
+.data_table td a.delete:hover{
+	background-image:url(../images/delete_icone_hover.png);
+}
+
+.data_table td a.add_attr{
+	background-image:url(../images/add_icone.png);
+}
+
+.data_table td a.add_attr:hover{
+	background-image:url(../images/add_icone_hover.png);
+}
+.data_table td a.add_bloc{
+	background-image:url(../images/ajouter-flux.png);
+	margin-right:0px;
+}
+
+.data_table td a.add_bloc:hover{
+	background-image:url(../images/ajouter-flux_hover.png);
+	margin-right:0px;
+}
+.data_table td a.edit{
+	background-image:url(../images/edit_icone.png);
+}
+.data_table td a.edit:hover{
+	background-image:url(../images/edit_icone_hover.png);
+}
+.data_table td a.edit_site{
+	background-image:url(../images/edit_site_icone.png);
+}
+.data_table td a.edit_site:hover{
+	background-image:url(../images/edit_site_icone_hover.png);
+}
+.data_table td a.edit_name{
+	background-image:url(../images/edit_name_icone.png);
+}
+.data_table td a.edit_name:hover{
+	background-image:url(../images/edit_name_icone_hover.png);
+}
+.data_table td a.users{
+	background-image:url(../images/users_icone.png);
+}
+.data_table td a.users:hover{
+	background-image:url(../images/users_icone_hover.png);
+}
+.data_table td a.desactivate{
+	background-image:url(../images/desactivate_icone.png);
+}
+.data_table td a.desactivate:hover{
+	background-image:url(../images/desactivate_icone_hover.png);
+}
+.data_table td a.activate,a.activate{
+	background-image:url(../images/activate_icone.png);
+}
+.data_table td a.activate:hover,a.activate:hover{
+	background-image:url(../images/activate_icone_hover.png);
+}
+.connexion_box{
+	margin-left: 100px;
+    width: 324px;
+}
+.mceEditor *{
+	border-radius:0;
+}
+span.host{
+	display: block;
+    font-size: 16px;
+    left: 125px;
+    margin-bottom: -42px;
+    position: relative;
+    top: -30px;
+    width: 200px;
+	}

@@ -1,0 +1,206 @@
+/**************************************************
+*
+*	CONTAINER STYLES
+*
+**************************************************/
+
+#horiz_container_outer
+{
+	max-width:500px;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	position:relative;
+	height:30px;
+	margin: 0;
+    padding: 2px 0 0;
+}
+
+#horiz_container
+{
+	width: -moz-max-content; /* Firefox */
+	margin:0px;
+	padding:0px;
+	height:20px;
+}
+
+#horiz_container ul
+{
+	margin:0px; padding:0px;
+	float:left;
+}
+
+#horiz_container_inner
+{
+	padding:5px;
+	padding-left:0px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  #horiz_container_inner {
+	  top:-12px !important;
+  }
+  #horiz_container
+{
+    min-width: 4000px; /* Safari, Chrome */
+}
+}
+
+#horiz_container li
+{
+	  -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #DDDDDD;
+    border-color: #CCCCCC #CCCCCC -moz-use-text-color;
+    border-image: none;
+    border-radius: 6px 6px 0 0;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    float: left;
+    font-size: 9px;
+    list-style: none outside none;
+    margin-right: 1px;
+    padding: 0 5px;
+    position: relative;
+}
+div.addin_page
+{
+	  -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #DDDDDD;
+    border-color: #CCCCCC #CCCCCC -moz-use-text-color;
+    border-image: none;
+    border-radius: 6px 6px 0 0;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    float: left;
+    list-style: none outside none;
+    margin-right: 1px;
+    position: relative;
+	font-size: 32px;
+	padding: 1px 0;
+	top: 4px;
+	left:-3px;
+}
+#horiz_container li a {
+   color: #4F4F4F;
+    display: block;
+    font-weight: bold;
+    margin: 0;
+    padding: 3px;
+    text-decoration: none;
+    text-transform: none;
+}
+#horiz_container li.current, #horiz_container li:hover {
+    background-image: -moz-linear-gradient(center top , #E6E6E6 0%, #F6F6F6 50%, #F0F0F0 50%, #FFFFFF 100%);
+}
+#horiz_container li img
+{
+	padding:0px;
+	margin:0px;
+}
+
+#pages {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #878787;
+    border-color: -moz-use-text-color #444444 #444444;
+    border-image: none;
+    border-right: 1px solid #444444;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    box-shadow: 2px 0 3px #999999;
+    display: none;
+    height: auto;
+    left: 17px;
+    position: absolute;
+    top: 83px;
+    width: 200px;
+}
+
+#pages a,#pages a:hover {
+	color:#FFF !important;
+	font-size:11px;}
+/**************************************************
+*
+*	SCROLLING STYLES
+*
+**************************************************/
+
+#scrollbar 
+{ 
+    position:relative; 
+    width:500px; height:12px;
+    display:block;
+    font-size:1px;
+    top:0px;
+    margin:0px auto;
+}
+
+#track 
+{ 
+    position:absolute; left:0px; top:0;
+    width:500px; height:12px; 
+    background: #676767;
+    -webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+#dragBar 
+{
+    position:absolute; left:0px; top:0px;
+    width:20px; height:10px; 
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.39, rgb(229,229,229)),
+    color-stop(0.7, rgb(245,245,245))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(229,229,229) 39%,
+    rgb(245,245,245) 70%
+);
+
+}  
+  
+#left_scroll
+{ 
+	position:absolute; 
+	border-color: transparent #FFF transparent transparent;
+	border-style: solid;
+	border-width: 5px;
+	width: 0;
+	height: 0px;
+	cursor:pointer;
+	top:26px;
+	left:-15px;
+}  
+
+#right_scroll 
+{ 
+	position:absolute; 
+	right:-15px; 
+	top:26px;
+	border-color: transparent transparent transparent #FFF;
+	border-style: solid;
+	border-width: 5px;
+	width: 0;
+	height: 0px;
+	cursor:pointer;
+}
+
+/* Prevent selection problem */
+#scrollbar, #track, #dragBar, #left, #right {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+}

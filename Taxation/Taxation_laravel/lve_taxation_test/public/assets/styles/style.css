@@ -1,0 +1,34 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+.form-signin{
+  background: #fff;
+  margin-top: 40px;
+  padding: 50px 60px ;
+  border-radius: .5rem;
+  border: 2px solid rgba(0, 0, 0, .1);
+/*  -webkit-box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);
+box-shadow: 1px 4px 26px 11px rgba(0,0,0,0.75);*/
+}
+.form-control{
+  /*background: transparent;*/
+  border-radius: 0px;
+  border: 0px;
+  border-bottom: 1px solid;
+  padding: 15px;
+  font-size: 21px;
+}
+body{
+  background-color: #F7F7F7;
+  font-family: new time roman;
+}
+.btn-primary{
+  border-radius: 0px;
+  width: 457px;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px
+}

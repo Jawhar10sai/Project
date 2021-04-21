@@ -1,0 +1,50 @@
+<?php
+class Courriers
+{
+    public $Agence,
+        $courrier_id,
+        $Numero,
+        $Date,
+        $Code1,
+        $Expediteur,
+        $Code2,
+        $destinataire,
+        $adresse1,
+        $adresse2,
+        $Ville1,
+        $Ville2,
+        $Port,
+        $Colis,
+        $Poids,
+        $type,
+        $Montant_ttc,
+        $Espece,
+        $Cheque,
+        $Traite,
+        $bl,
+        $Recu,
+        $date_recu,
+        $num,
+        $date_bordereau,
+        $date_livraison,
+        $Delais_Cible,
+        $Ecart,
+        $Depassement,
+        $Ecart2,
+        $service,
+        $BORDEREAU_NUM,
+        $livraison,
+        $ramasseur,
+        $FC_date1,
+        $FC_date2,
+        $date_caisse,
+        $statut,
+        $statut_suivis,
+        $FC_date_arrive,
+        $Motif,
+        $Taxateur;
+
+    function __construct()
+    {
+    }
+}

@@ -1,0 +1,30 @@
+ select 
+numero,
+date_saisie,
+(select ville_lib from ville where VILLE_COD=ville1_cod)  ville1,
+(select ville_lib from ville where VILLE_COD=ville2_cod)  ville2,
+EMPLOYE_ID,
+immo,
+client1_id,
+client2_id,
+date,
+date_voyage,
+remorque,
+tracteur,
+ETAT_FINAL,
+etat_dat,
+complement,
+DISTANCE,
+aller_simple,
+prime_retour,
+nbr_nhuit,
+prime_panier,
+manutention,
+transfert,
+mois_cloture,
+annee_cloture,
+total_ligne,
+prime_DISTANCE_dhs  
+  from declaration_fret_calc_primer_cloture  
+ where mois_cloture=11 and annee_cloture=2020 and EMPLOYE_ID=1361
+ --select top 10 * from courrier

@@ -1,0 +1,68 @@
+.column{
+	min-height:100px;
+}
+.column, .column_footer, .column_header{
+	float:left;
+}
+.column .dragbox{
+float: left;
+    width: 100%;
+}
+.column .dragbox h2, #tout_footer #column_footer h2, #tout_header #column_header h2{
+	margin:0;
+	font-size:12px;
+	padding:5px;
+	background:#f0f0f0;
+	color:#000;
+	border-bottom:1px solid #eee;
+	font-family:Verdana;
+	cursor:move;
+	text-align:left !important;
+}
+.dragbox-content{
+	min-height:20px;
+}
+.column  .placeholder{
+	border:2px dashed #000;
+	float:left;
+	width:100%;
+	height:100%;
+}
+.dragbox h2.collapse{
+	background:#f0f0f0 url('../images/collapse.png') no-repeat top right;
+}
+.dragbox h2 .configure, #tout #column_footer h2 .configure, #tout #column_header h2 .configure{
+	font-size:11px; font-weight:normal;
+	margin-right:5px; float:right;
+}
+.dragbox h2 .configure span{
+	cursor:pointer;
+}
+#tout_footer #column_footer,#tout_header #column_header{
+	width:100%;
+	}
+#tout_footer,#tout_header{
+	float: left;
+    width: 100%;
+	}
+	#tout_footer #column_footer h2 .configure,#tout_header #column_header h2 .configure{
+    width: auto;
+	}
+	#tout_footer .dragbox-content,#tout_header .dragbox-content{
+		min-height:inherit;
+	}
+	
+.dragbox-content hr{
+	width:100%;}
+	
+	#tout_footer #column_footer h2,#tout_header #column_header h2{
+	cursor:auto;
+}
+#tout_header{
+	z-index:9999;}
+	#tout_header .dragbox-content{
+	}
+.dragbox-content.Image img{
+	float:left;
+	width:100%;
+	}

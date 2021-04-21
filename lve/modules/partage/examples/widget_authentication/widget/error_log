@@ -1,0 +1,156 @@
+[13-Dec-2013 15:01:50 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[13-Dec-2013 15:16:27 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[13-Dec-2013 15:20:43 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[13-Dec-2013 15:21:42 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[13-Dec-2013 15:21:51 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[13-Dec-2013 15:22:54 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[16-Dec-2013 15:30:19 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[16-Dec-2013 16:08:52 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[16-Dec-2013 16:12:16 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[16-Dec-2013 16:18:59 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[16-Dec-2013 16:25:06 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[16-Dec-2013 16:28:28 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[16-Dec-2013 16:28:32 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[16-Dec-2013 16:29:05 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(97): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58
+[16-Dec-2013 16:33:08 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php:69) in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php on line 351
+[16-Dec-2013 16:34:33 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php:68) in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php on line 351
+[16-Dec-2013 16:37:20 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php:68) in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php on line 351
+[16-Dec-2013 16:37:55 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php:68) in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php on line 351
+[16-Dec-2013 16:42:19 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php:68) in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php on line 351
+[16-Dec-2013 16:42:21 Europe/Paris] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php:68) in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php on line 351
+[16-Dec-2013 18:43:11 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Your application key and secret are required in order to connect to Yahoo.' in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php:58
+Stack trace:
+#0 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Providers/Yahoo.php(24): Hybrid_Provider_Model_OAuth1->initialize()
+#1 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model.php(69): Hybrid_Providers_Yahoo->initialize()
+#2 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Adapter.php(85): Hybrid_Provider_Model->__construct('Yahoo', Array, Array)
+#3 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(270): Hybrid_Provider_Adapter->factory('yahoo', Array)
+#4 /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Auth.php(215): Hybrid_Auth::setup('yahoo', Array)
+#5 /home/oneoweb/public_html/modules/partage/examples/widget_authentication/widget/index.php(96): Hybrid_Auth::authenticate('yahoo', Array)
+#6 {main}
+  thro in /home/oneoweb/public_html/modules/partage/hybridauth/Hybrid/Provider_Model_OAuth1.php on line 58

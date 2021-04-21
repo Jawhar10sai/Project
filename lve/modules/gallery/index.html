@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/style.css" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+
+<script type="text/javascript" src="js/easing.js"></script>
+
+<script type="text/javascript" src="js/gallery.class.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	// javascript class constructor
+	gallery.init({
+		xmlUrl: 'content.xml'
+	});
+});
+</script>
+<title>jQuery xml media Gallery - Flower gallery</title>
+</head>
+
+<body>
+
+<div class="ajaxLoader">
+		<img src="images/ajax-loader.gif" style="position:relative; bottom:-13px;"/>
+		&nbsp; Chargement ...
+	</div>
+<div class="lightbox-frame">
+	
+	<a href="#" class="left-arrow imagePreview aLeft" title="prev"><img src="images/left_arrow.png" alt=""/></a>
+	<div class="imageBlock">
+		<div id="ajaxResponse">
+			<!-- here come dynamic content from jQuer.load -->
+		</div>
+		<div class="maskTop"></div>
+		<div class="maskBottom"></div>
+	</div>
+	<a href="#" class="right-arrow imagePreview aRight" title="next"><img src="images/right_arrow.png" alt=""/></a>
+</div>
+		
+	<div class="gallery-nav-wrapper">
+		<a href="#" class="n-left-arrow" title="prev"><img src="images/left_arrow.png" height="30" alt=""/></a>
+		<div class="gallery-nav-mask">
+			<ul class="gallery-nav" id="gallery-items">
+				<!-- here come dynamic content from xml -->
+			</ul>
+		</div>    
+		<a href="#" class="n-right-arrow" title="next"><img src="images/right_arrow.png"  height="30" alt=""/></a>		
+	</div>
+	
+<p id="imagePreview"></p>
+<div id="preloadImage"></div>
+</body>
+
+</html>

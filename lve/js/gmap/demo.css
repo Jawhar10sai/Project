@@ -1,0 +1,16 @@
+
+#map {
+  border: 1px solid #DDD; 
+  width:100%;
+  height: 100%;
+  float:left;  
+  -webkit-box-shadow: #AAA 0px 0px 15px;
+}
+
+#legend {
+  float: right;
+  font-size: 12px;
+  font-style: italic;
+  margin: 10px 0 0 263px;
+}
+

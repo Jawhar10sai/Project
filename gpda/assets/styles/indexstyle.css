@@ -1,0 +1,109 @@
+.admin-lve-section{
+  height: 100%;
+}
+.admin-lve-sidebar{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  position:fixed;
+  background:#dc1e2d;
+  width: 300px;
+  overflow: auto;
+}
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+    background-color: #EFF5FB;
+}
+.admin-lve-sidebar a {
+  display: block;
+  color: #D8D8D8;
+  font-size: 18px;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.admin-lve-sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.admin-lve-sidebar a:hover:not(.active) {
+  background-color: #045FB4;
+  color: white;
+  text-decoration: none;
+  -webkit-transform: translate(30px, 0px);
+  transform: translate(30px, 0px);
+  background: -webkit-linear-gradient(left, #000, #D8D8D8);
+  background: linear-gradient(to right, #000, #D8D8D8);
+  border-radius: 0.5rem;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .admin-lve-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .admin-lve-sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .admin-lve-sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+.brand-sidebar{
+  display: block;
+  color: #ff0000;
+  background-color: #fff;
+  font-size: 30px;
+  padding: 7px;
+  text-align: center;
+  text-decoration: none;
+}
+/*------------------------------------------- CONTENT ------------------------------------------*/
+.admin-lve-content{
+  margin-left: 300px;
+  height: 100%;
+}
+.navbar{
+  background-color:#D8D8D8;
+}
+.navbar .nav-item button{
+  color:  #dc1e2d;
+  font-size:18px;
+}
+.navbar .nav-item button:hover {
+  background-color: #555;
+  color: #dc1e2d;
+
+}
+i{
+  margin-right: 5px;
+}
+.navbar .nav-item:hover {
+  background: -webkit-linear-gradient(left, #D8D8D8, #000);
+  background: linear-gradient(to right, #D8D8D8, #000);
+  /*background-color: #F2F2F2;*/
+  border-radius: 0.5rem;
+  border: 0px;
+}
+.uscontent{
+  background-color: #EFF5FB;
+}
+
+#dejaconn{
+  color: #00FFBF;
+}
+#dejaconn:hover{
+  color: #00FF00;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="mytest">
+      <p v-if="name">your double Age Mr {{ name }} is {{ doubleAge }} </p>
+      <p v-else>Please set a name</p><br>
+      <input type="text" v-model="name"><br>
+      <label for="">update age value</label><br>
+      <input type="text" v-model="age"><br>
+
+      <label for="">MAD</label><br>
+      <input type="text" v-model="mad"><br>
+      <label for="">Euro</label><br>
+      <input type="text" v-model="eur"><br>
+
+    </div>
+    <my-component></my-component>
+
+
+    <script src="js/vue.js"></script>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el:'#mytest',
+        data:{
+          /*age:35,
+          name:'',
+          username:'',*/
+          mad:0,
+          eur:0
+        },
+      /*  methods:{
+        },
+        computed:{
+        doubleAge: function(){
+          return this.age * 2;
+        },
+        lengthchar: function(){
+          return this.username.length;
+        }
+      },*/
+      watch:{
+        mad: function(v){
+          this.eur = v *10;
+        },
+        eur: function(v){
+          this.mad = v /10;
+        }
+      }
+      });
+    </script>
+    <script type="text/javascript">
+      Vue.componenet('my-component',{
+        data: function(){
+          return {
+            name : 'Jawhar',
+            count:0
+          }
+        },
+        template:'<p @click="count++">Hello {{ name }} you clicked this {{ count }} time</p>'
+      })
+    </script>
+  </body>
+</html>

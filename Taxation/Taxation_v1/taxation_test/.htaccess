@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteRule ^déclaration?$ interfaces/declaration.php
+RewriteRule ^consultation?$ consultation.php
+RewriteRule ^Sessions?$ agences.php
+RewriteRule ^Suivis?$ tracking.php
+RewriteRule ^Carnet/([0-9]+)?$ impcarnet.php?numero=$1

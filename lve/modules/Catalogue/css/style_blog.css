@@ -1,0 +1,75 @@
+/* CSS Document */
+.pagination{
+	margin:0;
+	padding:0;
+}
+.blog-item{
+	border-bottom:1px solid #D3D3D3;
+	padding:16px 0;
+	display:inline-block;
+	width:100%;
+}
+.blog-preview{
+	float:left;
+	width:30%;
+	margin-right:3%;
+}
+.blog-preview img{
+	border:7px solid #FFF;
+	outline:1px solid #E8E8E8;
+	width:100%;
+}
+.fb_edge_widget_with_comment{
+	margin-top:10px;
+}
+.read-more{
+	float:right;
+}
+.blog-title h2{
+	font-size:24px;
+	font-weight:bold;
+	margin-top:0;
+}
+.blog-info{
+	border:1px solid #DADADA;
+	border-right:0;
+	border-left:0;
+}
+.blog_content{
+	width:67%;
+	float:left;
+}
+.signature{
+	font-weight:bold;
+}
+ul.simplePagerNav li{
+	float:left;
+	list-style-type:none;
+	width:26px;
+	height:26px;
+	background:url(../images/pagination.png) no-repeat;
+	text-align:center;
+	padding:2px 0;
+	margin-left:4px;
+}
+ul.simplePagerNav{
+	float:right;
+}
+ul.simplePagerNav li.currentPage{
+	background:url(../images/pagination_actif.png) no-repeat;
+}
+ul.simplePagerNav li a{
+	text-decoration:none;
+	font-size:12px;
+	color:#2D3B7B;
+	font-family:Arial, Helvetica, sans-serif;
+}
+ul.simplePagerNav li.currentPage a{
+color:#FFF;
+}
+.fb-like span{
+	height:30px !important;
+}
+.fb-like span iframe{
+	height:auto !important;
+}

@@ -1,0 +1,281 @@
+* {
+    padding : 0;
+    margin : 0;
+}
+
+#calendar_events_count{
+	display:none;
+	}
+.smoothcalendar {
+    font-family: "Lucida Grande", "Lucida Sans Unicode"; 
+    font-size: 12px;
+    position: relative;
+    color : #000;
+    overflow:hidden;
+    width: 100%;
+}
+
+.smoothcalendar .monthly-view {
+    background-color: transparent;
+} 
+
+.smoothcalendar .daily-view, 
+.smoothcalendar .event-view {
+	padding:0 1%;
+	height:100% !important;
+} 
+.smoothcalendar .daily-view{
+	
+}
+.smoothcalendar .navigations{
+    overflow: hidden;
+    height: 30px;
+    line-height: 28px;
+}
+
+.smoothcalendar .navigations div {
+    float: left;    
+    text-align: center;
+}
+
+.smoothcalendar .columns {
+    float: left; 
+    padding-left: 1px;
+}
+
+.smoothcalendar .weekDays{
+    overflow: hidden;
+}
+
+.smoothcalendar .weekDays div {
+    display : block;
+    margin-bottom: 1px;
+}
+
+.smoothcalendar .dayNames {
+    display : block;
+    text-transform: uppercase;
+    font-size : 10px;
+    color : #000;
+    text-align: center;
+    padding: 0px;
+}
+
+.smoothcalendar a {
+    text-decoration: none;
+    color: #18191D; 
+    font-size: 150%;
+    outline: none;
+}
+
+.current_date {
+    font-size: 10px;
+    font-weight: bold;
+    color : #a22744;
+}
+
+.current_date_IE6 {
+    font-size: 10pt;
+    font-weight: bold;
+    color : #a22744;
+}
+
+.days_of_the_week div{
+    text-transform: uppercase;
+    padding: 10px 0px;
+    font-size: 85%; 
+    color: #18191D;
+    padding: 4px;
+}
+
+.day_content, .emptyBox {
+    border: 1px solid #000;
+    padding: 0px; 
+    display: block;
+    overflow: hidden;
+}
+
+.day_content_today {
+    background-color: #01b500;
+    border: 1px solid #01b500;
+    padding: 0px; 
+    display: block;
+    overflow: hidden;
+}
+
+.emptyBox {
+    padding: 1px;
+    border: none;
+    background-color: transparent;
+}
+
+.day_content_today_with_event {
+    background-color: #ED3330;
+    border: 1px solid #ED3330;
+    cursor : pointer;
+    padding: 0px; 
+    z-index: 500;
+    display: block;
+    overflow: hidden;
+}
+
+.day_content_with_event {
+    background-color: #a22744;
+    border: 1px solid #a22744;
+    cursor : pointer;
+    padding: 0px; 
+    z-index: 500;
+    display: block;
+    overflow: hidden;
+}
+
+.day_content_with_event_mouseover {
+    background-color: #a22744;
+    border : 1px solid #000;
+    cursor : pointer;
+    padding: 0px; 
+}
+
+.day_content_today_with_event_mouseover {
+    background-color: #ED3330;
+    border: 1px solid #000;
+    padding: 0px; 
+    display: block;
+    overflow: hidden;
+}
+
+.day_number {
+    color: #000;
+    font-size: 12px;
+    width : 100%;
+    padding: 0 1px !important;
+}
+
+.day_event_count {
+    padding : 0 0 0 0;
+    font-size: 8px;
+    text-align: right;
+    color : #FFF;
+    width : 100%;
+}
+
+.events_list_box {
+    position : absolute;
+    overflow : hidden;
+    background-color: #000;
+    border: 3px solid #000;
+    padding: 4px;
+}
+
+.smoothcalendar .eventListContainer {
+    height: 92%;
+    overflow: auto;
+    position : relative;
+    top : 0px;
+	overflow:auto;
+}
+
+.smoothcalendar .eventDetailContainer {
+    margin-top : 10px;
+    overflow: hidden;
+    position : relative;
+    top : 0px;
+    font-size: 9pt;
+}
+
+.smoothcalendar #fullDateText, .smoothcalendar .event-time {
+    margin-bottom: 2px;
+    font-size: 13pt;
+    font-weight: normal;
+    color : #a1b500;
+}
+
+.smoothcalendar .event-details, .smoothcalendar .event-time {
+	font-size: 12px;
+}
+
+.smoothcalendar .event-details {
+	margin : -18px 0px 0 45px !important;
+}
+
+.smoothcalendar .fullDateText {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 100%;
+    color : #a22744;
+}
+
+.smoothcalendar #smoothcalendargoBackLink, .smoothcalendar .close-button{
+    color : #000;    
+    text-decoration: none;
+    position : absolute;
+    outline: none;
+}
+
+.smoothcalendar #smoothcalendargoBackLink {
+    font-size: 8pt;
+}
+
+.smoothcalendar .close-button {
+    font-size : 12pt;
+    text-decoration: none;
+    right : 0px;
+    top : 0px;
+	 margin-right: 1px;
+    margin-top: -3px;
+}
+
+.smoothcalendar a:hover, .smoothcalendar .close-button:hover, .smoothcalendar #smoothcalendargoBackLink:hover {
+    color : #a22744;    
+}
+
+.smoothcalendar #previousMonth, .smoothcalendar #nextMonth, .smoothcalendar #nextYear, .smoothcalendar #previousYear {
+    background-repeat: no-repeat;
+	height: 16px;
+    position: relative;
+    display: inline-block;
+    overflow : hidden;
+    cursor: pointer;
+}
+
+.smoothcalendar #nextMonth {
+     background-image: url("imgs/arrows.png");
+    background-position: 0 -14px;
+    width: 16px;
+}
+
+.smoothcalendar #nextYear {
+     background-image: url("imgs/arrows.png");
+    background-position: 0px -29px;
+    width: 16px;
+}
+
+.smoothcalendar #previousMonth {
+    background-image: url(imgs/arrows.png);
+    background-position: 0px 0px;
+    width: 16px;
+} 
+
+.smoothcalendar #previousYear {
+   background-image: url("imgs/arrows.png");
+    background-position: 0 -44px;
+    width: 16px;
+}
+
+.smoothcalendar #nextMonth:hover {
+    background-image: url(imgs/arrows.png);
+    background-position: -15px -14px;
+}
+
+.smoothcalendar #nextYear:hover {
+    background-position: -14px -29px;
+}
+
+.smoothcalendar #previousMonth:hover {
+    background-image: url(imgs/arrows.png);
+    background-position: -15px 0;
+} 
+
+.smoothcalendar #previousYear:hover {
+   background-position: -16px -44px;
+}

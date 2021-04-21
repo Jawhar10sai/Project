@@ -1,0 +1,27 @@
+/* CSS Document */
+
+.catalogue-preview{
+	border: 1px solid #BDBEBE;
+    padding: 2px;
+	width:auto !important;
+}
+.catalogue-title{
+    margin-bottom: 6px;
+	width:auto !important;
+}
+.catalogue-preview img{
+	width:100% !important;
+}
+.catalogue-title h3{
+	font-weight:bold;
+	margin:0;
+	font-size:12px;
+}
+.catalogue-info{
+	border-right:0;
+	border-left:0;
+}
+.catalogue_content{
+	width:100% !important;
+	float:left;
+}

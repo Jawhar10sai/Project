@@ -1,0 +1,330 @@
+/*
+font-family: 'Amiri', serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Nunito', sans-serif;
+*/
+@media(max-width:1000px){
+  .descript_cards{
+    margin-top: 20px;
+  }
+  .img-contact{
+    height: 120px;
+    margin: 15px;
+  }
+}
+@media(min-width:1000px){
+  .descript_cards{
+    min-height: 500px;
+  }
+  .descript_cards_body{
+    position: fixed;
+    top: 25%;
+  }
+  .img-contact{
+    height: 80px;
+    margin: 15px;
+  }
+}
+body{
+  max-width: 100%;
+  background-color: #fff;
+}
+header{
+  background-color: #DFDFDF;
+  min-height: 100%;
+}
+section{
+  min-height: 50vh;
+  max-width: 100%;
+}
+.description{
+  font-family: 'Nunito', sans-serif;
+  font-size:16px;
+  color: black;
+}
+label{
+  font-family: 'Nunito', sans-serif;
+  font-size:16px;
+}
+.titlessection{
+    font-family: 'Open Sans', sans-serif;
+      font-weight: 200;
+      font-size: 30px;
+}
+.contelement{
+  font-family: 'Raleway', sans-serif;
+  font-size:18px;
+}
+.sub-titlessection{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+  font-size: 22px;
+}
+.cardcont{
+  margin-bottom: 15px;
+}
+#lve_qui_somme_nous{
+  background-color: #F4F6F7;
+}
+#lve_descript{
+  background-color: #F3F3F3;
+}
+.btn-lve{
+  background-color:#dc1e2d;
+  border:0px;
+  color: #bcbec0;
+}
+.btn-lve:hover{
+  background-color:#DF0000;
+  color: #FFFFFF;
+}
+.carousel-caption{
+  background-color: #fff;
+  filter:alpha(opacity=70);
+  opacity:0.7;
+  color: black;
+}
+#lve_footer{
+  background-color: black;
+  color: #fff;
+}
+textarea{
+  max-height: 123px;
+}
+.mapps{
+  min-height: 40vh;
+}
+.card-img-top{
+  border-radius: 22px 22px 0px 0px;
+  max-height: 300px;
+}
+#lve_contact{
+  padding-top:140px;
+}
+#lve_produits{
+  background-color: #dc1e2d;
+  color: #212F3D;
+  padding-top:140px;
+  min-height: 60vh;
+}
+#lve_conseils{
+  background-color:#F5F5F5;
+  padding-top:140px;
+    padding-bottom: 50px;
+}
+.nav-link.active{
+  border-bottom:3px solid #dc1e2d;
+  border-radius:5px;
+}
+.nav-link{
+  font-family: 'Montserrat', sans-serif;
+  font-size:18px;
+  color: #dc1e2d;
+}
+.nav-link:hover{
+  color: black;
+}
+.navbar{
+  background-color:#F5F5F5;
+}
+.dropdown-item{
+  font-family: 'Montserrat', sans-serif;
+  font-size:16px;
+  color: #dc1e2d;
+}
+.dropdown-item:hover{
+color: black;
+}
+.navbar-toggler{
+  color: #dc1e2d;
+}
+#lve_descriptt{
+  margin-top: 0px;
+}
+a.downloads{
+  color: #404040;
+  padding-top: 20px;
+  padding-bottom:  20px;
+}
+a.downloads:hover{
+  background-color: #E6E5E5;
+    color: #dc1e2d;
+}
+.card-title{
+  margin-top: 10px;
+}
+.prevv{
+  background-color: #dc1e2d;
+  color: #fff;
+  border-radius: 50%;
+  padding:20px;
+}.nextt{
+  background-color: #dc1e2d;
+  color: #fff;
+  border-radius: 50%;
+  padding:20px;
+}
+.fa-bars{
+  color:#dc1e2d;
+}
+.astuceb{
+  max-height: 70vh;
+}
+.astu{
+  max-height: 50vh;
+}
+.card{
+  border-radius: 1.5rem;
+}
+.sidebar{
+  list-style-type: none;
+}
+.sidebar-item{
+  text-decoration: none;
+  padding:5px;
+  width: 100%;
+}
+.sidebar-item a{
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  color:#52678c;
+}
+.sidebar-item a:hover{
+  color: #dc1e2d;
+}
+
+.sidebar-item.active a{
+  color: #dc1e2d;
+}
+.contenu{
+  background-color: white;
+  padding-top: 150px;
+
+}
+.sidecontainer{
+  min-height: 82vh;
+}
+.sidebar-titles{
+  color: #dc1e2d;
+  font-family: 'Open Sans', sans-serif;
+}
+.sidebar-item button{
+  font-family: 'Open Sans', sans-serif;
+  color:#52678c;
+  background: transparent;
+  border: 0px;
+}
+.sidebar-item button:hover{
+  color: #dc1e2d;
+}
+.img-icons{
+  height: 100px;
+}
+.desc-icons{
+  padding-top: 15px;
+}
+.desc-icons a{
+  color: #dc1e2d;
+}
+.desc-icons a:hover{
+  color: red;
+}
+/*##################################################################*/
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+.hovereffect .overlay {
+  position: absolute;
+  overflow: hidden;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
+  border-bottom: 1px solid #FFF;
+  border-top: 1px solid #FFF;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0,1);
+  -ms-transform: scale(0,1);
+  transform: scale(0,1);
+}
+
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.hovereffect img {
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+  height: 200px;
+  border-radius: 1.5rem;
+}
+
+.hovereffect:hover img {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter');
+  height: 250px;
+  border-radius: 0px;
+  filter: brightness(0.6);
+  -webkit-filter: brightness(0.6);
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  font-size: 25px;
+  background-color: transparent;
+  color: #FFF;
+  padding: 1em 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0,-100%,0);
+  transform: translate3d(0,-100%,0);
+}
+
+.hovereffect a, .hovereffect p {
+  color: #FFF;
+  padding: 1em 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0,100%,0);
+  transform: translate3d(0,100%,0);
+}
+
+.hovereffect:hover a, .hovereffect:hover p, .hovereffect:hover h2 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+.big-title{
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    font-size: 50px;
+    letter-spacing: 25px;
+}
+.offresbody{
+  max-height: 75vh;
+  overflow: auto;
+}
+.contenu-wiki{
+  max-height: 82vh;
+  overflow: auto;
+}

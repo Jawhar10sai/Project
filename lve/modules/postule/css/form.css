@@ -1,0 +1,395 @@
+table#table_postule td {
+	padding:2px 10px;
+}
+form#form_recrute .btn_envoi {
+	background: none repeat scroll 0 0 #009EE0 !important;
+	border: medium none;
+	color: #FEFEFE;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 4px 10px;
+	width:auto !important;
+	float:right !important;
+}
+form#form_recrute ul.left {
+	float: left;
+	font-size: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 48%;
+}
+form#form_recrute ul.right {
+	float: right;
+	font-size: 100%;
+	list-style-type: none;
+	margin: 47px 0 0;
+	padding: 0;
+	width: 48%;
+}
+form#form_recrute li {
+	display: block;
+	margin: 0;
+	padding: 2px 5px 2px 9px;
+	float:left;
+	width:30% !important;
+}
+form#form_recrute li:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+form#form_recrute .buttons:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+form#form_recrute .buttons {
+	clear: both;
+	display: block;
+	margin: 11px 0;
+}
+form#form_recrute li {
+	height: 1%;
+}
+form#form_recrute .buttons {
+	height: 1%;
+}
+form#form_recrute li div {
+	display: inline-block;
+}
+form#form_recrute li div {
+	color: #444444;
+	margin: 0 4px 0 0;
+	padding: 0 0 3px;
+}
+form#form_recrute li div.div1 {
+	float: left;
+	margin: 0 4px 0 0;
+	width: 100px;
+}
+form#form_recrute li div.div2 {
+	float: left;
+	margin: 0 4px 0 0;
+	width: 150px;
+}
+form#form_recrute li div.div3 {
+	float: left;
+	margin: 0 4px 0 0;
+	width: 135px;
+}
+form#form_recrute li span {
+	float: left;
+	margin: 0 4px 0 0;
+	padding: 0;
+}
+form#form_recrute em.radio_btn {
+	float: left;
+	font-style: normal;
+	width: 50% !important;
+}
+form#form_recrute li div.left {
+	display: inline;
+	float: left;
+	width: 50% !important;
+}
+form#form_recrute li div.right {
+	display: inline;
+	float: right;
+	width: 50% !important;
+}
+form#form_recrute li div.left .medium {
+	width: 100% !important;
+}
+form#form_recrute li div.right .medium {
+	width: 100% !important;
+}
+form#form_recrute .clear {
+	clear: both;
+}
+form#form_recrute li div label {
+	clear: both;
+	color: #271395;
+	display: block;
+	font-size: 12px;
+	line-height: 9px;
+	margin: 0;
+	padding-bottom: 5px;
+	padding-top: 3px;
+}
+form#form_recrute li span label {
+	clear: both;
+	color: #444444;
+	display: block;
+	font-size: 9px;
+	line-height: 9px;
+	margin: 0;
+	padding-top: 3px;
+}
+form#form_recrute li .datepicker {
+	cursor: pointer !important;
+	float: left;
+	height: 16px;
+	margin: 0.1em 5px 0 0;
+	padding: 0;
+	width: 16px;
+}
+.form#form_recrute_description {
+	border-bottom: 1px dotted #CCCCCC;
+	clear: both;
+	display: inline-block;
+	margin: 0 0 1em;
+}
+.form#form_recrute_description[class] {
+	display: block;
+}
+.form#form_recrute_description h2 {
+	clear: left;
+	font-size: 160%;
+	font-weight: 400;
+	margin: 0 0 3px;
+}
+.form#form_recrute_description p {
+	font-size: 95%;
+	line-height: 130%;
+	margin: 0 0 12px;
+}
+form#form_recrute hr {
+	display: none;
+}
+form#form_recrute li.section_break {
+	border-top: 1px dotted #CCCCCC;
+	margin-top: 9px;
+	padding-bottom: 0;
+	padding-left: 9px;
+	padding-top: 13px;
+	width: 100% !important;
+}
+form#form_recrute ul li.first {
+	border-top: medium none !important;
+	margin-top: 0 !important;
+	padding-top: 0 !important;
+}
+form#form_recrute .section_break h3 {
+	color: #5E5E5E;
+	font-size: 16px;
+	font-weight: bold;
+	height: 15px;
+	line-height: 15px;
+	margin: 0 0 2px;
+}
+form#form_recrute .section_break p {
+	font-size: 85%;
+	margin: 0 0 10px;
+}
+form#form_recrute input.button_text {
+	overflow: visible;
+	padding: 0 7px;
+	width: auto;
+}
+form#form_recrute .buttons input {
+	font-size: 120%;
+	margin-right: 5px;
+}
+form#form_recrute input#save {
+	border: 0 none;
+	height: 25px;
+	margin-right: 0;
+	text-indent: 500px;
+	width: 185px;
+}
+form#form_recrute label.description {
+	border: medium none;
+	display: block;
+	font-size: 11px;
+	line-height: 150%;
+	padding: 0 0 1px;
+	font-weight:bold;
+}
+form#form_recrute span.symbol {
+	font-size: 115%;
+	line-height: 130%;
+}
+form#form_recrute input.text {
+	border: 1px solid #B4B4B4;
+	color: #333333;
+	font-size: 100%;
+	margin: 0;
+	padding: 2px 0;
+}
+form#form_recrute input.file {
+	color: #333333;
+	font-size: 100%;
+	margin: 0;
+	padding: 2px 0;
+}
+form#form_recrute textarea.textarea {
+	border-color: #7C7C7C #C3C3C3 #DDDDDD;
+	border-style: solid;
+	border-width: 1px;
+	color: #333333;
+	font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	font-size: 100%;
+	margin: 0;
+	width: 100%;
+}
+form#form_recrute select.select {
+	border-color: #7C7C7C #C3C3C3 #DDDDDD;
+	border-style: solid;
+	border-width: 1px;
+	color: #333333;
+	font-size: 12px;
+	margin: 1px 0;
+	padding: 1px 0 0;
+}
+form#form_recrute input.currency {
+	text-align: right;
+}
+form#form_recrute input.checkbox {
+	display: block;
+	height: 13px;
+	line-height: 1.4em;
+	margin: 6px 0 0 3px;
+	width: 13px;
+}
+form#form_recrute input.radio {
+	display: block;
+	height: 13px;
+	line-height: 1.4em;
+	margin: 6px 0 0 3px;
+	width: 13px !important;
+}
+form#form_recrute label.choice {
+	display: block;
+	font-size: 100%;
+	line-height: 1.4em;
+	margin: -1.55em 0 0 18px;
+	padding: 2px 3px 5px;
+	width: 100%;
+	font-size: 12px;
+}
+form#form_recrute select.select[class] {
+	margin: 0;
+	padding: 1px 0;
+}
+form#form_recrute .safari select.select {
+	font-size: 120% !important;
+	margin-bottom: 1px;
+}
+form#form_recrute input.small {
+	width: 25% !important;
+}
+form#form_recrute select.small {
+	width: 25% !important;
+}
+form#form_recrute input.medium {
+	width: 50% !important;
+}
+form#form_recrute select.medium {
+	width: 50% !important;
+}
+form#form_recrute input.large {
+	float: left;
+	width: 100% !important;
+}
+form#form_recrute input.medium_input {
+	float: left;
+	width: 100% !important;
+}
+form#form_recrute select.large {
+	width: 100% !important;
+}
+form#form_recrute textarea.small {
+	height: 5.5em;
+}
+form#form_recrute textarea.medium {
+	height: 10em;
+}
+form#form_recrute textarea.large {
+	height: 20em;
+}
+form#form_recrute #error_message {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px dotted red;
+	margin-bottom: 1em;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 4px;
+	text-align: center;
+	width: 99%;
+}
+form#form_recrute #error_message_title {
+	color: #DF0000;
+	font-size: 125%;
+	margin: 7px 0 5px;
+	padding: 0;
+}
+form#form_recrute #error_message_desc {
+	color: #000000;
+	font-size: 100%;
+	margin: 0 0 0.8em;
+}
+form#form_recrute #error_message_desc strong {
+	background-color: #FFDFDF;
+	color: red;
+	padding: 2px 3px;
+}
+form#form_recrute li.error {
+	background-color: #FFDFDF !important;
+	border-bottom: 1px solid #EACBCC;
+	border-right: 1px solid #EACBCC;
+	margin: 3px 0;
+}
+form#form_recrute h3 {
+	margin:0;
+}
+form#form_recrute li.error label {
+	color: #DF0000 !important;
+}
+form#form_recrute p.error {
+	clear: both;
+	color: red;
+	font-size: 10px;
+	font-weight: 700;
+	margin: 0 0 5px;
+}
+form#form_recrute .required {
+	float: none;
+	font-weight: 700;
+}
+form#form_recrute input {
+	color: #4E4E4E;
+}
+form#form_recrute input.required {
+	color: #4E4E4E;
+	float: none;
+	font-weight: normal;
+}
+form#form_recrute .guidelines {
+	background: none repeat scroll 0 0 #F5F5F5;
+	border: 1px solid #E6E6E6;
+	color: #444444;
+	font-size: 80%;
+	left: 60%;
+	line-height: 130%;
+	margin: 0 0 0 8px;
+	padding: 8px 10px 9px;
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+	width: 60%;
+	z-index: 1000;
+}
+form#form_recrute .guidelines small {
+	font-size: 105%;
+}
+form#form_recrute li.highlighted .guidelines {
+	visibility: visible;
+}
+form#form_recrute li:hover .guidelines {
+	visibility: visible;
+}

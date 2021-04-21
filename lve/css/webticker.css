@@ -1,0 +1,65 @@
+/* liScroll styles */
+
+.tickeroverlay-left{
+	display:block;
+	pointer-events:none;
+	position:absolute;
+	z-index:30;
+	height:12px;
+	width:150px;
+	top:0;
+	left:-2px;
+}
+	
+.tickeroverlay-right{
+	display:block;
+	pointer-events:none;
+	position:absolute;
+	z-index:30;
+	height:12px;
+	width:150px;
+	top:0;
+	right:-2px;
+}
+.tickercontainer { /* the outer div */
+margin: 0; 
+padding: 0;
+overflow: hidden; 
+}
+.tickercontainer .mask { /* that serves as a mask. so you get a sort of padding both left and right */
+position: relative;
+overflow: hidden;
+}
+ul.newsticker { /* that's your list */
+position: relative;
+margin-left: 20px;
+font: bold 10px Verdana;
+list-style-type: none;
+margin: 0;
+padding: 0;
+
+}
+ul.newsticker li {
+float: left; /* important: display inline gives incorrect results when you check for elem's width */
+margin: 0 0 -3px;
+margin: 0\9;
+padding-right: 30px;
+/*background: #fff;*/
+}
+ul.newsticker a {
+
+} 
+ul.newsticker span {
+margin: 0 10px 0 0;
+} 
+
+#webticker2{
+	float:right;
+}
+
+#webticker2 li {
+float: right; /* important: display inline gives incorrect results when you check for elem's width */
+margin: 0;
+padding-left: 15px;
+/*background: #fff;*/
+}

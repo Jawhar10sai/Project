@@ -1,0 +1,7 @@
+$table->foreign('numero_Carnet')->references('numeroCarnet')->on('ramasses');
+$table->foreign('declaration')->references('numero')->on('declarations');
+        $table->foreign('user_id')->references('id')->on('users');
+
+        $table->foreign('client_id')->references('CLIENT_ID')->on('clients');
+        $table->foreign('user_id')->references('id')->on('users');
+        $table->foreign('num_declar')->references('numero')->on('declarations');

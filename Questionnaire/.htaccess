@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteRule ^Questionnaire?$ questionnaire.php
+RewriteRule ^Resultat?$ score.php
+RewriteRule ^([0-9]+)?$ index.php?id=$1
+RewriteRule ^([0-9]+)?$ ?id=$1
+RewriteRule ^Erreur?$ 404.php

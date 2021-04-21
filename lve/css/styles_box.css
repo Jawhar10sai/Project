@@ -1,0 +1,25 @@
+.column,.column_footer,.column_header{
+	float:left;
+}
+
+.column .dragbox{
+	display:block;
+	float: left;
+    width: 100%;
+}
+#tout_footer #column_footer,#tout_header #column_header{
+	width:100%;
+	}
+#tout_footer,#tout_header{
+	float: left;
+    width: 100%;
+	}
+.dragbox-content hr{
+	width:100%;}
+	#tout_header{
+	z-index:9999;}
+	
+.dragbox-content.Image img{
+	float:left;
+	width:100%;
+	}

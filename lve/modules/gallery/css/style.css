@@ -1,0 +1,294 @@
+@import url("reset.css");
+
+ol, ul {
+	list-style: none;
+}
+.clear {
+	clear:both;
+}
+.noright {
+	margin-right: 0px;
+}
+
+.topNavigation {
+	background: #171717;
+	border-bottom: 1px solid #7f7f7f;
+	width: 100%;
+	height: 75px; 
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 120;
+}
+.centerNav {
+	width: 960px; 
+	height: 60px;
+	margin: 0px auto;
+}
+.logo {
+	margin: 7px 0px 0px 0px;
+	float: left;
+}
+.menu{
+	padding: 0;
+	float: right;
+	color: #fff; /* text color of the menu */
+	border:1px solid #787878;
+	position:relative;
+	top:15px;
+}
+.menu  li{
+	display: inline;
+} /* Makes the link all appear in one line, rather than on top of each other */
+.menu li a{
+	float: left; 
+	text-decoration: none; /* removes the underline from the menu text */
+	color: #fff; /* text color of the menu */
+	padding: 12.5px 11px;
+	background:none repeat scroll 0 0 #000;
+	font-family:"Trebuchet MS",sans-serif;
+	font-size:16px;
+	text-transform:uppercase;
+}
+.menu li a:visited{ /* This bit just makes sure the text color doesn't change once you've visited a link */
+	color: #fff;
+	text-decoration: none;
+}
+.menu  li a:hover, .menu  li .current{
+	color: #fff;
+	background-color:#252525;
+
+} /* change the background color of the list item when you hover over it */
+
+.gallery-list {
+	float:left;
+	margin:140px 0 0 45px;	
+}
+.gallery-list li {
+	float:left;
+}
+.gallery-list li a{
+	display: block;
+	border: 4px solid #202022;
+}
+.gallery-list li a:hover{
+	border: 4px solid #3d3d3e;
+}
+.gallery-list li img {
+	display:block;
+}
+.gallery-nav {
+	margin:0px 0 0 0;
+	float:left;
+	width: 99999px; /* hack for floading elements to the left */
+}
+.gallery-nav img {
+	display:block;
+}
+.gallery-nav li {
+	float:left;
+	margin:0 10px 0 0;
+	background:none repeat scroll 0 0 #F4F4F4;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow:0 0 5px #dadada;
+}
+.gallery-nav li a {
+	display:block;
+	margin: 5px;
+}
+
+/* lighbox */
+.lightbox-frame {
+	border: 0px solid red;
+	position: relative;
+	z-index: 100;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+/* set positon absolute */
+.gallery-nav-mask {
+	position:relative;
+	height: 70px; 
+	width: 100%; 
+	overflow: hidden;
+	position: relative;
+	top: 15px;
+	margin-left: 0;
+}
+.gallery-nav-wrapper {
+	position:relative;
+	width: 100%; 
+	height: 90px; 
+	left: 0;
+	z-index: 101;
+	display: none;
+	bottom: -100px;
+	display: block;
+	border-top: 1px solid #7f7f7f;
+}
+.gallery-nav-wrapper li a:hover{
+	border-color: #5f5f5f;
+}
+
+.lightbox-frame .imageBlock {
+	position: relative;
+	margin-top: 20px;
+	top: 0%;
+	padding: 0;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow:0 0 10px #ccc;
+	border:1px solid #FFFFFF;
+}
+
+.ajaxLoader{
+	position: relative;
+	top: 50%;
+	left: 50%;
+	padding: 0px 5px 20px 5px;
+	color: #484848;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow:0 0 10px #ccc;
+	border:1px solid #FFFFFF;
+	z-index: 121;
+	background:#FFF;
+	width:140px !important;
+	margin-left:-70px;
+}
+.left-arrow, .right-arrow {
+	position: absolute;
+	top: 50%;
+	margin-top:-22px;
+	z-index: 105;
+	opacity: 0.4;
+}
+.left-arrow:hover, .right-arrow:hover {
+	opacity: 1;
+}
+.left-arrow {
+	left: 10px;
+}
+.right-arrow {
+	right: 10px;
+}
+.n-left-arrow {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top:-20px;
+	z-index: 107;
+	opacity: 0.4;
+}
+.n-right-arrow {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin-top:-20px;
+	z-index: 107;
+	opacity: 0.4;
+}
+.n-left-arrow:hover, .n-right-arrow:hover {
+	opacity: 1;
+}
+#imagePreview{
+	position:absolute;
+	padding: 5px;
+	display:none;
+	z-index: 110;
+}
+#tooltip{
+	position:absolute;
+	z-index: 112;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow:0 0 10px #ccc;
+	background:none repeat scroll 0 0 #F4F4F4;
+	border:1px solid #FFFFFF;
+	padding:2px 5px;
+	color:#484848;
+	display:none;
+}
+#imagePreview img{
+	display: block;
+}
+.caption {
+	position:absolute;
+	background:#000;
+	padding: 1%;
+	width:98% !important;
+	bottom: 0px;
+	left: 0px;
+	color: #4848484;
+}
+#expandImg {
+	position:absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 113;
+	display: none;
+}
+
+/* contact page */
+#page-wrap {
+	width: 960px;
+	padding: 20px 50px 20px 50px;
+	margin: 90px auto;
+}
+h2 {
+	font-family:"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
+	font-size:18px;
+	margin-bottom:10px;
+	text-transform:uppercase;
+}
+
+#contact-area {
+	width: 500px;
+	margin-top: 25px;
+}
+.contentBox {
+	width: 610px;
+	float: left;
+	padding: 10px;
+}
+.sideBar {
+	padding: 10px;
+	height: 280px; 
+	float: right;
+	width: 300px; 
+}
+#contact-area input, #contact-area textarea {
+	padding: 5px;
+	width: 371px;
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0px 0px 10px 0px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow:0 0 5px #484848;
+	background:none repeat scroll 0 0 #F4F4F4;
+	border:1px solid #FFFFFF;
+}
+
+#contact-area textarea {
+	height: 90px;
+}
+
+#contact-area textarea:focus, #contact-area input:focus {
+	border: 1px solid #900;
+}
+
+#contact-area input.submit-button {
+	width: 100px;
+	float: right;
+}
+#ajaxResponse img{
+	max-width:100% !important;
+	height:100% !important;
+	margin:0 auto;
+	 }

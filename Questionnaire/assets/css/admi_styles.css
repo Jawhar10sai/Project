@@ -1,0 +1,22 @@
+/**************************Couleurs************************
+* rouge = #dc1e2d;
+* gris = #bcbec0;
+*/
+/**************************Couleurs************************
+*font-family: 'Open Sans', ;
+*font-family: 'Source Sans Pro', ;
+*font-family: 'Spartan', ;
+*/
+
+/*-------------------- Basics ---------------------*/
+h5{
+  font-family: 'Open Sans' ;
+}
+th,td{
+    font-family:'Spartan';
+}
+
+
+/*-------------------- Page index ---------------------*/
+
+/*-------------------- Page Questionnaire ---------------------*/

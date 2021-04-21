@@ -1,0 +1,16 @@
+Options +SymLinksIfOwnerMatch
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^megamall\.ma$
+RewriteRule ^megamall.oneoweb.com [L]
+
+RewriteRule   ^([0-9]+)_(.*)/$   	 index.php?site=$1 [L]
+RewriteRule   ^([0-9]+)_(.*)/(.*)$   	 index.php?site=$1&id_page=$3 [L]
+
+
+
+
+RewriteRule   ^Maquette_([0-9]+)$   	 index.php?maquette=$1 [L]
+RewriteRule   ^Admin$   	 index.php?login=1 [L]
+RewriteRule   ^([^.]+)$   	 index.php?id_page=$1 [L]
+
