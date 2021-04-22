@@ -1,50 +1,27 @@
 <?php
-class Courriers
+class Courrier
 {
-    public $Agence,
-        $courrier_id,
-        $Numero,
-        $Date,
-        $Code1,
-        $Expediteur,
-        $Code2,
-        $destinataire,
-        $adresse1,
-        $adresse2,
-        $Ville1,
-        $Ville2,
-        $Port,
-        $Colis,
-        $Poids,
-        $type,
-        $Montant_ttc,
-        $Espece,
-        $Cheque,
-        $Traite,
-        $bl,
-        $Recu,
-        $date_recu,
-        $num,
-        $date_bordereau,
-        $date_livraison,
-        $Delais_Cible,
-        $Ecart,
-        $Depassement,
-        $Ecart2,
-        $service,
-        $BORDEREAU_NUM,
-        $livraison,
-        $ramasseur,
-        $FC_date1,
-        $FC_date2,
-        $date_caisse,
-        $statut,
-        $statut_suivis,
-        $FC_date_arrive,
-        $Motif,
-        $Taxateur;
-
     function __construct()
     {
+    }
+    public static function TrouverCourrierParNumero($numero)
+    {
+        $connection = new PDO("mysql:dbname=lvedbexp;host=localhost", 'lve', 'adminlvedba');
+        $result =     $connection->prepare("SELECT * FROM `etat_expedition` WHERE `Numero`=?");
+        return ($result->execute([$numero])) ? $result->fetch(PDO::FETCH_OBJ) : false;
+    }
+
+    public static function TrouverCourrier($id)
+    {
+        $connection = new PDO("mysql:dbname=lvedbexp;host=localhost", 'lve', 'adminlvedba');
+        $result =     $connection->prepare("SELECT * FROM `etat_expedition` WHERE `courrier_id`=?");
+        return ($result->execute([$id])) ?  $result->fetch(PDO::FETCH_OBJ) : false;
+    }
+
+    public static function TrouverCourrierClient($id, $client)
+    {
+        $connection = new PDO("mysql:dbname=lvedbexp;host=localhost", 'lve', 'adminlvedba');
+        $result =   $connection->prepare("SELECT * FROM `etat_expedition` WHERE `courrier_id`=? AND Code1=?");
+        return ($result->execute([$id, $client])) ? $result->fetch(PDO::FETCH_OBJ) : false;
     }
 }
