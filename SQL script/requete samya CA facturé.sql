@@ -1,9 +1,3 @@
-select * from client where nom='GLOBAL ENGINES MARRAKECH' and client_cod=10242
-select * from secteur where secteur_cod=70006
-select * from agence where agence_cod=700
-
---update client set secteur_cod=70006 where client_cod=10242
-
 /******************************************************************/
 
 declare  @date1 datetime
@@ -23,7 +17,7 @@ left join AGENCE on  CLIENT.agence_cod=AGENCE.agence_cod
 where  cast(f.facture_dat as DATE) between @date1 and @date2 AND fs.COURRIER_TYP in ('L','G')
 group by  client.CLIENT_COD,CLIENT.NOM ,client.client_typ,f.facture_typ,AGENCE_LIB,f.FACTURE_NUM, fs.COURRIER_TYP
 
-
+/***************************************************************************************************************/
 declare  @date1 datetime
 declare  @date2 datetime
 set @date1='1-1-2020'
@@ -44,10 +38,3 @@ from declaration_v dv inner join facture f on dv.facture_id=f.facture_id
 inner join  courrier_montants_v mv on mv.courrier_id =dv.courrier_id
 where dv.facture_id is not null and cast(f.facture_dat as DATE) between @date1 and @date2
 
---select top 10 * from declaration_v where facture_id is not null
---select  * from facture where facture_id=2121
-
-select client_cod,nom,client_typ,capital_soc,agence_lib,ice 
-from client
-inner join agence on client.agence_cod=agence.agence_cod
-where client_typ='EC'

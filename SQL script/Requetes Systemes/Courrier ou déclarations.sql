@@ -34,13 +34,12 @@ insert into courrier_ensemble(ensemble_num,courrier_id,AFFICHE_ORD)values(@cl,@i
 -- merci de me modifier la ville expéditeur a CASA-AIN SEBAA-logistique dans ce declaration et ajouter n° de BL [X] dans cette exp [X] 
 --****************************
 select top 10 * from ville where VILLE_LIB like '%ain s%'
-
 blk
 use vexinitial
 declare @courrier_id int,@num_bl varchar(50),@cod_vil varchar(50)
-set @num_bl='FV21-004516'
+set @num_bl='FV21-004717'
 set @cod_vil = 170
-select @courrier_id=courrier_id from courrier where  COURRIER_NUM in('C01631278')
+select @courrier_id=courrier_id from courrier where  COURRIER_NUM in('C01631284')
 update intervient set VILLE_COD=@cod_vil where COURRIER_ID=@courrier_id and INTERVENTION_TYP='de' --( dd Arrivée de départ )--
 update [COURRIER_AGENCE] set AGENCE_COD=@cod_vil  where COURRIER_ID=@courrier_id and INTER_TYP='D' --( A Arrivée d départ )
 update retour_fonds set num=@num_bl where courrier_id=@courrier_id and fonds_typ='BL'
