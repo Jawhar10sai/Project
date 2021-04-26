@@ -207,9 +207,9 @@ function NombredanslePanier(){
          $.ajax({
              type: "POST",
              data: {idss:ids,datera:dateram},
-             url: "gestion/ramassage.php",
+             url: "gestion/ajout.php",
              success: function(res){
-                 //window.open('Send_Mail', '_blank');
+                 console.log(res);
                 if (res=="ramasse") {
                   Swal.fire({
                     icon: 'success',

@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 include_once "connection.class.php";
 include_once "clients.class.php";
 include_once 'declarations.class.php';

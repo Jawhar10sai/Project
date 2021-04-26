@@ -290,10 +290,7 @@ class ClientLve extends Clients
   {
     $declars = Connection::getConnection()
       ->prepare("SELECT * FROM `panierramasse` WHERE `etat`='En cours' AND `numeroCarnet` in(SELECT `numeroCarnet` FROM `ramasse` WHERE `user_id`=?)");
-    if ($declars->execute([$this->CLIENT_ID]))
-      return $declars->fetchObject()->numeroCarnet;
-    else
-      return 'nouv';
+    return (!$declars->execute([$this->CLIENT_ID])) ? false : $declars->fetchObject()->numeroCarnet;
   }
   #Code de ramassage du carnet en cours et qui n'est pas encore validé
   public function coderamassageEncours()
@@ -325,7 +322,7 @@ class ClientLve extends Clients
       $mail->isHTML(true);
       $mail->Subject = 'Ramassage du client ' . $this->NOM;
       $body = "Bonjour,<br /><br />Je tiens a vous informer que le client " . $this->NOM . " - " . $this->CLIENT_COD . " a une nouvelle demande de ramassage,
-       merci de la prendre en consideration, vous trouverez ci-dessous les informations necessaires pour effectuer cette operation au bonnes conditions:";
+       merci de la prendre en consideration, vous trouverez ci-dessous les informations necessaires pour effectuer cette operation aux bonnes conditions:";
       $body .= "<h5> Code de ramassage : " . $code . "</h5>";
       $body .= "<h5> Numero de telephone : " . $this->telephone . "</h5>";
       $body .= "Cordialement.";
@@ -340,7 +337,7 @@ class ClientLve extends Clients
   {
     $dateram = date('Y-m-d', strtotime(date($date)));
     $rand = ($this->CLIENT_COD == '15443') ? 554488 : rand(1, 500000);
-    if (!$this->carnetEncours()) {
+    if ($this->carnetEncours() == false) {
       $carnet = Connection::getConnection()->prepare("INSERT INTO `ramasse`(`dateramassage`, `user_id`,`code_ramassage`) VALUES (?,?,?)");
       if ($carnet->execute([$dateram, $this->CLIENT_ID, $rand])) {
         $last_id = Connection::getConnection()->query("SELECT * from `ramasse` ORDER BY `numeroCarnet` desc LIMIT 1")->fetchObject()->numeroCarnet;

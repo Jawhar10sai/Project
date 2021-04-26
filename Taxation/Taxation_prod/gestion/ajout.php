@@ -112,3 +112,8 @@ if (isset($_POST['ajouter_reclamation'])) {
   if ($reclamation->AjouterReclamation())
     echo "reclame";
 }
+
+if (isset($_POST['idss'])) {
+  if ($client_lve->CreerRamassage($_POST['idss'], $_POST['datera']) != false)
+    echo "ramasse";
+}

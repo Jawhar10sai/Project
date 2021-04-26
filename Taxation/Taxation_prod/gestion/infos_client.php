@@ -17,15 +17,10 @@ if (isset($_POST['code_client']) && $_POST['code_client'] != '0') {
   } else
     echo "non trouve";
 } elseif (isset($_POST['nom_client'])) {
-  #$id = $_POST["nom_client"];
   $output = '';
-  #$query = "SELECT * FROM `client` WHERE `NOM` LIKE ? AND `CLIENT_ID_client_lve` =? AND `supprime_le` IS NULL";
-  #$result = $conn->prepare($query);
   $sous_client = $client_lve->MonClientParNom($_POST["nom_client"]);
   $output = '<table style="background-color:#eee;cursor:pointer;">';
-  #if ($result->execute(["%$id%", $client_lve->CLIENT_ID])) {
   if ($sous_client) {
-    #$row = $result->fetchObject();
     foreach ($sous_client as $row) {
       $output .= '<tr class="mtr">';
       $output .= '<td style="padding:12px;">' . $row->NOM . '</td>';
