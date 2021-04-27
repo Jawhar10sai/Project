@@ -113,6 +113,7 @@ if (isset($_POST['ajouter_reclamation'])) {
     echo "reclame";
 }
 
+#Creation d'un carnet de ramassage
 if (isset($_POST['idss'])) {
   if ($client_lve->CreerRamassage($_POST['idss'], $_POST['datera']) != false)
     echo "ramasse";

@@ -153,18 +153,22 @@ if ($list_dec) {
           <td><?= $declarations->nature; ?></td>
         </tr>
       <?php
+        $ville = Villes::TrouverVille($adresses->id_ville);
         #header('content-type: application/json; charset=utf-8');
         $donnees[] = array(
           'numero' => $declarations->numero,
           'date' => date('d/m/Y', strtotime($declarations->date)),
           'colis' => $declarations->colis,
           'destinataire' =>  strtoupper($sous_client->NOM),
+          'code_destinataire' =>  strtoupper($sous_client->CLIENT_COD),
           'livraison' => $livr,
           'typeliv' => $expr,
           'port' => $prt,
           'courrier_typ' => $typcr,
           'nature' => $declarations->nature,
-          'BL' => $declarations->BL
+          'BL' => $declarations->BL,
+          'adresse' => $adresses->lib_adresse,
+          'ville' => $ville->VILLE_LIB
         );
       }
       $donnees = json_encode($donnees);
