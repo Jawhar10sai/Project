@@ -2,87 +2,17 @@
 #Page de preparation des déclaration pour la page Tracking.php et le fichier excel_tracking.json
 include_once "control_utilisateur.php";
 
-$dec_liv = 0;
-$dec_ret = 0;
-$dec_enc = 0;
-$status = "";
-$where = "";
-$dec_liv_arr = array();
-$dec_ret_arr = array();
-$dec_enc_arr = array();
-
-#$oldconnection = new mysqli('localhost', 'lve', 'adminlvedba', 'lvedbexp');
-#$client_lve->TrouverClient($_SESSION['user_id']);
 $_POST['date1'] = (isset($_POST['date1']) ? $_POST['date1'] : '');
 $_POST['date2'] = (isset($_POST['date2']) ? $_POST['date2'] : '');
 $_POST['type_dec'] = (isset($_POST['type_dec']) ? $_POST['type_dec'] : '');
 $_POST['type_courrier'] = (isset($_POST['type_courrier']) ? $_POST['type_courrier'] : '');
 $result = $client_lve->EtatMesExpeditions($_POST['date1'], $_POST['date2'], $_POST['type_courrier'], $_POST['type_dec']);
-$donnees = array();
-foreach ($result as $trackdec) {
-  $donnees[] = array(
-    'Agence' => $trackdec->Agence,
-    'courrier_id' => $trackdec->courrier_id,
-    'Numero' => $trackdec->Numero,
-    'Date' => $trackdec->Date,
-    'Code1' => $trackdec->Code1,
-    'Expediteur' => utf8_encode($trackdec->Expediteur),
-    'Code2' => $trackdec->Code2,
-    'destinataire' => utf8_encode($trackdec->destinataire),
-    'adresse1' => utf8_encode($trackdec->adresse1),
-    'adresse2' => utf8_encode($trackdec->adresse2),
-    'Ville1' => utf8_encode($trackdec->Ville1),
-    'Ville2' => utf8_encode($trackdec->Ville2),
-    'Port' => $trackdec->Port,
-    'Colis' => $trackdec->Colis,
-    'Poids' => $trackdec->Poids,
-    'type' => $trackdec->type,
-    'Montant_ttc' => $trackdec->Montant_ttc,
-    'Espece' => $trackdec->Espece,
-    'Cheque' => $trackdec->Cheque,
-    'Traite' => $trackdec->Traite,
-    'bl' => $trackdec->bl,
-    'Recu' => $trackdec->Recu,
-    'date_recu' => $trackdec->date_recu,
-    'num' => $trackdec->num,
-    'date_bordereau' => $trackdec->date_bordereau,
-    'date_livraison' => $trackdec->date_livraison,
-    'Delais_Cible' => $trackdec->Delais_Cible,
-    'Ecart' => $trackdec->Ecart,
-    'Depassement' => $trackdec->Depassement,
-    'Ecart2' => $trackdec->Ecart2,
-    'service' => $trackdec->service,
-    'BORDEREAU_NUM' => $trackdec->BORDEREAU_NUM,
-    'livraison' => $trackdec->livraison,
-    'ramasseur' => $trackdec->ramasseur,
-    'FC_date1' => $trackdec->FC_date1,
-    'FC_date2' => $trackdec->FC_date2,
-    'date_caisse' => $trackdec->date_caisse,
-    'statut' => utf8_encode($trackdec->statut),
-    'statut_suivis' => utf8_encode($trackdec->statut_suivis),
-    'FC_date_arrive' => $trackdec->FC_date_arrive,
-    'Motif' => utf8_encode($trackdec->Motif),
-    'Taxateur' => $trackdec->Taxateur
-  );
-
-  if (utf8_encode($trackdec->statut_suivis) == 'Livrée') {
-    $dec_liv += 1;
-    $dec_liv_arr[] = $trackdec;
-  } elseif (utf8_encode($trackdec->statut_suivis) == 'Retournée') {
-    $dec_enc += 1;
-    $dec_ret_arr[] = $trackdec;
-  } else {
-    $dec_ret += 1;
-    $dec_enc_arr[] = $trackdec;
-  }
-}
-$donnees = json_encode($donnees);
-file_put_contents("excel_tracking.json", $donnees);
+$statistique = $client_lve->MonCourrierToJson($result);
 ?>
 <h4 class="mb-2 text-center">Nombre des déclarations: <?= count($result); ?></h4>
-<h5 style="color:#4ABB00;" class="mb-2 text-center">Livrée: <?= $dec_liv . '/ ' . count($result); ?></h5>
-<h5 style="color:#E87400;" class="mb-2 text-center">En cours: <?= $dec_ret . '/ ' . count($result); ?></h5>
-<h5 style="color:#E82300;" class="mb-2 text-center">Retournée: <?= $dec_enc . '/ ' . count($result); ?></h5>
+<h5 style="color:#4ABB00;" class="mb-2 text-center">Livrée: <?= $statistique['dec_liv'] . '/ ' . count($result); ?></h5>
+<h5 style="color:#E87400;" class="mb-2 text-center">En cours: <?= $statistique['dec_ret'] . '/ ' . count($result); ?></h5>
+<h5 style="color:#E82300;" class="mb-2 text-center">Retournée: <?= $statistique['dec_enc'] . '/ ' . count($result); ?></h5>
 <table class="table table-bordered col-12 tracktable table-striped" id="tracktable">
   <thead>
     <tr>
@@ -125,25 +55,24 @@ file_put_contents("excel_tracking.json", $donnees);
         <td><?= (utf8_encode($value->statut_suivis) === "Livrée") ? date("d/m/Y H:i", strtotime($value->date_livraison)) : " "; ?></td>
         <?php if ($client_lve->CLIENT_COD == 9588) : ?>
           <td>
-            <?= (utf8_encode($value->statut) != 'Livrée') ? date('d/m/Y', strtotime($value->Date . ' +' . $villes->DELAI . ' day')) : ''; ?>
+            <?= (utf8_encode($value->statut) != 'Livrée') ? date('d/m/Y', strtotime($value->Date . ' +' . $value->Delais_Cible . ' day')) : ''; ?>
           </td>
         <?php endif; ?>
         <td>
           <div class="row">
             <div class="col-8">
               <?php
-              if (utf8_encode($value->statut_suivis) == 'En saisie' || utf8_encode($value->statut_suivis) == 'En preparation' || utf8_encode($value->statut_suivis) == 'Préparée' || utf8_encode($value->statut_suivis) == 'Livrée' || utf8_encode($value->statut_suivis) == 'Retournée') {
+              $conditions = array('En saisie', 'En preparation', 'Préparée', 'Livrée', 'Retournée');
+              if (in_array(utf8_encode($value->statut_suivis), $conditions))
                 echo utf8_encode($value->statut_suivis);
-              } else
+              else
                 echo 'En cours';
-
               switch (utf8_encode($value->statut_suivis)) {
                 case 'Livrée':
                   $btncolor = 'green';
                   break;
                 case 'Livrée':
                   $btncolor = 'orange';
-
                   break;
                 case 'En saisie':
                 case 'En preparation':

@@ -125,7 +125,7 @@
          $('#consult').html(res);
          $('#btn-chercher').prop('disabled', false);
          $('#btn-chercher').html('<span class="fa fa-search"></span> Chercher');
-         try {
+         /*try {
            console.log(res);
          } catch (e) {
            $('#liste_declarations').DataTable({
@@ -142,7 +142,7 @@
                }
              }
            });
-         }
+         }*/
        }
      });
    });
@@ -150,7 +150,7 @@
      url: 'gestion/prep_declaration.php',
      success: function(res) {
        $('#consult').html(res);
-       $('#liste_declarations').DataTable({
+       /*$('#liste_declarations').DataTable({
          "language": {
            "lengthMenu": "Affichage _MENU_ pages",
            "zeroRecords": "Pas d'elements",
@@ -163,7 +163,7 @@
              "next": "Suivant"
            }
          }
-       });
+       });*/
      }
    });
 

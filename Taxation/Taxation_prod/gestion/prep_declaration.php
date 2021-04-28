@@ -172,7 +172,7 @@ if ($list_dec) {
         );
       }
       $donnees = json_encode($donnees);
-      file_put_contents("excel_declaration.json", $donnees);
+      file_put_contents($client_lve->NOM . "excel_declaration.json", $donnees);
     } else {
       ?>
       <tr>
@@ -195,3 +195,19 @@ if ($list_dec) {
 <?php
 }
 ?>
+<script>
+  $('#liste_declarations').DataTable({
+    "language": {
+      "lengthMenu": "Affichage _MENU_ pages",
+      "zeroRecords": "Pas d'elements",
+      "info": "Affichage de _PAGE_ of _PAGES_",
+      "infoEmpty": "Pas d'elements",
+      "infoFiltered": "(filtered from _MAX_ total records)",
+      "search": "Recherche",
+      "paginate": {
+        "previous": "Précédent",
+        "next": "Suivant"
+      }
+    }
+  });
+</script>

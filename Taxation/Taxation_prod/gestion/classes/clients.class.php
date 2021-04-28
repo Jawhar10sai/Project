@@ -3,10 +3,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Style\Border;
-use PhpOffice\PhpSpreadsheet\Style\Color;
-use \PhpOffice\PhpSpreadsheet\Style\Font;
 
 class Clients
 {
@@ -82,71 +78,7 @@ class ClientLve extends Clients
     $this->adresse = NULL;
   }
 
-  static function  Utf8_ansi($valor = '')
-  {
-    $utf8_ansi2 = array(
-      "\u00c0" => "À",
-      "\u00c1" => "Á",
-      "\u00c2" => "Â",
-      "\u00c3" => "Ã",
-      "\u00c4" => "Ä",
-      "\u00c5" => "Å",
-      "\u00c6" => "Æ",
-      "\u00c7" => "Ç",
-      "\u00c8" => "È",
-      "\u00c9" => "É",
-      "\u00ca" => "Ê",
-      "\u00cb" => "Ë",
-      "\u00cc" => "Ì",
-      "\u00cd" => "Í",
-      "\u00ce" => "Î",
-      "\u00cf" => "Ï",
-      "\u00d1" => "Ñ",
-      "\u00d2" => "Ò",
-      "\u00d3" => "Ó",
-      "\u00d4" => "Ô",
-      "\u00d5" => "Õ",
-      "\u00d6" => "Ö",
-      "\u00d8" => "Ø",
-      "\u00d9" => "Ù",
-      "\u00da" => "Ú",
-      "\u00db" => "Û",
-      "\u00dc" => "Ü",
-      "\u00dd" => "Ý",
-      "\u00df" => "ß",
-      "\u00e0" => "à",
-      "\u00e1" => "á",
-      "\u00e2" => "â",
-      "\u00e3" => "ã",
-      "\u00e4" => "ä",
-      "\u00e5" => "å",
-      "\u00e6" => "æ",
-      "\u00e7" => "ç",
-      "\u00e8" => "è",
-      "\u00e9" => "é",
-      "\u00ea" => "ê",
-      "\u00eb" => "ë",
-      "\u00ec" => "ì",
-      "\u00ed" => "í",
-      "\u00ee" => "î",
-      "\u00ef" => "ï",
-      "\u00f0" => "ð",
-      "\u00f1" => "ñ",
-      "\u00f2" => "ò",
-      "\u00f3" => "ó",
-      "\u00f4" => "ô",
-      "\u00f5" => "õ",
-      "\u00f6" => "ö",
-      "\u00f8" => "ø",
-      "\u00f9" => "ù",
-      "\u00fa" => "ú",
-      "\u00fb" => "û",
-      "\u00fc" => "ü",
-      "\u00fd" => "ý",
-      "\u00ff" => "ÿ"
-    );
-    return strtr($valor, $utf8_ansi2);
-  }
+
 
   public static function ListeClients()
   {
@@ -487,47 +419,7 @@ class ClientLve extends Clients
   }
   public function EtatMesExpeditions($date1, $date2, $statut, $type)
   {
-    if (empty($date1))
-      $date1 = date('Y-m-' . (date('d') - 1));
-    if (empty($date2))
-      $date2 = date('Y-m-d');
-
-    $where = "WHERE Code1=:code
-      AND (Date BETWEEN :date1  AND :date2)";
-    $recherche = array(
-      ':code' => $this->CLIENT_COD,
-      ':date1' => $date1,
-      ':date2' => $date2,
-    );
-    if (!empty($statut)) {
-      if ($statut == 'Livrée') {
-        $where .= " AND statut_suivis NOT IN ('En cours','Retournée','à Relivrer','.','à Relivrée','Epave','Avarie','')";
-      } else {
-        $where .= " AND statut_suivis LIKE :statut";
-        $recherche[':statut'] = "%$statut%";
-      }
-    }
-    if (!empty($type)) {
-      if ($type == "proactif") {
-        $where .= " AND ( Numero LIKE :typee OR Numero LIKE :type)";
-        $recherche[':typee'] = "F0%";
-        $recherche[':type'] = "E0%";
-      } else {
-        $where .= " AND Numero LIKE :typee";
-        $recherche[':typee'] = "C0%";
-      }
-    }
-
-    $where .= " order by  date_livraison  DESC";
-    if ($this->CLIENT_TYP == "TRL")
-      $stmt = Connection::getCourrierConnexion()->prepare("SELECT * FROM declarations_intralot $where ");
-    else
-      $stmt = Connection::getCourrierConnexion()->prepare("SELECT * FROM etat_expedition $where ");
-
-    if ($stmt->execute($recherche))
-      return $stmt->fetchAll(PDO::FETCH_OBJ);
-    else
-      return false;
+    return Courrier::ListeCourrierClient($this->CLIENT_COD, $this->CLIENT_TYP, $date1, $date2, $statut, $type);
   }
   public function ConsultationDeclarations($ville, $declaration, $client, $date1, $date2, $bl)
   {
@@ -535,81 +427,23 @@ class ClientLve extends Clients
     return ($result) ? $result : $this->MesDeclarations();
   }
 
+  public function MonCourrier($id)
+  {
+    return Courrier::TrouverCourrierClient($id, $this->CLIENT_COD);
+  }
+
+  public function MonCourrierToJson($liste)
+  {
+    return Courrier::CourrierToJSON($this->CLIENT_COD, $liste);
+  }
   public function ExporterMesDeclarations($declarations)
   {
     Declarations::ExporterDeclarations($declarations, $this->NOM);
   }
 
-  public static function ExporterDeclarations($declarations, $nom)
+  public function ExporterMesCourriers($declarations)
   {
-    require_once "vendor/autoload.php";
-    $file = new Spreadsheet();
-
-    $active_sheet = $file->getActiveSheet();
-    #Border the file.
-    $active_sheet
-      ->getStyle('A1:H' . count($declarations) + 1)
-      ->getBorders()
-      ->getInside()
-      ->setBorderStyle(Border::BORDER_THIN);
-    $active_sheet
-      ->getStyle('A1:H' . count($declarations) + 1)
-      ->getBorders()
-      ->getOutline()
-      ->setBorderStyle(Border::BORDER_THIN);
-    $active_sheet
-      ->getStyle('A1:H1')
-      ->getFont()
-      ->setBold(true);
-    $active_sheet->getStyle('A1:H1')->getAlignment()->setHorizontal('center');
-
-    $active_sheet->setCellValue('A1', 'Déclaration');
-    $active_sheet->getColumnDimension('A')->setAutoSize(true);
-    $active_sheet->setCellValue('B1', "Date d'expédition");
-    $active_sheet->getColumnDimension('B')->setAutoSize(true);
-    $active_sheet->setCellValue('C1', 'Date de livraison');
-    $active_sheet->getColumnDimension('C')->setAutoSize(true);
-    $active_sheet->setCellValue('D1', 'Code destinataire');
-    $active_sheet->getColumnDimension('D')->setAutoSize(true);
-    $active_sheet->setCellValue('E1', 'Adresse');
-    $active_sheet->getColumnDimension('E')->setAutoSize(true);
-    $active_sheet->setCellValue('F1', 'Ville');
-    $active_sheet->getColumnDimension('F')->setAutoSize(true);
-    $active_sheet->setCellValue('G1', 'Numero de BL');
-    $active_sheet->getColumnDimension('G')->setAutoSize(true);
-    $active_sheet->setCellValue('H1', 'Colis');
-    $active_sheet->getColumnDimension('H')->setAutoSize(true);
-    $count = 2;
-
-    foreach ($declarations as $row) {
-      $active_sheet->setCellValue('A' . $count, self::Utf8_ansi($row["numero"]));
-      $active_sheet->setCellValue('B' . $count, self::Utf8_ansi($row["date"]));
-      $active_sheet->setCellValue('C' . $count, self::Utf8_ansi($row["destinataire"]));
-      $active_sheet->setCellValue('D' . $count, self::Utf8_ansi($row["code_destinataire"]));
-      $active_sheet->setCellValue('E' . $count, self::Utf8_ansi($row["adresse"]));
-      $active_sheet->setCellValue('F' . $count, self::Utf8_ansi($row["ville"]));
-      $active_sheet->setCellValue('G' . $count, self::Utf8_ansi($row["BL"]));
-      $active_sheet->setCellValue('H' . $count, self::Utf8_ansi($row["colis"]));
-      $count = $count + 1;
-    }
-
-    $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($file, 'Xls');
-
-    $file_name = $nom . '_' . time() . '.' . strtolower('xls');
-
-    $writer->save($file_name);
-
-    header('Content-Type: application/x-www-form-urlencoded');
-
-    header('Content-Transfer-Encoding: Binary');
-
-    header("Content-disposition: attachment; filename=\"" . $file_name . "\"");
-
-    readfile($file_name);
-
-    unlink($file_name);
-
-    exit;
+    Courrier::ExporterCourrierClient($this->CLIENT_COD, $this->CLIENT_NOM, $declarations);
   }
 }
 
