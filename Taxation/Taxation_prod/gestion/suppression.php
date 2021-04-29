@@ -1,6 +1,5 @@
 <?php
 #fichier de suppression
-include_once "classes/fetchclas.php";
 include_once "control_utilisateur.php";
 if (isset($_POST['supprimer_declaration'])) {
   $declarations = Declarations::TrouverDeclaration($_POST['supnumero']);

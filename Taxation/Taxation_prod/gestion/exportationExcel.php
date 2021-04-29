@@ -4,10 +4,10 @@ require_once "control_utilisateur.php";
 $donnees  = array();
 if (isset($_POST['export_tracking'])) {
   #Exportation du tableau du tracking
-  $donnees = file_get_contents($client_lve->NOM . "excel_tracking.json");
+  $donnees = file_get_contents($client_lve->CLIENT_COD . "excel_tracking.json");
   $donnees = json_decode($donnees, true);
   $client_lve->ExporterMesCourriers($donnees);
-  unlink($client_lve->NOM . "excel_tracking.json");
+  unlink($client_lve->CLIENT_COD . "excel_tracking.json");
 }
 if (isset($_POST['export_declaration'])) {
   #Exportation du tableau de Consultation

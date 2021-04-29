@@ -110,3 +110,12 @@ nav ul li a {
 .card-body a {
   text-decoration: none;
 }
+
+td a {
+  text-decoration: none;
+  color: #3f3f3f;
+}
+td a:hover {
+  text-decoration: none;
+  background-color: transparent;
+}

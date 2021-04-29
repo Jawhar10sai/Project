@@ -94,20 +94,7 @@ switch (utf8_encode(trim($value->statut))) {
     $enrouteline = '<i class="fa-3x fas fa-arrow-down"></i>';
     $arivline = '<i class="fa-3x fas fa-arrow-down"></i>';
     $livline = '<i class="fa-3x fas fa-arrow-down"></i>';
-    break;/*
-  case "Chargé":
-  $enscolor = "green";
-  $enprepcolor = "green";
-  $prepcolor = "green";
-  $depcolor = "green";
-  $chrgmncolor = "green";
-  $chrgcolor = "green";
-  $enprepline = '<i class="fa-3x fas fa-arrow-down"></i>';
-  $prepline = '<i class="fa-3x fas fa-arrow-down"></i>';
-  $depline = '<i class="fa-3x fas fa-arrow-down"></i>';
-  $chrgmnline = '<i class="fa-3x fas fa-arrow-down"></i>';
-  $chrgline = '<i class="fa-3x fas fa-arrow-down"></i>';
-    break;*/
+    break;
   case "Retournée":
     $enscolor = "green";
     $enprepcolor = "green";
@@ -170,19 +157,6 @@ switch (utf8_encode(trim($value->statut))) {
     $chrgline = '<i class="fa-3x fas fa-arrow-down"></i>';
     $enrouteline = '<i class="fa-3x fas fa-arrow-down"></i>';
     break;
-    /*
-  case "En cours":
-  case "En Cours de Chargement dans un Camion":
-      $enscolor = "green";
-      $enprepcolor = "green";
-      $prepcolor = "green";
-      $depcolor = "green";
-      $chrgmncolor = "green";
-      $enprepline = '<i class="fa-3x fas fa-arrow-down"></i>';
-      $prepline = '<i class="fa-3x fas fa-arrow-down"></i>';
-      $depline = '<i class="fa-3x fas fa-arrow-down"></i>';
-      $chrgmnline = '<i class="fa-3x fas fa-arrow-down"></i>';
-    break;*/
   case "Expedition Encore dans l''agence de depart":
   case "Expedition Encore dans l'agence de depart":
   case "Epave":
@@ -249,8 +223,10 @@ switch (utf8_encode(trim($value->statut))) {
                   <p><?= utf8_encode($value->statut); ?></p>
                 <?php else : ?>
                   <?php
-                  if ($villes->TrouverVilleLib(trim($value->Ville2))) {
-                    if ($agences->TrouverAgence($villes->AGENCE_COD)) {
+                  $villes = Villes::TrouverVilleLib(trim($value->Ville2));
+                  if ($villes) {
+                    $agences = Agence::TrouverAgence($villes->AGENCE_COD);
+                    if ($agences) {
                       $agnc = 'vers ' . strtoupper($agences->AGENCE_LIB);
                     }
                   }

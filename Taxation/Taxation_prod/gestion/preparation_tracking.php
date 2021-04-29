@@ -55,43 +55,51 @@ $statistique = $client_lve->MonCourrierToJson($result);
         <td><?= (utf8_encode($value->statut_suivis) === "Livrée") ? date("d/m/Y H:i", strtotime($value->date_livraison)) : " "; ?></td>
         <?php if ($client_lve->CLIENT_COD == 9588) : ?>
           <td>
-            <?= (utf8_encode($value->statut) != 'Livrée') ? date('d/m/Y', strtotime($value->Date . ' +' . $value->Delais_Cible . ' day')) : ''; ?>
+            <?= (utf8_encode($value->statut) != 'Livrée') ? date('d/m/Y', strtotime($value->Date . ' +' . $villes->DELAI . ' day')) : ''; ?>
           </td>
         <?php endif; ?>
-        <td>
-          <div class="row">
-            <div class="col-8">
-              <?php
-              $conditions = array('En saisie', 'En preparation', 'Préparée', 'Livrée', 'Retournée');
-              if (in_array(utf8_encode($value->statut_suivis), $conditions))
-                echo utf8_encode($value->statut_suivis);
-              else
-                echo 'En cours';
-              switch (utf8_encode($value->statut_suivis)) {
-                case 'Livrée':
-                  $btncolor = 'green';
-                  break;
-                case 'Livrée':
-                  $btncolor = 'orange';
-                  break;
-                case 'En saisie':
-                case 'En preparation':
-                case 'Préparée':
-                  $btncolor = '';
-                  break;
-                default:
-                  $btncolor = 'orange';
-                  break;
-              }
-              ?>
-            </div>
-            <div class="col-2">
+        <?php
+        switch (utf8_encode($value->statut_suivis)) {
+          case 'Livrée':
+            $btncolor = 'green';
+            break;
+          case 'Livrée':
+            $btncolor = 'orange';
+            break;
+          case 'En saisie':
+          case 'En preparation':
+          case 'Préparée':
+            $btncolor = '';
+            break;
+          default:
+            $btncolor = 'orange';
+            break;
+        }
+        ?>
+
+        <td style="background-color:<?= $btncolor; ?>;cursor: hand;color:#3f3f3f; " class="text-center">
+          <a style="color: <?= $btncolor; ?>;" class="dropdown-item" id="supprimer" data-toggle="modal" data-target="#trackmodal<?= trim($value->Numero); ?>">
+            <div class="row">
+              <div class="col-8">
+                <?php
+                $conditions = array('En saisie', 'En preparation', 'Préparée', 'Livrée', 'Retournée');
+                if (in_array(utf8_encode($value->statut_suivis), $conditions))
+                  echo utf8_encode($value->statut_suivis);
+                else
+                  echo 'En cours';
+                ?>
+              </div>
+              <div class="col-2">
+                <?php /*
               <button type="button" data-toggle="modal" data-target="#trackmodal<?= trim($value->Numero); ?>" style="padding: 8;border-radius:50%;color:<?= $btncolor; ?>" class="btn btn-outline-info btn-sm">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
               </button>
-              <?php require "track_state.php"; ?>
+              <?php #require "track_state.php"; 
+              */
+                ?>
+              </div>
             </div>
-          </div>
+          </a>
         </td>
         <td><?= (utf8_encode($value->statut_suivis) === "Livrée") ? "" : utf8_encode($value->Motif); ?>
           <?php
@@ -122,11 +130,34 @@ $statistique = $client_lve->MonCourrierToJson($result);
         <td><?= $value->num; ?></td>
       <?php endif; ?>
       <td class="text-center">
+
+        <div class="dropleft">
+          <button type="button" class="btn btn-details" id="drop<?= trim($value->Numero); ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="drop<?= trim($value->Numero); ?>">
+            <a style="color: #0099ff;" class="dropdown-item" id="modifier" data-toggle="modal" data-target="#contract-<?= trim($value->Numero); ?>">
+              <span><i class="fa fa-print" aria-hidden="true"></i></span> Imprimer déclaration
+            </a>
+            <a style="color: #0099ff;" class="dropdown-item" id="supprimer" data-toggle="modal" data-target="#supmodal-<?= $declarations->numero; ?>">
+              <span><i class="fa fa-print" aria-hidden="true"></i></span> Imprimer etiquette
+            </a>
+            <a style="color: #c60101;" class="dropdown-item" id="supprimer" data-toggle="modal" data-target="#supmodal-<?= $declarations->numero; ?>">
+              <span><i class="far fa-images"></i></span> Documents scannés
+            </a>
+            <a style="color: <?= $btncolor; ?>;" class="dropdown-item" id="supprimer" data-toggle="modal" data-target="#trackmodal<?= trim($value->Numero); ?>">
+              <span><i class="fa fa-map-marker" aria-hidden="true"></i></span> Détecter l'emplacement
+            </a>
+          </div>
+        </div>
+        <?php require "track_state.php"; ?>
+
+
         <?php if (utf8_encode($value->statut_suivis) == 'Livrée') : ?>
           <?php
           $scan = Declarations::GetScanBL($value->courrier_id);
           if ($scan != false) : ?>
-            <button style="border-radius: 50%;width: 30px;height: 30px;" class="btn btn-info btn-sm" id="idcontract" data-toggle="modal" data-target="#contract-<?= trim($value->Numero); ?>"><i class="far fa-images"></i></button>
+            <button style="border-radius: 50%;width: 30px;height: 30px;" class="btn btn-info btn-sm" id="idcontract" data-toggle="modal" data-target=""></button>
           <?php else : ?>
             <button style="border-radius: 50%;width: 30px;height: 30px;" class="btn btn-danger btn-sm disabled"> </button>
           <?php endif; ?>

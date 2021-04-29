@@ -443,7 +443,7 @@ class ClientLve extends Clients
 
   public function ExporterMesCourriers($declarations)
   {
-    Courrier::ExporterCourrierClient($this->CLIENT_COD, $this->CLIENT_NOM, $declarations);
+    Courrier::ExporterCourrierClient($this->CLIENT_COD, $this->NOM, $declarations);
   }
 }
 
