@@ -3,6 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use SousClient as GlobalSousClient;
 
 class Clients
 {
@@ -187,7 +188,6 @@ class ClientLve extends Clients
   }
   private function ModifierClient()
   {
-
     $liste_modif = array(
       ':CLIENT_ID' => ($this->CLIENT_ID == '') ? NULL : $this->CLIENT_ID,
       ':CLIENT_COD' => ($this->CLIENT_COD == '') ? NULL : $this->CLIENT_COD,
@@ -376,6 +376,44 @@ class ClientLve extends Clients
   {
     return SousClient::CodeClientUtilisateur($client, $this->CLIENT_ID);
   }
+
+  public function AjouterMonClient($code, $nom, $prenom, $telephone, $adresse, $ville)
+  {
+    $sous_client = SousClient::ExistanceClientUtilisateur($this->CLIENT_ID, $code, $nom, $prenom);
+    if (!$sous_client) {
+      $sous_client = new SousClient;
+      $sous_client->CLIENT_COD = $code;
+      $sous_client->NOM = $nom;
+      $sous_client->PRENOM = $prenom;
+      $sous_client->telephone = $telephone;
+      $sous_client->CLIENT_ID_client_lve = $this->CLIENT_ID;
+      $id_sous_client = $sous_client->Enregistrer();
+      $adresses = new Adresses;
+      $adresses->lib_adresse = $adresse;
+      $adresses->id_client = $id_sous_client;
+      $adresses->id_user = $this->CLIENT_ID;
+      $adresses->id_ville = $ville;
+      $adresses->commit_par = $this->NOM;
+      $id_adres = $adresses->AjouterAdresse();
+    } else {
+      $adresses = Adresses::AdresseExiste($sous_client->CLIENT_ID, $adresse);
+      if ($adresses)
+        $id_adres = $adresses->id_adresse;
+      else {
+        $id_sous_client = $sous_client->CLIENT_ID;
+        $adresses = new Adresses;
+        $adresses->lib_adresse = $adresse;
+        $adresses->id_client = $id_sous_client;
+        $adresses->id_user = $this->CLIENT_ID;
+        $adresses->id_ville = $ville;
+        $adresses->commit_par = $this->NOM;
+        $id_adres = $adresses->AjouterAdresse();
+      }
+    }
+    $donnees = array('id_adress' => $id_adres, 'id_sous_client' => $id_sous_client);
+    return ($id_adres   &&   $id_sous_client) ? $donnees : false;
+  }
+
   public function MonClientParID($client)
   {
     return SousClient::IdClientUtilisateur($client, $this->CLIENT_ID);
@@ -477,6 +515,21 @@ class SousClient extends Clients
     } else
       return false;
   }
+  public static function ExistanceClientUtilisateur($utilisateur, $code, $nom, $prenom)
+  {
+    $liste_recherche = array(
+      ':code' => $code,
+      ':nom' => $nom,
+      ':prenom' => $prenom,
+      ':utilisateur' => $utilisateur
+    );
+    $result = Connection::getConnection()->prepare("SELECT * FROM `client` WHERE `CLIENT_COD`=:code AND `NOM`=:nom AND `PRENOM`=:prenom AND `CLIENT_ID_client_lve`=:utilisateur AND `supprime_le` IS NULL");
+    if ($result->execute($liste_recherche)) {
+      $result->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__);
+      return $result->fetch();
+    } else
+      return false;
+  }
   public static function TrouverClient($id)
   {
     $result = Connection::getConnection()->query("SELECT * FROM `client` WHERE `CLIENT_ID`=$id  AND `supprime_le` IS NULL");
@@ -516,6 +569,7 @@ class SousClient extends Clients
   }
   private function AjouterClient()
   {
+    $connection = Connection::getConnection();
     $liste_ajout = array(
       ':NOM' => $this->NOM,
       ':PRENOM' => $this->PRENOM,
@@ -539,9 +593,9 @@ class SousClient extends Clients
       ':CLIENT_ID_client_lve' => $this->CLIENT_ID_client_lve,
       ':telephone' => $this->telephone
     );
-    $stmt = Connection::getConnection()->prepare("INSERT INTO `client`(`NOM`, `PRENOM`, `CIVILITE_COD`, `CLIENT_TYP`, `IDENTITE_TYP`, `IDENTITE_VAL`, `ID_FISCALE`, `CAPITAL_SOC`, `CREATION_DAT`, `CLIENT_ETA`, `MOTIF_ETA`, `SECTEUR_COD`, `EMPLOYE_ID`, `SAISIE_DAT`, `AGENCE_COD`, `CLIENT_COD`, `commentaire`, `mail`, `ICE`, `CLIENT_ID_client_lve`, `telephone`) VALUES (:NOM, :PRENOM, :CIVILITE_COD, :CLIENT_TYP, :IDENTITE_TYP, :IDENTITE_VAL, :ID_FISCALE, :CAPITAL_SOC, :CREATION_DAT, :CLIENT_ETA, :MOTIF_ETA, :SECTEUR_COD, :EMPLOYE_ID, :SAISIE_DAT, :AGENCE_COD, :CLIENT_COD, :commentaire, :mail, :ICE, :CLIENT_ID_client_lve, :telephone)");
+    $stmt = $connection->prepare("INSERT INTO `client`(`NOM`, `PRENOM`, `CIVILITE_COD`, `CLIENT_TYP`, `IDENTITE_TYP`, `IDENTITE_VAL`, `ID_FISCALE`, `CAPITAL_SOC`, `CREATION_DAT`, `CLIENT_ETA`, `MOTIF_ETA`, `SECTEUR_COD`, `EMPLOYE_ID`, `SAISIE_DAT`, `AGENCE_COD`, `CLIENT_COD`, `commentaire`, `mail`, `ICE`, `CLIENT_ID_client_lve`, `telephone`) VALUES (:NOM, :PRENOM, :CIVILITE_COD, :CLIENT_TYP, :IDENTITE_TYP, :IDENTITE_VAL, :ID_FISCALE, :CAPITAL_SOC, :CREATION_DAT, :CLIENT_ETA, :MOTIF_ETA, :SECTEUR_COD, :EMPLOYE_ID, :SAISIE_DAT, :AGENCE_COD, :CLIENT_COD, :commentaire, :mail, :ICE, :CLIENT_ID_client_lve, :telephone)");
     if ($stmt->execute($liste_ajout))
-      return Connection::getConnection()->lastInsertId();
+      return $connection->lastInsertId();
     else
       return false;
   }

@@ -12,5 +12,7 @@ if ($_SESSION['type_utilisateur'] == "client") {
   $messessions->ModifierSession($nom_d_utilisateur);
   Connexion::TrouverConnexion($_SESSION['id_con'])->Deconnecter();
 }
+unlink(trim($client_lve->CLIENT_COD) . trim("excel_tracking.json"));
+unlink($client_lve->NOM . "excel_declaration.json");
 session_destroy();
 header('location: ../');

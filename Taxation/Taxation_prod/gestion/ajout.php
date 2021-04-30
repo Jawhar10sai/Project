@@ -6,38 +6,10 @@ if (isset($_POST['ajouter_declaration'])) {
   $declarations = new Declarations;
   # Vérification d'existance du client
   $declarations->client1_id = $client_lve->CLIENT_ID;
-  $declarations->userid = $client_lve->CLIENT_ID;
-  $sous_client = $client_lve->MonClient($_POST['codecli']);
-
-  if (!$sous_client) {
-    $sous_client = new SousClient;
-    $sous_client->CLIENT_COD = $_POST['codecli'];
-    $sous_client->NOM = $_POST['nom'];
-    $sous_client->PRENOM = $_POST['prenom'];
-    $sous_client->telephone = $_POST['telephone'];
-    $sous_client->CLIENT_ID_client_lve = $client_lve->CLIENT_ID;
-    $declarations->client2_id = $sous_client->Enregistrer();
-  } else {
-    // Modification
-    $sous_client->NOM = $_POST['nom'];
-    $sous_client->PRENOM = $_POST['prenom'];
-    $sous_client->telephone = $_POST['telephone'];
-    $sous_client->commit_par = $client_lve->NOM;
-    $sous_client->Enregistrer();
-    $declarations->client2_id = $sous_client->CLIENT_ID;
-  }
-  # Vérification de l'adresse du client
-  $adresses = Adresses::AdresseExiste($sous_client->CLIENT_ID, $_POST['adresse']);
-  if ($adresses)
-    $declarations->id_adres = $adresses->id_adresse;
-  else {
-    $adresses = new Adresses;
-    $adresses->lib_adresse = $_POST['adresse'];
-    $adresses->id_client = $declarations->client2_id;
-    $adresses->id_user = $client_lve->CLIENT_ID;
-    $adresses->id_ville = $_POST['ville'];
-    $adresses->commit_par = $client_lve->NOM;
-    $declarations->id_adres = $adresses->AjouterAdresse();
+  $result = $client_lve->AjouterMonClient($_POST['codecli'], $_POST['nom'], $_POST['prenom'], $_POST['telephone'], $_POST['adresse'], $_POST['ville']);
+  if ($result) {
+    $declarations->client2_id = $result['id_sous_client'];
+    $declarations->id_adres = $result['id_adress'];
   }
   #Ajout de la déclarations
   $declarations->colis = $_POST['colis'];

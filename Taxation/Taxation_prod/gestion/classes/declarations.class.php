@@ -163,7 +163,8 @@ class Declarations
     if ($clve) {
       if ($clve->debinterval < $clve->fininterval) {
         $interval = $clve->debinterval + 1;
-        $this->numero = (string)$clve->CLIENT_COD2 . (string)$interval;
+        $this->numero = trim((string)$clve->CLIENT_COD2) . trim((string)$interval);
+        $this->userid = $this->client1_id;
         $this->ActualiserListe();
         $inserer = Connection::getConnection()->prepare("INSERT INTO `declaration_v`(`numero`, `date`, `facture_id`, `colis`, `poids`, `palettes`, `paletteA`, `paletteB`, `paletteC`, `paletteAutre`, `Nbre_palettes`, `longueur`, `hauteur`, `largeur`, `coef`, `valeur`, `client1_id`, `client2_id`, `livraison`, `express`, `port`, `courrier_typ`, `courrier_eta`, `date_saisie`, `userid`, `nature`, `Espece`, `Cheque`, `Traite`, `Nbre_BL`, `BL`, `id_adres`, `statut`, `commentaire`,`commit_par`) VALUES (:numero,:date,:facture_id,:colis,:poids,:palettes,:paletteA,:paletteB,:paletteC,:paletteAutre,:Nbre_palettes,:longueur,:hauteur,:largeur,:coef,:valeur,:client1_id,:client2_id,:livraison,:express,:port,:courrier_typ,:courrier_eta,:date_saisie,:userid,:nature,:Espece,:Cheque,:Traite,:Nbre_BL,:BL,:id_adres,:statut,:commentaire,:commit_par)");
         if ($inserer->execute($this->liste_donnees)) {
