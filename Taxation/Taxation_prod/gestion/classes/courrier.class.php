@@ -275,7 +275,7 @@ class Courrier
                     $active_sheet->setCellValue('K' . $count, $date_prevue);
                 }
             } elseif ($client == '362') {
-                $active_sheet->setCellValue('K' . $count, $row["Colis"]);
+                $active_sheet->setCellValue('J' . $count, $row["Colis"]);
                 $active_sheet->setCellValue('K' . $count, $row["Poids"]);
             }
             $count = $count + 1;
