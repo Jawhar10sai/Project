@@ -90,3 +90,9 @@ if (isset($_POST['idss'])) {
   if ($client_lve->CreerRamassage($_POST['idss'], $_POST['datera']) != false)
     echo "ramasse";
 }
+
+#Iportation des déclarations
+if (isset($_POST['importer_declaration'])) {
+  if (Declarations::ImporterDeclarations($_FILES['import_excel'], $client_lve))
+    echo "importées";
+}

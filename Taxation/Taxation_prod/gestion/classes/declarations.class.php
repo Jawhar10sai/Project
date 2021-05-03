@@ -32,7 +32,7 @@ class Declarations
     $this->livraison = "";
     $this->express = "S";
     $this->port = "P";
-    $this->courrier_typ = "";
+    $this->courrier_typ = "M";
     $this->courrier_eta = "";
     $this->date_saisie = date('Y-m-d');
     $this->userid = 0;
@@ -351,10 +351,9 @@ class Declarations
       return false;
   }
 
-  public static function ImporterDeclarations($file)
+  public static function ImporterDeclarations($file, ClientLve $client)
   {
-    /*
-    require_once "PHPSpreadsheet/vendor/autoload.php";
+    require_once "vendor/autoload.php";
     if ($file["name"] != '') {
       $allowed_extension = array('xls', 'csv', 'xlsx');
       $file_array = explode(".", $file["name"]);
@@ -366,10 +365,29 @@ class Declarations
         $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($file_type);
         $spreadsheet = $reader->load($file_name);
         unlink($file_name);
-        return $spreadsheet->getActiveSheet()->toArray();
+        $declarations = $spreadsheet->getActiveSheet()->toArray();
+        if (count($declarations) - 1 <= $client->ResteInterval()) {
+          foreach ($declarations as $row) {
+            if ($row[0] == 'Code destinataire')
+              continue;
+            else {
+              $declarations = new self;
+              $declarations->client1_id = $client->CLIENT_ID;
+              $result = $client->AjouterMonClient($row[0], $row[1], $row[2], $row[3], $row[4], Villes::TrouverVilleLib($row[5])->VILLE_COD);
+              if ($result) {
+                $declarations->client2_id = $result['id_sous_client'];
+                $declarations->id_adres = $result['id_adress'];
+              }
+              $declarations->colis = $row[6];
+              $declarations->poids = $row[7];
+              $declarations->AjouterDeclaration();
+            }
+          }
+          return true;
+        } else
+          echo "Nombre des déclarations dépasse l'interval.";
       } else return false;
     } else return false;
-    */
   }
   public static function ExporterDeclarations($declarations, $nom)
   {

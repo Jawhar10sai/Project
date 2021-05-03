@@ -1,8 +1,4 @@
 <?php
-require_once "conftaxDB.php";
-/**
- *
- */
 class PointsRelais
 {
   public $id_pr, $lib_pr, $id_ville, $loc_ver, $loc_hor;

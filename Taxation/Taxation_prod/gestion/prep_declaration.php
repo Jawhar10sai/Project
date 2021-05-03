@@ -19,7 +19,8 @@ if ($list_dec) {
         $sous_client = $client_lve->MonClientParID($declarations->client2_id);
         $adresses = Adresses::TrouverAdresse($declarations->id_adres);
         #
-        $color = ($declarations->EtatDDP() == 'En cours' ? 'table-warning' : ($declarations->EtatDDP() == 'Valide' ? 'table-success' : ''));
+        $etat = $declarations->EtatDDP()->etat;
+        $color = ($etat== 'En cours' ? 'table-warning' : ($etat == 'Valide' ? 'table-success' : ''));
         #Tester si c'est express ou bien simple
         $expr = ($declarations->express == "X") ? "Oui" : "Non";
         #Tester le type de liraison

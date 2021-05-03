@@ -1,8 +1,5 @@
 <?php
 
-/**
- *
- */
 class ClientSession
 {
   public $AGENCE_COD, $AGENCE_LIB, $REFERENCIEE, $LOGIN, $MOT_D_PASS, $IDENTITE_TYP, $modifie_le, $supprime_le, $commit_par;

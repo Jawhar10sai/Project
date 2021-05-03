@@ -1,5 +1,5 @@
 <?php
-require_once("conftaxDB.php");
+
 class Villes
 {
   public $VILLE_COD, $AGENCE_COD, $VILLE_LIB, $VILLE_TYP, $DELAI, $ZONE_COD;

@@ -12,14 +12,3 @@ include_once "reclamations.class.php";
 include_once "connexion.class.php";
 include_once "admin.class.php";
 include_once "courrier.class.php";
-
-
-#Auto_Loader_cusomized
-/*
-spl_autoload_register('myAutoLoader');
-function myAutoLoader($className)
-{
-    $path = $className . ".class.php";
-    include_once $path;
-}
-*/

@@ -1,8 +1,4 @@
 <?php
-
-/**
- *
- */
 class Agence
 {
   public $AGENCE_COD, $AGENCE_LIB, $AGENCE_ADRESSE, $AGENCE_TEL, $modifie_le, $supprime_le, $commit_par;

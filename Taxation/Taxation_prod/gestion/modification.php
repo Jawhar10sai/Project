@@ -7,39 +7,10 @@ if (isset($_POST['modification_declaration'])) {
   $declarations->userid = $client_lve->CLIENT_ID;
   $sous_client = SousClient::TrouverClientParCode($_POST['mclient']);
   #Tester l'existance du sous client avant de modifier les données.
-  if (!$sous_client) {
-    $sous_client = new SousClient;
-    $sous_client->CLIENT_COD = $_POST['mclient'];
-    $sous_client->NOM = $_POST['mmodnom'];
-    $sous_client->PRENOM = $_POST['mmodprenom'];
-    $sous_client->telephone = $_POST['mmodtelephone'];
-    $sous_client->id_user = $client_lve->CLIENT_ID;
-    $declarations->client2_id = $sous_client->Enregistrer();
-  } else {
-    $sous_client->NOM = $_POST['mmodnom'];
-    $sous_client->PRENOM = $_POST['mmodprenom'];
-    $sous_client->telephone = $_POST['mmodtelephone'];
-    $sous_client->commit_par = $client_lve->NOM;
-    $sous_client->Enregistrer();
-    $declarations->client2_id = $sous_client->CLIENT_ID;
-  }
-  # Vérification de l'adresse du client
-  $adresses = Adresses::AdresseExiste($sous_client->CLIENT_ID, $_POST['adresse']);
-  if (!$adresses) {
-    $adresses = new Adresses;
-    $adresses->lib_adresse = $_POST['mmodadresse'];
-    $adresses->id_client = $sous_client->CLIENT_ID;
-    $adresses->id_user = $client_lve->CLIENT_ID;
-    $adresses->id_ville = $_POST['mmodville'];
-    $declarations->id_adres = $adresses->AjouterAdresse();
-  } else {
-    $adresses->lib_adresse = $_POST['mmodadresse'];
-    $adresses->id_client = $sous_client->CLIENT_ID;
-    $adresses->id_user = $client_lve->CLIENT_ID;
-    $adresses->id_ville = $_POST['mmodville'];
-    $adresses->commit_par = $nom_d_utilisateur;
-    $adresses->ModifierAdresse();
-    $declarations->id_adres = $adresses->id;
+  $result = $client_lve->AjouterMonClient($_POST['mclient'], $_POST['mmodnom'], $_POST['mmodprenom'], $_POST['mmodtelephone'], $_POST['mmodadresse'], $_POST['mmodville']);
+  if ($result) {
+    $declarations->client2_id = $result['id_sous_client'];
+    $declarations->id_adres = $result['id_adress'];
   }
   $declarations->colis = $_POST['mcolis'];
   $declarations->poids = $_POST['mpoids'];
@@ -51,6 +22,7 @@ if (isset($_POST['modification_declaration'])) {
     $declarations->express = $_POST['mtypliv'];
   } else
     $declarations->courrier_typ = $_POST['affrettyp'];
+
   $declarations->nature = $_POST['mnature'];
   $declarations->Espece = $_POST['mEspece'];
   $declarations->Cheque = $_POST['mCheque'];

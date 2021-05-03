@@ -1,8 +1,5 @@
 <?php
-include_once "conftaxDB.php";
-/**
- *
- */
+
 class Utilisateurs
 {
   public $id;

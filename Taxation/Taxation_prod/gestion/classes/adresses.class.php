@@ -1,8 +1,4 @@
 <?php
-
-/**
- *
- */
 class Adresses
 {
   public $id_adresse, $lib_adresse, $id_client, $id_user, $id_ville, $modifie_le, $supprime_le, $commit_par;

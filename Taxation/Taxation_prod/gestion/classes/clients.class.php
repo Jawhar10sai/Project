@@ -78,9 +78,6 @@ class ClientLve extends Clients
 
     $this->adresse = NULL;
   }
-
-
-
   public static function ListeClients()
   {
     return Connection::getConnection()
@@ -280,15 +277,6 @@ class ClientLve extends Clients
     else
       $this->AjouterClient();
   }
-  /*
-  public function ConnecterClient()
-  {
-    Connection::getConnection()->query("UPDATE `client_lve` SET `IDENTITE_TYP`='co' WHERE `CLIENT_ID`=$this->CLIENT_ID");
-  }*/
-  public function DeconnecterClient()
-  {
-    Connection::getConnection()->query("UPDATE `client_lve` SET `IDENTITE_TYP`='de' WHERE `CLIENT_ID`=$this->CLIENT_ID");
-  }
   public function carnetEncours()
   {
     $declars = Connection::getConnection()
@@ -382,9 +370,9 @@ class ClientLve extends Clients
     $sous_client = SousClient::ExistanceClientUtilisateur($this->CLIENT_ID, $code, $nom, $prenom);
     if (!$sous_client) {
       $sous_client = new SousClient;
-      $sous_client->CLIENT_COD = $code;
+      $sous_client->CLIENT_COD = ($code != '0') ? $code : NULL;
       $sous_client->NOM = $nom;
-      $sous_client->PRENOM = $prenom;
+      $sous_client->PRENOM = (!empty($prenom)) ? $prenom : '';
       $sous_client->telephone = $telephone;
       $sous_client->CLIENT_ID_client_lve = $this->CLIENT_ID;
       $id_sous_client = $sous_client->Enregistrer();
@@ -410,6 +398,8 @@ class ClientLve extends Clients
         $id_adres = $adresses->AjouterAdresse();
       }
     }
+    if ($sous_client->CLIENT_COD == '0')
+      $sous_client->setNull();
     $donnees = array('id_adress' => $id_adres, 'id_sous_client' => $id_sous_client);
     return ($id_adres   &&   $id_sous_client) ? $donnees : false;
   }
@@ -482,6 +472,11 @@ class ClientLve extends Clients
   public function ExporterMesCourriers($declarations)
   {
     Courrier::ExporterCourrierClient($this->CLIENT_COD, $this->NOM, $declarations);
+  }
+
+  public function ResteInterval()
+  {
+    return $this->debinterval - $this->fininterval;
   }
 }
 
@@ -641,7 +636,8 @@ class SousClient extends Clients
   }
   public function setNull()
   {
-    Connection::getConnection()->query("UPDATE `client` SET `CLIENT_COD`=NULL WHERE `CLIENT_ID`=$this->CLIENT_ID");
+    $stmt = Connection::getConnection()->prepare("UPDATE `client` SET `CLIENT_COD`=NULL WHERE `CLIENT_ID`=?");
+    return ($stmt->execute([$this->CLIENT_ID])) ? true : false;
   }
   public static function ClientsUtilisateur($client)
   {

@@ -1,16 +1,20 @@
 <?php
 include_once "control_utilisateur.php";
-#$declarations = new Declarations;
-$_POST['codecli'] = "17799";
-$_POST['nom'] = "nom_testa";
-$_POST['prenom'] = "preeee";
-$_POST['telephone'] = "0514141414";
-$_POST['adresse'] = "myaddress function";
-$_POST['ville'] = 100;
+?>
+<form method="post" id="import_excel_form" action="ajout.php" enctype="multipart/form-data">
+    <table class="table">
+        <tr>
+            <td width="25%" align="right">Select Excel File</td>
+            <td width="50%"><input type="file" name="import_excel" /></td>
+            <td width="25%"><input type="submit" name="importer_declaration" id="import" class="btn btn-primary" value="Import" /></td>
+        </tr>
+    </table>
+</form>
+<?php 
 #$result = $client_lve->AjouterMonClient($_POST['codecli'], $_POST['nom'], $_POST['prenom'], $_POST['telephone'], $_POST['adresse'], $_POST['ville']);
 #print_r($result);
 /*
 if ($result) {
-    $declarations->client2_id = $result['id_sous_client'];
-    $declarations->id_adres = $result['id_adress'];
+$declarations->client2_id = $result['id_sous_client'];
+$declarations->id_adres = $result['id_adress'];
 }*/
