@@ -58,3 +58,20 @@
     #dc1e2d
   );
 }
+body {
+  background-image: url("../images/34.jpg") !important;
+  background-size: cover;
+  /*background-color: #fff;*/
+  margin: 0px;
+  padding: 0px;
+  max-width: 100vw;
+}
+.main {
+  display: flex;
+}
+.main-container {
+  background-color: rgba(218, 211, 211, 0.575);
+  border-radius: 0.25rem;
+  align-items: center;
+  justify-content: center;
+}
