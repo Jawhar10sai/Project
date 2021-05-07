@@ -6,22 +6,22 @@ $('.form-signin').on('submit',function(event){
     method:'POST',
     data:$('.form-signin').serialize(),
     beforeSend:function(){
-      //console.log(data);
       $('#btn-connect').prop('disabled', true);
         $('#btn-connect').html('<img src="images/red-load.gif" height="32"/>');
     },
     success:function(res){
-      if (res == "deja co") {
+      try {
         console.log(res);
+        /*
+        if (res == "deja co") {
           Swal.fire({
           icon: 'error',
-          title: 'Utilisateur déja connecté!'
+          title: 'Utilisateur déjà connecté!'
         });
         $('.form-signin')[0].reset();
         $('#btn-connect').prop('disabled', false);
         $('#btn-connect').html('<i class="fas fa-sign-in-alt"></i> Se connecter');
       }else if (res == "non trouve") {
-        //console.log(res);
           Swal.fire({
           icon: 'error',
           title: "Aucun utilisateur n'est compatible avec les données que vous avez insérées, merci de ressayer!"
@@ -33,6 +33,9 @@ $('.form-signin').on('submit',function(event){
         $(location).attr('href', 'Déclarations');
       }else if (res == "Tracking"){
         $(location).attr('href', 'Tracking');
+      }*/
+      } catch (error) {
+        //console.log(error);
       }
     }
   });

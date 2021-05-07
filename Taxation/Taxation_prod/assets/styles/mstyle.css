@@ -119,3 +119,15 @@ td a:hover {
   text-decoration: none;
   background-color: transparent;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", sans-serif;
+}
+p {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+}

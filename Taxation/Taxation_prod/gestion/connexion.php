@@ -9,7 +9,10 @@ if (isset($_POST['nomuser'])) {
   $messessions = ClientSession::VerifierCompte($_POST['nomuser'], sha1($_POST['mdpass']));
 
   if ($client_lve) {
-    if ($client_lve->IDENTITE_TYP != "co") {
+    if ($client_lve->IDENTITE_TYP === "co") {
+      echo "deja co";
+      exit;
+    } else {
       $connexion = new Connexion;
       $connexion->id_utilisateur = $client_lve->CLIENT_ID;
       $connecte = $connexion->Connecter();
@@ -21,9 +24,9 @@ if (isset($_POST['nomuser'])) {
         $client_lve->IDENTITE_TYP = "co";
         $client_lve->Enregistrer();
         echo ($client_lve->CLIENT_TYP == "TR" || $client_lve->CLIENT_TYP == "TRL") ? "Tracking" : "reussite";
+        exit;
       }
-    } else
-      echo "deja co";
+    }
   } elseif ($messessions) {
     if ($messessions->IDENTITE_TYP != "co") {
       $connexion = new Connexion;
@@ -39,12 +42,18 @@ if (isset($_POST['nomuser'])) {
         $_SESSION['type_utilisateur'] = "session";
         $client_lve = ClientLve::TrouverClient($messessions->REFERENCIEE);
         echo ($client_lve->CLIENT_TYP == "TR" || $client_lve->CLIENT_TYP == "TRL") ? "Tracking" : "reussite";
+        exit;
       }
-    } else
-      echo "deja co";
+    } else {
+      #echo "deja co";
+      exit;
+    }
   } elseif ($admin) {
     #$connexion = new Connexion;
     echo "non trouve";
-  } else
+    exit;
+  } else {
     echo "non trouve";
+    exit;
+  }
 }

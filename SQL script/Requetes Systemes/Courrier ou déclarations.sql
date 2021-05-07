@@ -38,9 +38,9 @@ blk
 
 use vexinitial
 declare @courrier_id int,@num_bl varchar(50),@cod_vil varchar(50)
-set @num_bl='FV21-004900'
+set @num_bl='FV21-005179'
 set @cod_vil = 170
-select @courrier_id=courrier_id from courrier where  COURRIER_NUM in('C01631290')
+select @courrier_id=courrier_id from courrier where  COURRIER_NUM in('C01631298')
 update intervient set VILLE_COD=@cod_vil where COURRIER_ID=@courrier_id and INTERVENTION_TYP='de' --( dd Arrivée de départ )--
 update [COURRIER_AGENCE] set AGENCE_COD=@cod_vil  where COURRIER_ID=@courrier_id and INTER_TYP='D' --( A Arrivée d départ )
 update retour_fonds set num=@num_bl where courrier_id=@courrier_id and fonds_typ='BL'
