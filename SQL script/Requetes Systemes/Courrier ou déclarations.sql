@@ -36,11 +36,15 @@ insert into courrier_ensemble(ensemble_num,courrier_id,AFFICHE_ORD)values(@cl,@i
 select top 10 * from ville where VILLE_LIB like '%ain s%'
 blk
 
+C01631258 – FV21-005714
+C01631255 – FV21-005476
+C01631254 – FV21-005445
+
 use vexinitial
 declare @courrier_id int,@num_bl varchar(50),@cod_vil varchar(50)
-set @num_bl='FV21-005179'
+set @num_bl='FV21-005445'
 set @cod_vil = 170
-select @courrier_id=courrier_id from courrier where  COURRIER_NUM in('C01631298')
+select @courrier_id=courrier_id from courrier where  COURRIER_NUM in('C01631258')
 update intervient set VILLE_COD=@cod_vil where COURRIER_ID=@courrier_id and INTERVENTION_TYP='de' --( dd Arrivée de départ )--
 update [COURRIER_AGENCE] set AGENCE_COD=@cod_vil  where COURRIER_ID=@courrier_id and INTER_TYP='D' --( A Arrivée d départ )
 update retour_fonds set num=@num_bl where courrier_id=@courrier_id and fonds_typ='BL'
@@ -173,15 +177,6 @@ select top 10 * from courrier_fa
 --update courrier_fa set date='30/11/2020'
 where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01695008','C01695003','C01695004','C01695005'))
 select top 10 * from COURRIER_FACTURE where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01695008','C01695003','C01695004','C01695005'))
-
-select * from declaration_v where numero in ('c01714017')
-
-
-select top 10 * from ADRESSE where client_id=5863691
-update adresse set ADRESSE_LIB='Anassi' where client_id=5863691
-select * from client where client_id=5863691
-update client set NOM='OUBELKHEIR' where client_id=5863691
-
 
 -------------------------------------------Annulation transport de caisse- annuler  FT trans de la declaration--------------------------------------------------
 select * from courrier_caisse  where COURRIER_ID in (select courrier_id from courrier where courrier_num in ('C0C01437927'))

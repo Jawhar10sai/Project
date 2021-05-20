@@ -175,6 +175,12 @@ class Declarations
     } else
       return "Client introuvable!";
   }
+  public static function ListeDeclarations()
+  {
+    $result = Connection::getConnection()->query("SELECT * FROM `declaration_v` WHERE `supprime_le` IS NULL");
+    return ($result) ? $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__) : false;
+  }
+
   #Supprimer une déclaration par son numero
   public function SupprimerDeclaration()
   {

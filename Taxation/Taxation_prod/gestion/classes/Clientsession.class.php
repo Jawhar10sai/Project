@@ -40,7 +40,7 @@ class ClientSession
   public static function ListeSessions()
   {
     return Connection::getConnection()
-      ->prepare("SELECT * FROM `client_lve_session`")
+      ->query("SELECT * FROM `client_lve_session`")
       ->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__);
   }
   public static function TrouverSession($id)
