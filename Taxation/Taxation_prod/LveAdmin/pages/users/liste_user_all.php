@@ -1,3 +1,9 @@
+
+
+
+
+
+
 <div class="content-title m-x-auto">
   <div class="row">
     <h1 class="col-11">Liste des clients:</h1>
@@ -59,7 +65,7 @@
             </div>
           </div>
         </td>
-        <td class="text-center">
+        <td>
           <div class="dropleft">
             <button type="button" class="btn btn-details" id="drop<?= $uuse->CLIENT_COD; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-h"></i>

@@ -27,3 +27,4 @@ require_once '../gestion/classes/fetchclas.php';
     <script type="text/javascript" src="../assets/scripts/jquery.dataTables.min.js"></script>
     <script src="../assets/scripts/bootstrap.min.js" charset="utf-8"></script>
     <script src="../assets/scripts/sweetalert2.all.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="assets/scripts/adm.js"></script>

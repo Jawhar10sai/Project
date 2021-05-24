@@ -498,6 +498,10 @@ class ClientLve extends Clients
       ->query("SELECT * FROM `client_lve` where `supprime_le` IS NOT NULL")
       ->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__);
   }
+  public function MesConnexions()
+  {
+    return Connexion::ConnexionUtilisateurs($this->CLIENT_ID);
+  }
 }
 
 /**

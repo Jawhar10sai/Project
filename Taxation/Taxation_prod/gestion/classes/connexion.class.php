@@ -44,4 +44,10 @@ class Connexion
     $stmt = Connection::getConnection()->prepare("UPDATE `connexion` SET `date_deconnexion`=now() WHERE `id`=?");
     return (!$stmt->execute([$this->id])) ? false : true;
   }
+
+  public static function ConnexionUtilisateurs($utilisateur)
+  {
+    $result = Connection::getConnection()->prepare("SELECT * FROM `connexion` WHERE `id_utilisateur`=?");
+    return ($result->execute([$utilisateur])) ? $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__) : false;
+  }
 }
