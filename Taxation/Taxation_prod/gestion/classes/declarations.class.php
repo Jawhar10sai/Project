@@ -466,4 +466,13 @@ class Declarations
 
     exit;
   }
+
+  public static function DeclarationsAdresse($adresse)
+  {
+    $result = Connection::getConnection()->prepare("SELECT * FROM `declaration_v` WHERE `id_adres`=? AND `supprime_le` IS NULL");
+    if ($result->execute([$adresse]))
+      return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__);
+    else
+      return false;
+  }
 }

@@ -2,7 +2,7 @@
 ---Liberer une Déclaration non livrer 
 --*******************************
 use vexinitial
-declare @numero varchar(30) = 'c01044211', @id numeric(24,0)
+declare @numero varchar(30) = 'B010044612', @id numeric(24,0)
 select @id=courrier_id from courrier where courrier_num=@numero
 update courrier set COURRIER_ETA='E' where courrier_id=@id
 update courrier_agence SET INTER_ETA=0 where courrier_id=@id and INTER_TYP='A' 
@@ -36,15 +36,15 @@ insert into courrier_ensemble(ensemble_num,courrier_id,AFFICHE_ORD)values(@cl,@i
 select top 10 * from ville where VILLE_LIB like '%ain s%'
 blk
 
-C01631258 – FV21-005714
-C01631255 – FV21-005476
-C01631254 – FV21-005445
+C01631262 – FV21-006052
+C01631259 – FV21-005748
+
 
 use vexinitial
 declare @courrier_id int,@num_bl varchar(50),@cod_vil varchar(50)
-set @num_bl='FV21-005445'
+set @num_bl='FV21-005748'
 set @cod_vil = 170
-select @courrier_id=courrier_id from courrier where  COURRIER_NUM in('C01631258')
+select @courrier_id=courrier_id from courrier where  COURRIER_NUM in('C01631259')
 update intervient set VILLE_COD=@cod_vil where COURRIER_ID=@courrier_id and INTERVENTION_TYP='de' --( dd Arrivée de départ )--
 update [COURRIER_AGENCE] set AGENCE_COD=@cod_vil  where COURRIER_ID=@courrier_id and INTER_TYP='D' --( A Arrivée d départ )
 update retour_fonds set num=@num_bl where courrier_id=@courrier_id and fonds_typ='BL'

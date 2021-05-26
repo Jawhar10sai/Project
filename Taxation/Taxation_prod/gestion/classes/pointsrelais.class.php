@@ -56,7 +56,7 @@ class PointsRelais
   }
   public static function PointRelaisVille($code)
   {
-    $result = Connection::getConnection()->query("SELECT * FROM `points_relais` WHERE `id_ville`=? AND `supprime_le`IS NULL");
+    $result = Connection::getConnection()->prepare("SELECT * FROM `points_relais` WHERE `id_ville`=? AND `supprime_le` IS NULL");
     if ($result->execute([$code])) {
       $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__);
     } else

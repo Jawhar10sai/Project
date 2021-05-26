@@ -12,15 +12,17 @@ require_once '../../../gestion/classes/fetchclas.php';
       </div>
       <div class="card-body">
         <table class="table table-striped" id="inttable">
-          <tr class="text-center">
-            <td class="text-center">Client</td>
-            <td class="text-center">Chaine interval</td>
-            <td class="text-center">Interval deb</td>
-            <td class="text-center">Interval fin</td>
-            <td class="text-center">Interval deb (sessions)</td>
-            <td class="text-center">Interval fin (sessions)</td>
-            <td class="text-center">Mise à jour</td>
-          </tr>
+          <thead>
+            <tr class="text-center">
+              <th class="text-center">Client</th>
+              <th class="text-center">Chaine interval</th>
+              <th class="text-center">Interval deb</th>
+              <th class="text-center">Interval fin</th>
+              <th class="text-center">Interval deb (sessions)</th>
+              <th class="text-center">Interval fin (sessions)</th>
+              <th class="text-center">Mise à jour</th>
+            </tr>
+          </thead>
           <?php foreach (ClientLve::ListeClients() as $user) : ?>
             <tr>
               <td><?= $user->NOM; ?></td>
@@ -85,3 +87,20 @@ require_once '../../../gestion/classes/fetchclas.php';
     </div>
   </div>
 </div>
+
+<script>
+  $(table).dataTable({
+    "language": {
+      "lengthMenu": "Affichage _MENU_ pages",
+      "zeroRecords": "Pas d'elements",
+      "info": "Affichage de _PAGE_ of _PAGES_",
+      "infoEmpty": "Pas d'elements",
+      "infoFiltered": "(filtered from _MAX_ total records)",
+      "search": "Recherche",
+      "paginate": {
+        "previous": "Précédent",
+        "next": "Suivant"
+      }
+    }
+  });
+</script>

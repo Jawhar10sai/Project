@@ -210,3 +210,17 @@ function clientsinfospro(){
           }
         });
 }
+  $(table).dataTable({
+    "language": {
+      "lengthMenu": "Affichage _MENU_ pages",
+      "zeroRecords": "Pas d'elements",
+      "info": "Affichage de _PAGE_ of _PAGES_",
+      "infoEmpty": "Pas d'elements",
+      "infoFiltered": "(filtered from _MAX_ total records)",
+      "search": "Recherche",
+      "paginate": {
+        "previous": "Précédent",
+        "next": "Suivant"
+      }
+    }
+  });

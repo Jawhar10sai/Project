@@ -63,6 +63,12 @@
             </div>
             <div class="card-body">
               <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Clients</th>
+                    <th>Déclarations</th>
+                  </tr>
+                </thead>
                 <tbody>
                   <?php
                   #array_slice to select a giiven number of rows

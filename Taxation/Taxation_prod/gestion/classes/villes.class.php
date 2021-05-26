@@ -36,7 +36,7 @@ class Villes
   public static function ListeVilles()
   {
     return Connection::getConnection()
-      ->query("SELECT * FROM `ville` WHERE `VILLE_TYP`=1  AND `supprime_le`IS NULL ORDER BY `VILLE_LIB`")
+      ->query("SELECT * FROM `ville` WHERE `VILLE_TYP`=1  AND `supprime_le` IS NULL ORDER BY `VILLE_LIB`")
       ->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__);
   }
   private function ActualiserListe()
@@ -104,5 +104,15 @@ class Villes
   {
     $result = Connection::getConnection()->prepare("SELECT * FROM `ville` WHERE `supprime_le` IS NULL AND `VILLE_LIB` NOT LIKE ? ORDER BY `VILLE_LIB`");
     return ($result->execute([$ville])) ? $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__) : false;
+  }
+
+  public function ClientsVille()
+  {
+    return ClientLve::ClientsVille($this->VILLE_LIB);
+  }
+
+  public function AdressesVille()
+  {
+    return Adresses::AdresseVille($this->VILLE_COD);
   }
 }

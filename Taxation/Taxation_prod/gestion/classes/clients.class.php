@@ -478,17 +478,10 @@ class ClientLve extends Clients
   {
     return $this->debinterval - $this->fininterval;
   }
-
-  public static  function Total_Clients()
-  {
-    $sescli = new self;
-    $result = $sescli->connection->query("SELECT * FROM `client_lve`");
-    return $result->num_rows;
-  }
   public static function TopClients($number)
   {
     $result = Connection::getConnection()
-      ->query("select cl.NOM, (select count(*) from declaration_v  where cl.CLIENT_ID=client1_id)  as `nbr_declaration` from client_lve cl order by nbr_declaration desc")
+      ->query("SELECT cl.NOM, (select count(*) from declaration_v  where cl.CLIENT_ID=client1_id)  as `nbr_declaration` from client_lve cl order by nbr_declaration desc")
       ->fetchAll(PDO::FETCH_OBJ);
     return  array_slice($result, 0, $number, true);
   }
@@ -502,8 +495,13 @@ class ClientLve extends Clients
   {
     return Connexion::ConnexionUtilisateurs($this->CLIENT_ID);
   }
-}
 
+  public static function ClientsVille($ville)
+  {
+    $result = Connection::getConnection()->prepare("SELECT * FROM `client_lve` WHERE `ville` LIKE ? AND  `supprime_le` IS NULL");
+    return ($result->execute(["%$ville%"])) ?  $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__) : false;
+  }
+}
 /**
  * ############################################### Sous Client  #############################################
  */

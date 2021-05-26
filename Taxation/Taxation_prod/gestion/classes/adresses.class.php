@@ -92,4 +92,14 @@ class Adresses
       return
         false;
   }
+
+  public function AdresseDeclarations()
+  {
+    return Declarations::DeclarationsAdresse($this->id_adresse);
+  }
+  public static function AdresseVille($ville)
+  {
+    $adresse = Connection::getConnection()->prepare("SELECT * FROM `adresses` WHERE `id_ville`=?");
+    return ($adresse->execute([$ville])) ? $adresse->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__) : false;
+  }
 }
