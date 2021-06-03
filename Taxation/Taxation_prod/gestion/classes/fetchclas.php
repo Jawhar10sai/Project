@@ -12,3 +12,4 @@ include_once "reclamations.class.php";
 include_once "connexion.class.php";
 include_once "admin.class.php";
 include_once "courrier.class.php";
+include_once "consigne.class.php";

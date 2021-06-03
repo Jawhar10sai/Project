@@ -25,7 +25,10 @@ class Connection
     {
         return  new PDO("mysql:dbname=lvedbexp;host=localhost", 'root', '');
     }
-
+    public static function getConsigneConnexion()
+    {
+        return  new PDO("mysql:dbname=api_service;host=localhost", 'root', '');
+    }
     public static function VerifierLigneConnection($utilisateur, $motdepasse)
     {
         $result = self::getConnection()->prepare("SELECT * FROM `client_lve` WHERE `login`=? AND `mot_de_passe`=? AND `supprime_le` IS NULL");

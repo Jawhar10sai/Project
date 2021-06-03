@@ -1,5 +1,6 @@
 <?php
-include_once "control_utilisateur.php";
+include_once "classes/fetchclas.php";
+/*
 ?>
 <form method="post" id="import_excel_form" action="ajout.php" enctype="multipart/form-data">
     <table class="table">
@@ -11,6 +12,10 @@ include_once "control_utilisateur.php";
     </table>
 </form>
 <?php 
+*/
+foreach (Consigne::CongisnesEtat('en service') as $consigne) {
+    echo $consigne->num_serie_consigne . " - " . $consigne->etat . "<br>";
+}
 #$result = $client_lve->AjouterMonClient($_POST['codecli'], $_POST['nom'], $_POST['prenom'], $_POST['telephone'], $_POST['adresse'], $_POST['ville']);
 #print_r($result);
 /*

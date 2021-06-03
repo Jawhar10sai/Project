@@ -3,7 +3,7 @@
 --*******************************
 use vexinitial
 blk
-declare @numero varchar(30) = 'B010044612', @id numeric(24,0)
+declare @numero varchar(30) = 'C01830508', @id numeric(24,0)
 select @id=courrier_id from courrier where courrier_num=@numero
 update courrier set COURRIER_ETA='E' where courrier_id=@id
 update courrier_agence SET INTER_ETA=0 where courrier_id=@id and INTER_TYP='A' 
@@ -155,24 +155,20 @@ from declaration_v where numero=@numero_dec
 	else
 		print 'Le client est en compte'
 
-
 --****************************
 -- merci de me modifier la date des déclarations suivantes: [X,Y,Z]
 --****************************
-select * from intervient 
---update INTERVIENT set INTERVENTION_DAT='31/03/2021'
-where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01835889','C01835890','C01835891')) and INTERVENTION_TYP='DD'
-select * from declaration_v where numero  in ('C01663947')
-
 use vexinitial
 
+select * from intervient 
+--update INTERVIENT set INTERVENTION_DAT='04/05/2021'
+where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01546267','C01546268','C01546269')) and INTERVENTION_TYP='DD'
 select * from courrier 
-update courrier set SAISIE_DAT='31/12/2020'
-where COURRIER_NUM in ('C01663947')
+--update courrier set SAISIE_DAT='04/05/2021'
+where COURRIER_NUM in ('C01546267','C01546268','C01546269')
 select top 10 * from courrier_fa 
 --update courrier_fa set date='30/11/2020'
-where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01695008','C01695003','C01695004','C01695005'))
-select top 10 * from COURRIER_FACTURE where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01695008','C01695003','C01695004','C01695005'))
+where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01546267','C01546268','C01546269'))
 
 -------------------------------------------Annulation transport de caisse- annuler  FT trans de la declaration--------------------------------------------------
 select * from courrier_caisse  where COURRIER_ID in (select courrier_id from courrier where courrier_num in ('C0C01437927'))
