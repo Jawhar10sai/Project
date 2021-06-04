@@ -161,11 +161,11 @@ from declaration_v where numero=@numero_dec
 use vexinitial
 
 select * from intervient 
---update INTERVIENT set INTERVENTION_DAT='04/05/2021'
-where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01546267','C01546268','C01546269')) and INTERVENTION_TYP='DD'
+--update INTERVIENT set INTERVENTION_DAT='15/02/2021'
+where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01662846')) and INTERVENTION_TYP='DD'
 select * from courrier 
---update courrier set SAISIE_DAT='04/05/2021'
-where COURRIER_NUM in ('C01546267','C01546268','C01546269')
+--update courrier set SAISIE_DAT='15/02/2021'
+where COURRIER_NUM in ('C01662846')
 select top 10 * from courrier_fa 
 --update courrier_fa set date='30/11/2020'
 where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01546267','C01546268','C01546269'))
