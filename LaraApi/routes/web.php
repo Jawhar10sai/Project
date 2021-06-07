@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Etat_expeditionController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,4 +16,6 @@ use App\Http\Controllers\Etat_expeditionController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/Courriers', [Etat_expeditionController::class, 'ListeCourriers']);
+Route::get('/test', function () {
+    return "test";
+});

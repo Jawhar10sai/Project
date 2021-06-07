@@ -1,5 +1,14 @@
 <?php
 include_once "classes/fetchclas.php";
+
+if (isset($_GET['code'])) {
+    $code = ClientLve::TrouverClientParCode($_GET['code'])->CLIENT_ID;
+    $result = Connection::getConnection()->prepare("select * from declaration_v where client1_id=?");
+    if ($result->execute([$code])) {
+        echo json_encode($result->fetchAll());
+        exit;
+    }
+}
 /*
 ?>
 <form method="post" id="import_excel_form" action="ajout.php" enctype="multipart/form-data">

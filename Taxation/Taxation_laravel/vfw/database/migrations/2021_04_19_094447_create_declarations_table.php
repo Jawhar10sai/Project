@@ -46,7 +46,6 @@ class CreateDeclarationsTable extends Migration
             $table->integer('retour_fonds_num')->nullable();
             $table->integer('retour_palettes_num')->nullable();
             $table->string('facture_id')->nullable();
-
             $table->timestamps();
         });
     }
