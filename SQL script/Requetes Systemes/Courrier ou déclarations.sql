@@ -193,4 +193,6 @@ select * from courrier_caisse where M_TYP='TR' and courrier_id=@courrier_id
 -------------------------------------------   --------------------------------------------------
 use VEXINITIAL
 
-update courrier set COURRIER_TYP='M' Where COURRIER_NUM in ('C01726440','C01726446')
+--update courrier set COURRIER_TYP='M' Where COURRIER_NUM in ('C01726440','C01726446')
+
+select * from declaration_v where numero like 'E00007843'

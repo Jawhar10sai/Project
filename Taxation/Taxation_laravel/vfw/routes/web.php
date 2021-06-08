@@ -15,5 +15,9 @@ use App\Http\Controllers\Etat_expeditionController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 Route::get('/Courriers', [Etat_expeditionController::class, 'ListeCourriers']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

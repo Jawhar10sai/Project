@@ -1,3 +1,6 @@
+@import url("bootstrap.min.css");
+@import url("https://fonts.googleapis.com/css?family=Amiri|Montserrat|Nunito|Open+Sans|Raleway&display=swap");
+
 body {
   background-image: url("../images/34.jpg") !important;
   background-size: cover;

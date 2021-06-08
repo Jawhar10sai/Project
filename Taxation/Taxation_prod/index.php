@@ -5,10 +5,8 @@
   <meta charset="utf-8">
   <title>LVE - Authentification</title>
   <link rel="shortcut icon" type="image/x-icon" href="images/LOGOSANS.png" />
-  <link rel="stylesheet" href="assets/styles/bootstrap.min.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <link rel="stylesheet" href="assets/styles/index2-style.css">
-  <link href="https://fonts.googleapis.com/css?family=Amiri|Montserrat|Nunito|Open+Sans|Raleway&display=swap" rel="stylesheet">
 </head>
 
 <body>
