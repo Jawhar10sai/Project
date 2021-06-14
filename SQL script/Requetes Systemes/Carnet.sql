@@ -96,12 +96,14 @@ DEALLOCATE curs
 --veuillez remplacer le carnet du ramassage du 2216 au 2695: CB1001909111
 ---------------------------------------------
 select  * from RAMASSE 
---update ramasse set chauffeur=(select employe_id from EMPLOYE where MATRICULE='2659')
+--update ramasse set chauffeur=(select employe_id from EMPLOYE where MATRICULE='2823')
 where RAMASSE_NUM in
-( 'CB1002104047' )
+( 'CB1002104209' )
 /*
 ( 'cb1002103913' ,
  'CB1002103551' ,
  'CB1002103537' )*/
 --AGENCE_COD=500
 use VEXINITIAL
+
+CB1002104209 du 2217 au 2823

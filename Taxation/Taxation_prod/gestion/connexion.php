@@ -49,9 +49,17 @@ if (isset($_POST['nomuser'])) {
       exit;
     }
   } elseif ($admin) {
-    #$connexion = new Connexion;
-    echo "non trouve";
-    exit;
+    $connexion = new Connexion;
+    $connexion->id_utilisateur = $admin->id_admin;
+    $connexion->type_utilisateur = "admin";
+    $connecte = $connexion->Connecter();
+    if ($connecte) {
+      $_SESSION['id_con'] = $connecte;
+      $_SESSION['type_utilisateur'] = "admin";
+      $_SESSION['user_id'] =  $admin->id_admin;
+      echo "admin";
+      exit;
+    }
   } else {
     echo "non trouve";
     exit;

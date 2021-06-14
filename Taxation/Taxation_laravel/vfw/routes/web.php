@@ -21,3 +21,6 @@ Route::get('/Courriers', [Etat_expeditionController::class, 'ListeCourriers']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::get('/Declarations', function () {
+    return view('declarations');
+})->name('Declarations');

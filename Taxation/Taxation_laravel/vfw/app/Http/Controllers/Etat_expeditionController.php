@@ -12,10 +12,11 @@ class Etat_expeditionController extends Controller
      *
      * @return void
      */
+    /*
     public function __construct()
     {
         $this->middleware('auth');
-    }
+    }*/
     public function ListeCourriers()
     {
         return view('courriers', ["courriers" => Etat_expedition::all()]);

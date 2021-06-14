@@ -41,7 +41,7 @@ require_once "AdmHeaders.php";
       <a href="Suivis">
         <i class="fas fa-store"></i> Suivis des envois
       </a>
-      <a class="deconnect" href="../deco.php" style="bottom:0;position:absolute;width:300px;">
+      <a class="deconnect" href="../gestion/deconnexion.php" style="bottom:0;position:absolute;width:300px;">
         <i class="fas fa-sign-out-alt"></i> Déconnecter
       </a>
 

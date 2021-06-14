@@ -11,6 +11,7 @@ $(".form-signin").on("submit", function (event) {
     },
     success: function (res) {
       try {
+        console.log(res);
         if (res == "deja co") {
           Swal.fire({
             icon: "error",
@@ -36,6 +37,9 @@ $(".form-signin").on("submit", function (event) {
           $(location).attr("href", "Déclarations");
         } else if (res == "Tracking") {
           $(location).attr("href", "Tracking");
+        }
+          else if (res == "admin") {
+          $(location).attr("href", "LveAdmin");
         }
       } catch (error) {
         //console.log(error);

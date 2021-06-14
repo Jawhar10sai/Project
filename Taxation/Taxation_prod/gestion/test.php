@@ -1,6 +1,9 @@
 <?php
 include_once "classes/fetchclas.php";
 
+echo sha1("admin");
+exit;
+
 if (isset($_GET['code'])) {
     $code = ClientLve::TrouverClientParCode($_GET['code'])->CLIENT_ID;
     $result = Connection::getConnection()->prepare("select * from declaration_v where client1_id=?");

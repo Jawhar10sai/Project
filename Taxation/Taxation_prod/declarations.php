@@ -465,31 +465,8 @@ require_once "includes/lve_navbar.php";
               </p>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" id="mesDNR">
 
-            <table class="table table-striped">
-              <thead class="table-secondary">
-                <tr>
-                  <th>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="checkAll">Ramasser
-                      </label>
-                    </div>
-                  </th>
-                  <th class="text-center">Numéro</th>
-                  <th class="text-center">Date</th>
-                  <th class="text-center">Colis</th>
-                  <th class="text-center">Destinataire</th>
-                  <th class="text-center">Adresse</th>
-                  <th class="text-center">BL</th>
-                  <th class="text-center">Actions</th>
-                </tr>
-              </thead>
-              <tbody id="mesDNR">
-
-              </tbody>
-            </table>
           </div>
         </div>
       </div>
@@ -547,7 +524,6 @@ require_once "includes/lve_navbar.php";
       affichepalettes();
       Nomsuggestions();
       emtyNomsuggestions();
-      CheckRamassage();
       AfficheBLoui();
       AfficheBLmodal();
       ValideBL();

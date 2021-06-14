@@ -1,10 +1,10 @@
 <?php
-require_once "txheads.php";
+require_once __DIR__ . "/txheads.php";
 $messess = 'active';
 ?>
 <title>LVE - Mes sessions</title>
 <!--###################################################################################-->
-<?php include_once "includes/lve_navbar.php"; ?>
+<?php include_once __DIR__ . "/includes/lve_navbar.php"; ?>
 <!--###################################################################################-->
 
 <div class="container lve-content">

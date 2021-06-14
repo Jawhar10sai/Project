@@ -9,7 +9,7 @@ class Admins
   protected $liste_data;
   function __construct()
   {
-    $this->id = null;
+    $this->id_admin = null;
     $this->username = "";
     $this->mot_de_passe = "";
     $this->mailadmin = "";
@@ -18,7 +18,7 @@ class Admins
   private function ActualiserListe()
   {
     $this->liste_data = array(
-      ':id'    =>  $this->id,
+      ':id'    =>  $this->id_admin,
       ':nom'    =>  $this->username,
       ':pass'    =>  $this->mot_de_passe,
       ':mail'    =>  $this->mailadmin
