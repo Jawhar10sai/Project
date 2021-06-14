@@ -1,0 +1,147 @@
+*@media (min-width: 1025px)
+body {
+    font-size: 100%;
+}
+body {
+    background-color: #eef1f5;
+    background-position: center top;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 17px;
+    font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.lvenavbar{
+  background-color: #ef3f33;
+  margin-bottom: 0px;
+}
+.carcard{
+  border-radius : 5px;
+  -webkit-box-shadow: -1px 0px 7px 2px rgba(247,8,48,1);
+  -moz-box-shadow: -1px 0px 7px 2px rgba(247,8,48,1);
+  box-shadow: -1px 0px 7px 2px rgba(247,8,48,1);
+}
+.carcard:hover{
+  -webkit-box-shadow: -1px 0px 9px 7px rgba(247,8,48,1);
+  -moz-box-shadow: -1px 0px 9px 7px rgba(247,8,48,1);
+  box-shadow: -1px 0px 9px 7px rgba(247,8,48,1);
+}
+.carcontent{
+  padding-top: 30px;
+  margin:20px;
+}
+.cartitle:hover{
+  color: #fff;
+  background-color:#f70830;
+}
+.lvemenu{
+  background-color: #ef3f33;
+}
+.lveitemenu{
+    color: white;
+}
+.lveitemenu:hover{
+    color: #ef3f33;
+    background-color: white;
+}
+.container-fluid{
+  padding: 50px;
+}
+.innerlve{
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);
+}
+/*#lvehr{
+  color: #ef3f33;
+  background-color: #ef3f33;
+}*/
+.lveytb{
+  height: 300;
+}
+.imgcall{
+  width: 546;
+  height: 200;
+}
+section{
+  border-bottom: 1px solid #ef3f33;
+}
+h1{
+  color: #ef3f33;
+  font-family:  'Montserrat';
+  font-size: 2.2222em;
+      font-weight: 700;
+      opacity:1;
+}
+#caros_lve{
+  min-height: 100vh;
+  max-width: 100%;
+  background: url("../images/Transport_La_Voix_Express.jpg");
+  opacity:0.75;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container-fluid{
+  padding-top: 10px;
+  margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+}
+.card-footer{
+  background-color: #ef3f33;
+}
+.card-footer:hover{
+  background-color: #F5A9A9;
+  /*color: #424242;*/
+}
+
+.card{
+  width: 100%;
+  height: 100%;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid red;
+  background-color: #FA5858;
+}
+.card-body{
+
+}
+.centerit{
+  margin-top: 30%;
+  margin-left: 15%;
+}
+.lvedes{
+  font-size: 40px;
+  font-family: Showcard Gothic sans-serif;
+  color: white;
+}
+
+
+ p
+  {
+   font-family: "Raleway", CenturyGothic, AppleGothic, sans-serif;
+    font-size: 18px;
+     font-style: normal;
+     font-variant: normal;
+     font-weight: 400;
+     line-height: 30px;
+  }
+#lve_footer{
+  background-color: #424242;
+  color: #FAFAFA;
+  bottom:0;
+  width: 100%;
+}
+#lve_footer a{
+  text-decoration: none;
+  color: #FAFAFA;
+}
+#navbar{
+  overflow: hidden;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
