@@ -78,14 +78,14 @@ class Courrier
     public static function TrouverCourrierParNumero($numero)
     {
         $connection = new PDO("mysql:dbname=lvedbexp;host=localhost", 'lve', 'adminlvedba');
-        $result =     $connection->prepare("SELECT * FROM `etat_expedition` WHERE `Numero`=?");
+        $result =     $connection->prepare("SELECT * FROM `etat_expeditions` WHERE `Numero`=?");
         return ($result->execute([$numero])) ? $result->fetch(PDO::FETCH_OBJ) : false;
     }
 
     public static function TrouverCourrier($id)
     {
         $connection = new PDO("mysql:dbname=lvedbexp;host=localhost", 'lve', 'adminlvedba');
-        $result =     $connection->prepare("SELECT * FROM `etat_expedition` WHERE `courrier_id`=?");
+        $result =     $connection->prepare("SELECT * FROM `etat_expeditions` WHERE `courrier_id`=?");
         return ($result->execute([$id])) ?  $result->fetch(PDO::FETCH_OBJ) : false;
     }
 
@@ -337,7 +337,7 @@ class Courrier
         if ($client_typ == "TRL")
             $stmt = Connection::getCourrierConnexion()->prepare("SELECT * FROM declarations_intralot $where ");
         else
-            $stmt = Connection::getCourrierConnexion()->prepare("SELECT * FROM etat_expedition $where ");
+            $stmt = Connection::getCourrierConnexion()->prepare("SELECT * FROM etat_expeditions $where ");
 
         if ($stmt->execute($recherche))
             return $stmt->fetchAll(PDO::FETCH_OBJ);

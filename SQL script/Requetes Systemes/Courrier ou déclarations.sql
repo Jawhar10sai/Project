@@ -39,11 +39,11 @@ select top 10 * from ville where VILLE_LIB like '%ain s%'
 blk
 use vexinitial
 declare @courrier_id int,@num_bl varchar(50),@cod_vil varchar(50)
-set @num_bl='FV21-006100'
-set @cod_vil = 170
-select @courrier_id=courrier_id from courrier where  COURRIER_NUM in('C01631263')
-update intervient set VILLE_COD=@cod_vil where COURRIER_ID=@courrier_id and INTERVENTION_TYP='de' --( dd Arrivée de départ )--
-update [COURRIER_AGENCE] set AGENCE_COD=@cod_vil  where COURRIER_ID=@courrier_id and INTER_TYP='D' --( A Arrivée d départ )
+--set @num_bl='FV21-006100'
+set @cod_vil = 100
+select @courrier_id=courrier_id from courrier where  COURRIER_NUM in('C01850284')
+update intervient set VILLE_COD=@cod_vil where COURRIER_ID=@courrier_id and INTERVENTION_TYP='dd' --( dd Arrivée de départ )--
+update [COURRIER_AGENCE] set AGENCE_COD=@cod_vil  where COURRIER_ID=@courrier_id and INTER_TYP='A' --( A Arrivée d départ )
 update retour_fonds set num=@num_bl where courrier_id=@courrier_id and fonds_typ='BL'
 /*############################################################## Changer le type d'une déclaration ######################################################################*/
 select * from courrier
@@ -160,13 +160,13 @@ from declaration_v where numero=@numero_dec
 -- merci de me modifier la date des déclarations suivantes: [X,Y,Z]
 --****************************
 use vexinitial
-C01713000 du 07/06/2021 au lieu du  18/02/2021
+
 select * from intervient 
---update INTERVIENT set INTERVENTION_DAT='21/05/2021'
-where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01713000')) and INTERVENTION_TYP='DD'
+--update INTERVIENT set INTERVENTION_DAT='25/05/2021'
+where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01793089')) and INTERVENTION_TYP='DD'
 select * from courrier 
---update courrier set SAISIE_DAT='21/05/2021'
-where COURRIER_NUM in ('C01713000')
+--update courrier set SAISIE_DAT='25/05/2021'
+where COURRIER_NUM in ('C01793089')
 select top 10 * from courrier_fa 
 --update courrier_fa set date='30/11/2020'
 where courrier_id in (select courrier_id from courrier where COURRIER_NUM in ('C01546267','C01546268','C01546269'))

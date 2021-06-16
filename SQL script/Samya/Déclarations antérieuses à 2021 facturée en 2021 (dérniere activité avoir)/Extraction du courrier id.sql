@@ -1,3 +1,4 @@
+use VEXINITIAL
 declare @courrier_id numeric, @date Datetime, @facture_typ varchar(20),@count_factures int
 set @date = '2021-01-01' 
 DECLARE dec_ant CURSOR FOR

@@ -8,6 +8,5 @@
             <td>date</td>
         </tr>
     </thead>
-
 </table>
 @endsection

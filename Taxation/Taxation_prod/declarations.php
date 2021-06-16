@@ -147,7 +147,7 @@ require_once "includes/lve_navbar.php";
                 </div>
                 <div class="form-check" id="pointR">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input livr" disabled name="livraison" id="Prr" value="p">
+                    <input type="radio" class="form-check-input livr" name="livraison" id="Prr" value="p">
                     Points relais
                   </label>
                 </div>
