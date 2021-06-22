@@ -4,7 +4,7 @@
 use vexinitial
 
 blk
-declare @numero varchar(30) = 'C01384223', @id numeric(24,0)
+declare @numero varchar(30) = 'c01850284', @id numeric(24,0)
 select @id=courrier_id from courrier where courrier_num=@numero
 update courrier set COURRIER_ETA='E' where courrier_id=@id
 update courrier_agence SET INTER_ETA=0 where courrier_id=@id and INTER_TYP='A' 

@@ -4,8 +4,8 @@ declare  @date1 datetime
 declare  @date2 datetime
 declare  @typ varchar 
  
- set @date1='1-1-2020'
-set @date2='31-12-2020'
+ set @date1='1-1-2021'
+set @date2='31-5-2021'
 --set @typ='L'
 select client.CLIENT_COD,CLIENT.NOM ,client.client_typ,f.facture_typ,f.FACTURE_NUM,
   sum (f.facture_ht) ht ,  sum (f.facture_tva) tva ,AGENCE_LIB, fs.COURRIER_TYP
@@ -14,14 +14,16 @@ select client.CLIENT_COD,CLIENT.NOM ,client.client_typ,f.facture_typ,f.FACTURE_N
 from  facture f inner join FACTURE_SOUCHE fs on f.FACTURE_ID = fs.FACTURE_ID
 join client on client.CLIENT_ID=fs.CLIENT_ID
 left join AGENCE on  CLIENT.agence_cod=AGENCE.agence_cod
-where  cast(f.facture_dat as DATE) between @date1 and @date2 AND fs.COURRIER_TYP in ('L','G')
+where  cast(f.facture_dat as DATE) between @date1 and @date2  AND 
+client.CLIENT_TYP='EC'
+--AND fs.COURRIER_TYP in ('L','G')
 group by  client.CLIENT_COD,CLIENT.NOM ,client.client_typ,f.facture_typ,AGENCE_LIB,f.FACTURE_NUM, fs.COURRIER_TYP
 
 /***************************************************************************************************************/
 declare  @date1 datetime
 declare  @date2 datetime
 set @date1='1-1-2020'
-set @date2='31-7-2020'
+set @date2='31-5-2021'
 select 
 dv.numero as 'numero de déclaration',
 dv.date as 'Date de déclaration',

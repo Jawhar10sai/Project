@@ -1,4 +1,4 @@
---
+.--
 --************* Suppression de ramassage *************
 --
 use RAMEX

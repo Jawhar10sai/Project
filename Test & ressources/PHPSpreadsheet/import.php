@@ -27,7 +27,26 @@ if ($_FILES["import_excel"]["name"] != '') {
 			if ($row[0] == 'First Name')
 				continue;
 			else {
-				$insert_data = array(
+				$insert_array = array(
+					':courrier_id' => $row[0],
+					':numero' => $row[1],
+					':date' => $row[2],
+					':facture_id' => $row[3],
+					':client1_id' => $row[4],
+					':code_expediteur' => $row[5],
+					':expediteur' => $row[6],
+					':client2_id' => $row[7],
+					':code_destinataire' => $row[8],
+					':destinataire' => $row[9],
+					':port' => $row[10],
+					':courrier_typ' => $row[11],
+					':payeur_id' => $row[12],
+					':montant_ht' => $row[13]
+				);
+				$query = "
+				INSERT INTO courrier values (:courrier_id,:numero,:date,:facture_id,:client1_id,:code_expediteur,:expediteur,:client2_id,:code_destinataire,:destinataire,:port,:courrier_typ,:payeur_id,:montant_ht)
+				";
+				/*$insert_data = array(
 					':first_name'		=>	$row[0],
 					':last_name'		=>	$row[1],
 					':created_at'		=>	$row[2],
@@ -38,7 +57,7 @@ if ($_FILES["import_excel"]["name"] != '') {
 					INSERT INTO sample_datas 
 					(first_name, last_name, created_at, updated_at) 
 					VALUES (:first_name, :last_name, :created_at, :updated_at)
-					";
+					";*/
 
 				$statement = $connect->prepare($query);
 				$statement->execute($insert_data);
