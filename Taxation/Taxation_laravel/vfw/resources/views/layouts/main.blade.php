@@ -19,6 +19,8 @@
     <script src="{{ asset('assets/scripts/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/scripts/vue.min.js') }}"></script>
     <script src="{{ asset('assets/scripts/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/scripts/test.js') }} "></script>
+
 </body>
 
 </html>
