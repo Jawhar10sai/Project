@@ -17,12 +17,12 @@ use App\Http\Controllers\Etat_expeditionController;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-Route::get('/Courriers', [Etat_expeditionController::class, 'ListeCourriers']);
-/*
+//Route::get('/Courriers', [Etat_expeditionController::class, 'ListeCourriers']);
+
 Route::get('/Courriers', function () {
     return  DB::connection('mysql2')->table('etat_expedition_speed')->get();
 });
-*/
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

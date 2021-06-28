@@ -1,85 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Fetch with Basic Access Authentication</title>
-    <meta name="viewport" content="width=device-width">
-    <!--    <link rel="stylesheet" href="main.css" />-->
-    <style>
-        p {
-            cursor: pointer;
-        }
-    </style>
-</head>
+<script>
+    /*  
+    axios.get('test.php', {
+            params: {
+                id: 1
+            }
+        }, {
+            headers: {
+                'Conent-type': 'application/json'
+            }
+        })
+        .then((response) => {
 
-<body>
-    <header>
-        <h1>Fetch with Basic Access Authentication</h1>
-    </header>
-    <main>
-        <p>Response will appear here after you click.</p>
-    </main>
-    <script>
-        let p;
+            console.log(response.data);
+        }).catch(err => {
+            console.log(err);
+        });*/
+</script>
+<script>
+    fetch('http://api.relaisexpress.ma/v1/getconsigne', {
+    method: 'GET',
+    headers: new Headers({
+        'Authorization': 'Basic ' + Buffer.from("lve:kC525bmT").toString('base64'),
+        'Content-Type': 'application/json'
+    }),
+    })
 
-        document.addEventListener('DOMContentLoaded',
-            function() {
-                p = document.querySelector('main>p');
-                p.addEventListener('click', doFetch);
-            });
 
-        function doFetch(ev) {
-            let uri = "http://api.relaisexpress.ma/v1/getconsigne";
-
-            let h = new Headers();
-            h.append('Accept', 'application/json');
-            let encoded = window.btoa('lve:kC525bmT');
-            let auth = 'Basic ' + encoded;
-            h.append('Authorization', auth);
-            console.log(auth);
-
-            let req = new Request(uri, {
-                method: 'GET',
-                headers: h,
-                data: {
-                    "id-gc": 34004,
-                    "statut": 0
-                },
-                credentials: 'include'
-                //credentials: 'same-origin'
-            });
-            //credentials: 'same-origin'
-
-            fetch(req)
-                .then((response) => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw new Error('BAD HTTP stuff');
+    /* fetch('http://api.relaisexpress.ma/v1/getconsigne', {
+             method: 'GET',
+             headers: new Headers({
+                 'Authorization': 'Basic ' + Buffer.from("lve:kC525bmT").toString('base64'),
+                 'Content-Type': 'application/json'
+             }),
+             data: {
+                 "id-gc": 34004,
+                 "statut": 0
+             }
+         })
+         .then(response => {
+             console.log(response.json());
+         })*/
+    /*        .then(data => {
+                console.log(data);
+            });*/
+    /*
+    axios.get('https://cors-anywhere.herokuapp.com/http://api.relaisexpress.ma/v1/getconsigne', {
+                params: {
+                    "id-gc": 1,
+                    "statut": 0,
+                    //"format": "json"
+                }
+            }, {
+                auth: {
+                    username: 'lve',
+                    password: 'kC525bmT'
+                }
+            }*/
+    /*, {
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                        //"Authorization": "Basic " + btoa("lve:kC525bmT")
+                    },
+                    auth: {
+                        username: 'lve',
+                        password: 'kC525bmT'
                     }
-                })
-                .then((jsonData) => {
-                    console.log(jsonData);
-                    p.textContent = JSON.stringify(jsonData, null, 4);
-                })
-                .catch((err) => {
-                    console.log('ERROR:', err.message);
-                });
+                }*/
+    /*, {
+                    
+                }*/
+    )
+    .then((response) => {
+        console.log(response);
+    });
+
+    /* $.ajax({
+        type: "GET",
+        url: "http://api.relaisexpress.ma/v1/getconsigne",
+        dataType: 'json',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+            "Access-Control-Allow-Headers": "Authorization",
+            "Authorization": "Basic " + btoa("lve:kC525bmT")
+        },
+        data: {
+            "id-gc": 34004,
+            "statut": 0,
+            format: "json"
+        },
+        success: function(res) {
+            console.log(res);
+            //alert('Thanks for your comment!'); 
         }
-
-        /********************************
-        Server can send headers
-        WWW-Authenticate: Basic realm="Realm Description" charset="UTF-8"
-        HTTP/1.1: 401 Unauthorized
-        HTTP/1.1: 403 Forbidden
-        
-        Client sends header
-        Authorization: Basic QWxhZGRpbjpPcGVuU2VzYW1l
-        The string is username:password base-64 encoded
-        MUST BE OVER HTTPS
-        ********************************/
-    </script>
-</body>
-
-</html>
+    });*/
+</script>
