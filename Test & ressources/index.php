@@ -2,7 +2,7 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
-    /*  
+    
     axios.get('test.php', {
             params: {
                 id: 1
@@ -13,20 +13,25 @@
             }
         })
         .then((response) => {
-
-            console.log(response.data);
+            //liste = JSON.parse(response.data);
+            $.each(response.data, function(k, v) {
+                console.log(v.numero);
+                console.log(v.poids);
+                console.log('---------------------');
+            });
+            
         }).catch(err => {
             console.log(err);
-        });*/
+        });
 </script>
 <script>
-    fetch('http://api.relaisexpress.ma/v1/getconsigne', {
+  /*  fetch('http://api.relaisexpress.ma/v1/getconsigne', {
     method: 'GET',
     headers: new Headers({
         'Authorization': 'Basic ' + Buffer.from("lve:kC525bmT").toString('base64'),
         'Content-Type': 'application/json'
     }),
-    })
+    })*/
 
 
     /* fetch('http://api.relaisexpress.ma/v1/getconsigne', {
@@ -73,11 +78,11 @@
     /*, {
                     
                 }*/
-    )
+   /* )
     .then((response) => {
         console.log(response);
     });
-
+*/
     /* $.ajax({
         type: "GET",
         url: "http://api.relaisexpress.ma/v1/getconsigne",
