@@ -18,6 +18,7 @@
     </tbody>
 </table>
 <script>
+<<<<<<< HEAD
     var application = new Vue({
         el: '#crudApp',
         data: {
@@ -99,6 +100,12 @@
                         alert(response.data.message);
                     });
                 }
+=======
+    
+    axios.get('test.php', {
+            params: {
+                id: 1
+>>>>>>> 9a2c0cdcebe3354aa5fb1b7d6e141397d2bf8d1d
             }
         },
         created: function() {
@@ -116,6 +123,7 @@
             }
         })
         .then((response) => {
+<<<<<<< HEAD
             $.each(response.data, function(index, declaration) {
                 console.log(declaration.poids);
             });
@@ -144,12 +152,32 @@
 <script>
     /*
     fetch('http://api.relaisexpress.ma/v1/getconsigne', {
+=======
+            //liste = JSON.parse(response.data);
+            $.each(response.data, function(k, v) {
+                console.log(v.numero);
+                console.log(v.poids);
+                console.log('---------------------');
+            });
+            
+        }).catch(err => {
+            console.log(err);
+        });
+</script>
+<script>
+  /*  fetch('http://api.relaisexpress.ma/v1/getconsigne', {
+>>>>>>> 9a2c0cdcebe3354aa5fb1b7d6e141397d2bf8d1d
     method: 'GET',
     headers: new Headers({
         'Authorization': 'Basic ' + Buffer.from("lve:kC525bmT").toString('base64'),
         'Content-Type': 'application/json'
     }),
     })*/
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9a2c0cdcebe3354aa5fb1b7d6e141397d2bf8d1d
     /* fetch('http://api.relaisexpress.ma/v1/getconsigne', {
              method: 'GET',
              headers: new Headers({
@@ -193,8 +221,13 @@
                 }*/
     /*, {
                     
+<<<<<<< HEAD
                 }
     )
+=======
+                }*/
+   /* )
+>>>>>>> 9a2c0cdcebe3354aa5fb1b7d6e141397d2bf8d1d
     .then((response) => {
         console.log(response);
     });
