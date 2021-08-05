@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2021 at 11:15 AM
+-- Generation Time: Aug 05, 2021 at 07:34 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -28,57 +28,15 @@ SET time_zone = "+00:00";
 -- (See below for the actual view)
 --
 CREATE TABLE `declarations_intralot` (
-`Agence` varchar(250)
-,`courrier_id` int(20)
-,`Numero` varchar(250)
-,`Date` datetime
-,`Code1` varchar(250)
-,`Expediteur` varchar(250)
-,`Code2` varchar(250)
-,`destinataire` varchar(250)
-,`adresse1` varchar(250)
-,`adresse2` varchar(250)
-,`Ville1` varchar(250)
-,`Ville2` varchar(250)
-,`Port` char(2)
-,`Colis` int(11)
-,`Poids` decimal(16,3)
-,`type` char(2)
-,`Montant_ttc` decimal(16,3)
-,`Espece` decimal(16,3)
-,`Cheque` decimal(16,3)
-,`Traite` decimal(16,3)
-,`bl` decimal(16,3)
-,`Recu` int(20)
-,`date_recu` date
-,`num` varchar(250)
-,`date_bordereau` date
-,`date_livraison` datetime
-,`Delais_Cible` int(11)
-,`Ecart` int(11)
-,`Depassement` int(11)
-,`Ecart2` int(11)
-,`service` varchar(250)
-,`BORDEREAU_NUM` decimal(18,0)
-,`livraison` char(2)
-,`ramasseur` varchar(250)
-,`FC_date1` datetime
-,`FC_date2` datetime
-,`date_caisse` datetime
-,`statut` varchar(250)
-,`statut_suivis` varchar(250)
-,`FC_date_arrive` datetime
-,`Motif` varchar(250)
-,`Taxateur` varchar(250)
 );
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `etat_expedition`
+-- Table structure for table `etat_expeditions`
 --
 
-CREATE TABLE `etat_expedition` (
+CREATE TABLE `etat_expeditions` (
   `Agence` varchar(250) NOT NULL,
   `courrier_id` int(20) NOT NULL,
   `Numero` varchar(250) NOT NULL,
@@ -124,10 +82,10 @@ CREATE TABLE `etat_expedition` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `etat_expedition`
+-- Dumping data for table `etat_expeditions`
 --
 
-INSERT INTO `etat_expedition` (`Agence`, `courrier_id`, `Numero`, `Date`, `Code1`, `Expediteur`, `Code2`, `destinataire`, `adresse1`, `adresse2`, `Ville1`, `Ville2`, `Port`, `Colis`, `Poids`, `type`, `Montant_ttc`, `Espece`, `Cheque`, `Traite`, `bl`, `Recu`, `date_recu`, `num`, `date_bordereau`, `date_livraison`, `Delais_Cible`, `Ecart`, `Depassement`, `Ecart2`, `service`, `BORDEREAU_NUM`, `livraison`, `ramasseur`, `FC_date1`, `FC_date2`, `date_caisse`, `statut`, `statut_suivis`, `FC_date_arrive`, `Motif`, `Taxateur`) VALUES
+INSERT INTO `etat_expeditions` (`Agence`, `courrier_id`, `Numero`, `Date`, `Code1`, `Expediteur`, `Code2`, `destinataire`, `adresse1`, `adresse2`, `Ville1`, `Ville2`, `Port`, `Colis`, `Poids`, `type`, `Montant_ttc`, `Espece`, `Cheque`, `Traite`, `bl`, `Recu`, `date_recu`, `num`, `date_bordereau`, `date_livraison`, `Delais_Cible`, `Ecart`, `Depassement`, `Ecart2`, `service`, `BORDEREAU_NUM`, `livraison`, `ramasseur`, `FC_date1`, `FC_date2`, `date_caisse`, `statut`, `statut_suivis`, `FC_date_arrive`, `Motif`, `Taxateur`) VALUES
 ('CASABLANCA                                        ', 2610416, 'A1258933        ', '2013-05-23', '4118    ', 'FMTM', '0       ', 'GRAMEC', 'N° 9 Z.I Sud Ouest Mohammedia', '', 'MOHAMMEDIA                                        ', 'AIT BAHA', 'D', 1, '2.000', 'M', '53.010', '0.000', '360.000', '0.000', '0.000', NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, NULL, 'NON', NULL, 'G', '1227       BAAZAOUI ISSAM', '2013-05-23 16:00:07', '2013-05-23 16:00:07', NULL, 'à Relivrée', 'En cours', '2013-05-24 07:29:00', NULL, '2111       RIMA AYOUB'),
 ('AIT MELLOUL                                       ', 2824884, 'C               ', '2014-04-17', '0       ', 'LABOMAG', '9126    ', 'LABOMAG', '', 'Rue J N°1 Km 10500 Route 111 Ain Sebaâ Casablanca', 'AIT MELLOUL                                       ', 'CASABLANCA', 'P', 1, '1500.000', 'M', '5543.717', '0.000', '0.000', '0.000', '0.000', NULL, NULL, NULL, NULL, '2014-04-21 09:57:30', 1, 4, 3, NULL, 'NON', NULL, 'D', '¿ë         EXPEDITEUR A', '2014-04-17 18:10:54', '2014-04-17 18:10:54', '2014-04-19 12:08:19', 'Livrée', 'Livrée', '2014-04-19 01:55:44', NULL, '355        HARFAOUI HASSAN'),
 ('CASABLANCA                                        ', 2874635, 'B195891         ', '2014-06-03', '855     ', 'FOGIA', '0       ', 'IRRI SYS', 'ang oulad ziane et bd ibn tachfine res azzahra', '', 'CASABLANCA', 'AIT MELLOUL                                       ', 'D', 3, '138.000', 'M', '133.836', '0.000', '0.000', '0.000', '0.000', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 'NON', NULL, 'D', '1223       ELKHAL HASSAN', '2014-06-03 20:29:57', '2014-06-04 08:55:12', NULL, 'à Relivrée', 'En cours', '2014-06-04 12:12:20', NULL, '2201       OUAAZIZ HAMZA'),
@@ -240,52 +198,50 @@ INSERT INTO `etat_expedition_speed` (`Agence`, `courrier_id`, `Numero`, `Date`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `etat_stock_intralot`
+--
+
+CREATE TABLE `etat_stock_intralot` (
+  `code_article` varchar(250) NOT NULL,
+  `designation` varchar(250) NOT NULL,
+  `quantite` int(11) NOT NULL,
+  `statut` varchar(250) NOT NULL,
+  `nbre_emplacement` int(11) NOT NULL DEFAULT 0,
+  `date_mise_a_jour` timestamp NOT NULL DEFAULT current_timestamp(),
+  `client_cod` varchar(250) NOT NULL DEFAULT '9588'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `etat_stock_intralot`
+--
+
+INSERT INTO `etat_stock_intralot` (`code_article`, `designation`, `quantite`, `statut`, `nbre_emplacement`, `date_mise_a_jour`, `client_cod`) VALUES
+('INT-2100027720', 'COUPON NEW IFLEX COTE & SPORT / 19', 26143, 'STD', 55, '2021-08-05 15:00:01', '9588'),
+('INT-2100027722', 'COUPON TOTOFOOT 12 NEW COMBO / 19', 3656, 'STD', 8, '2021-08-05 15:00:01', '9588'),
+('INT-2100027723', 'COUPON TOTOFOOT 14 NEW COMBO / 19', 3444, 'STD', 7, '2021-08-05 15:00:01', '9588'),
+('INT-2100027813', 'COUPON TIFO SIMPLE', 2320, 'STD', 3, '2021-08-05 15:00:01', '9588'),
+('INT-2100027814', 'COUPON TIFO MULTIPLE', 6318, 'STD', 13, '2021-08-05 15:00:01', '9588'),
+('INT-CHRONO', 'CHRONO', 7560, 'STD', 14, '2021-08-05 15:00:01', '9588'),
+('INT-FLAYER TIFO', 'FLAYER TIFO', 2972, 'STD', 6, '2021-08-05 15:00:01', '9588'),
+('INT-GUIDECSVA', 'GUIDE CS VA', 3203, 'STD', 47, '2021-08-05 15:00:01', '9588'),
+('INT-GUIDECSVF', 'GUIDE CS VF', 257, 'STD', 4, '2021-08-05 15:00:01', '9588'),
+('INT-MARKETING', 'MARKETING', 44, 'BLQ', 44, '2021-08-05 15:00:01', '9588'),
+('INT-MGDS & SGLN', 'EQUIPEMENT MGDS & SGLN', 39, 'BLQ', 39, '2021-08-05 15:00:02', '9588'),
+('INT-NON-COATS', 'OLD THER PAPER NON-COATS', 77922, 'STD', 38, '2021-08-05 15:00:02', '9588'),
+('INT-R-NON COAT', 'R-NON COAT', 57179, 'STD', 113, '2021-08-05 15:00:02', '9588'),
+('INT-R-TOP COAT', 'Article créé par Interface', 1520, 'STD', 4, '2021-08-05 15:00:02', '9588'),
+('INT-SALES', 'CADEAUX SALES', 14, 'BLQ', 14, '2021-08-05 15:00:02', '9588'),
+('INT-SGLN', 'EQUIPEMENT SGLN', 7, 'BLQ', 7, '2021-08-05 15:00:02', '9588'),
+('INT-STICKER QC', 'COTE SPORT STICKER PROGRAMME', 43, 'STD', 1, '2021-08-05 15:00:02', '9588'),
+('INT-VF 3D', 'COUPON VIRTUAL FOOTBAL TA 3D/19', 8035, 'STD', 13, '2021-08-05 15:00:02', '9588');
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `total_courrier`
 -- (See below for the actual view)
 --
 CREATE TABLE `total_courrier` (
-`Agence` varchar(250)
-,`courrier_id` int(20)
-,`Numero` varchar(250)
-,`Date` datetime
-,`Code1` varchar(250)
-,`Expediteur` varchar(250)
-,`Code2` varchar(250)
-,`destinataire` varchar(250)
-,`adresse1` varchar(250)
-,`adresse2` varchar(250)
-,`Ville1` varchar(250)
-,`Ville2` varchar(250)
-,`Port` char(2)
-,`Colis` int(11)
-,`Poids` decimal(16,3)
-,`type` char(2)
-,`Montant_ttc` decimal(16,3)
-,`Espece` decimal(16,3)
-,`Cheque` decimal(16,3)
-,`Traite` decimal(16,3)
-,`bl` decimal(16,3)
-,`Recu` int(20)
-,`date_recu` date
-,`num` varchar(250)
-,`date_bordereau` date
-,`date_livraison` datetime
-,`Delais_Cible` int(11)
-,`Ecart` int(11)
-,`Depassement` int(11)
-,`Ecart2` int(11)
-,`service` varchar(250)
-,`BORDEREAU_NUM` decimal(18,0)
-,`livraison` char(2)
-,`ramasseur` varchar(250)
-,`FC_date1` datetime
-,`FC_date2` datetime
-,`date_caisse` datetime
-,`statut` varchar(250)
-,`statut_suivis` varchar(250)
-,`FC_date_arrive` datetime
-,`Motif` varchar(250)
-,`Taxateur` varchar(250)
 );
 
 -- --------------------------------------------------------
@@ -311,9 +267,9 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 
 --
--- Indexes for table `etat_expedition`
+-- Indexes for table `etat_expeditions`
 --
-ALTER TABLE `etat_expedition`
+ALTER TABLE `etat_expeditions`
   ADD PRIMARY KEY (`courrier_id`);
 COMMIT;
 
