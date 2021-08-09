@@ -501,6 +501,10 @@ class ClientLve extends Clients
     $result = Connection::getConnection()->prepare("SELECT * FROM `client_lve` WHERE `ville` LIKE ? AND  `supprime_le` IS NULL");
     return ($result->execute(["%$ville%"])) ?  $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__) : false;
   }
+  public function Etat_Stock()
+  {
+    return Stock::Etat_de_stock($this->CLIENT_COD);
+  }
 }
 /**
  * ############################################### Sous Client  #############################################

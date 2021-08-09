@@ -24,6 +24,12 @@ $classhide = ($client_lve->CLIENT_TYP == "TR" || $client_lve->CLIENT_TYP == "TRL
         <a class="nav-link" href="Tracking" style="font-size:18px;"><i class="fa fa-map-marker" aria-hidden="true"></i>
           Suivis des envois</a>
       </li>
+      <?php if ($client_lve->CLIENT_TYP == "TRL") : ?>
+        <li class="nav-item <?= $etat_stk; ?>">
+          <a class="nav-link" href="Stock" style="font-size:18px;"><i class="fa fa-map-marker" aria-hidden="true"></i>
+            Etat de stock</a>
+        </li>
+      <?php endif; ?>
       <li class="nav-item <?= $reclamation; ?>">
         <a class="nav-link <?= $classhide; ?>" href="Réclamations" style="font-size:18px;"><i class="fa fa-info-circle" aria-hidden="true"></i>
           Réclamations</a>
