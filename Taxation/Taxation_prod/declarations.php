@@ -8,7 +8,9 @@ require_once "includes/lve_navbar.php";
 <title>LVE - Déclarations</title>
 
 <div class="container-fluid lve-content">
-  <?php require_once "includes/lve_declaration_form.php"; ?>
+  <div class="form-dec">
+    <?php require_once "includes/lve_declaration_form.php"; ?>
+  </div>
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -44,7 +46,7 @@ require_once "includes/lve_navbar.php";
     <!--######################################******************* FIN LISTE DES DECLARATIONS ********************#############################################-->
   </div>
 </div>
-<script src="assets/scripts/info-client.js" charset="utf-8"></script>
+<script src="assets/scripts/declar-form.js" charset="utf-8"></script>
 <script type="text/javascript">
   function checkCode() {
     code = $('#codecli').val();
@@ -86,12 +88,11 @@ require_once "includes/lve_navbar.php";
         $('#codecli').focus();
       } catch (e) {}
 
-      codeVille();
-      VilleEnGare();
+      //codeVille();
+      //VilleEnGare();
       NombredanslePanier();
       getDeclarations();
       afficheaffretement();
-      affichepalettes();
       Nomsuggestions();
       emtyNomsuggestions();
       AfficheBLoui();

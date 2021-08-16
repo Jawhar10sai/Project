@@ -296,44 +296,6 @@ function ValideBL() {
     //$('#modalBL').modal('toggle');
   });
 }
-function affichepalettes() {
-  $(".palstat").on("change", function () {
-    if ($("#palnon").is(":checked")) {
-      $("#typpalet").hide();
-    } else {
-      $("#typpalet").show();
-    }
-  });
-}
-function codeVille() {
-  $("#ville").on("change", function () {
-    if ($(this).val() == "") {
-      $("#showdesti").hide();
-    } else {
-      if ($("#G").is(":checked")) $("#showdesti").show();
-    }
-    $.ajax({
-      url: "gestion/getAgence.php",
-      type: "POST",
-      data: { code_ville: $(this).val() },
-      success: function (res) {
-        console.log(res);
-        $("#showdesti").html(
-          "<label class='alert alert-success' role='alert'>" + res + "</label>"
-        );
-      },
-    });
-  });
-}
-function VilleEnGare() {
-  $(".livr").on("change", function () {
-    if ($("#G").is(":checked") && $("#ville").val() != "") {
-      $("#showdesti").show();
-    } else {
-      $("#showdesti").hide();
-    }
-  });
-}
 //reclamations
 $("#form_reclam").on("submit", function (event) {
   event.preventDefault();
