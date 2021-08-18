@@ -115,4 +115,9 @@ class Villes
   {
     return Adresses::AdresseVille($this->VILLE_COD);
   }
+
+  public function ConsignesVille()
+  {
+    return Consigne::CongisnesVille($this->VILLE_LIB);
+  }
 }

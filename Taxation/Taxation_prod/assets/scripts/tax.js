@@ -256,32 +256,6 @@ function CheckRamassage() {
   });
 }
 
-function AfficheBLoui() {
-  $(".BLstat").on("change", function () {
-    if ($("#blnon").is(":checked")) {
-      $("#blocbl").hide();
-      $("#blocnumsbl").hide();
-      $("#numsbl").val("");
-      $("#BL").val("");
-    } else {
-      $("#blocbl").show();
-    }
-  });
-}
-
-function AfficheBLmodal() {
-  $("#affichemodalbl").on("click", function () {
-    var nbrBL = $("#BL").val();
-    var elem = $(".blres").empty();
-    var i = 0;
-    var divv = '<div class="form-group"><label>Numero de BL:</label>';
-    while (i < nbrBL) {
-      elem.append($(divv + '<input class="form-control" name="numBL[]">'));
-      i++;
-    }
-  });
-}
-
 function ValideBL() {
   var numsbl = "";
   $("#validBL").on("click", function () {

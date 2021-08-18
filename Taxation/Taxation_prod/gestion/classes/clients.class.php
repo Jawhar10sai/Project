@@ -385,10 +385,10 @@ class ClientLve extends Clients
       $id_adres = $adresses->AjouterAdresse();
     } else {
       $adresses = Adresses::AdresseExiste($sous_client->CLIENT_ID, $adresse);
+      $id_sous_client = $sous_client->CLIENT_ID;
       if ($adresses)
         $id_adres = $adresses->id_adresse;
       else {
-        $id_sous_client = $sous_client->CLIENT_ID;
         $adresses = new Adresses;
         $adresses->lib_adresse = $adresse;
         $adresses->id_client = $id_sous_client;

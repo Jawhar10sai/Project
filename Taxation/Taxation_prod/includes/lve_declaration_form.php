@@ -123,7 +123,8 @@
             </div>
           </div>
           <div class="form-row">
-            <fieldset class="form-group col-xs-12 col-md-6 col-lg-8">
+            <fieldset class="form-group col-xs-12 col-md-6 col-lg-8" style="border: 1px solid black;border-radius: 5px;">
+              <h5>Livraison</h5>
               <div class="form-row">
                 <fieldset class="form-group col-md-6">
                   <h6>Lve :</h6>
@@ -150,7 +151,7 @@
                   </div>
                   <div class="form-check" id="pointAdbtc">
                     <label class="form-check-label">
-                      <input type="radio" class="form-check-input livr" name="livraison" id="Prr" value="Ad" v-model="livr_typ">
+                      <input type="radio" class="form-check-input livr" name="livraison" id="PrA" value="Ad" v-model="livr_typ">
                       À domicile
                     </label>
                   </div>
@@ -265,7 +266,7 @@
             </fieldset>
           </div>
           <div class="form-group col-12" v-if="livr_typ == 'p'">
-            <label>Taille consigne:</label>
+            <label>Taille de colis:</label>
             <select name="tail_consigne" id="tail_consigne" class="form-control">
               <option value="s">S
               <option value="m">M
@@ -338,26 +339,26 @@
               <div class="form-row">
                 <div class="form-check">
                   <label class="form-check-label" style="margin-left: 10px;">
-                    <input type="radio" class="form-check-input BLstat" checked name="BLstat" id="blnon" value="Non">
+                    <input type="radio" class="form-check-input BLstat" checked name="BLstat" id="blnon" value="Non" v-model="blstat">
                     Non
                   </label>
                 </div>
                 <div class="form-check" style="margin-left: 10px;">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input BLstat" name="BLstat" id="bloui" value="Oui">
+                    <input type="radio" class="form-check-input BLstat" name="BLstat" id="bloui" value="Oui" v-model="blstat">
                     Oui
                   </label>
                 </div>
               </div>
             </div>
-            <div class="form-group col-md-3 col-xs-12" id="blocbl">
+            <div class="form-group col-md-3 col-xs-12" id="blocbl" v-if="blstat=='Oui'">
               <label for="BL">Nombre de BL</label>
               <div class="form-row">
-                <input type="text" class="form-control form-control-sm col-8 nombres" name="nbBL" id="BL">
-                <button type="button" id="affichemodalbl" class="btn btn-primary col-2" data-toggle="modal" data-target="#modalBL" style="height: 30.99;margin-left: 10px;">...</button>
+                <input type="text" class="form-control form-control-sm col-8 nombres" name="nbBL" id="BL" v-model="nbrbl">
+                <button type="button" id="affichemodalbl" class="btn btn-primary col-2" data-toggle="modal" data-target="#modalBL" style="height: 30.99;margin-left: 10px;" @click="AfficherBLmodal()">...</button>
               </div>
             </div>
-            <div class="form-group col-12" id="blocnumsbl">
+            <div class="form-group col-12" id="blocnumsbl" v-if="blstat=='Oui'">
               <label for="BL">Numéro de BL</label>
               <input type="text" class="form-control" id="numsbl" name="BL" value="">
             </div>
@@ -383,7 +384,7 @@
                   <button type="button" class="btn btn-danger btn-lve" data-dismiss="modal">
                     <i class="fas fa-times"></i> Fermer
                   </button>
-                  <button type="button" class="btn btn-primary btn-lve" data-dismiss="modal" id="validBL">
+                  <button type="button" class="btn btn-primary btn-lve" data-dismiss="modal" id="validBL" @click="validerBL()">
                     <i class="fas fa-save"></i> valider
                   </button>
                 </div>
@@ -431,12 +432,8 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-6 col-lg-8" v-if="livr_typ == 'p'">
-      <div class="card secondrow">
-        <div class="card-header" style="border-radius:  0.5rem 0.5rem 0 0;">
-          <h5><b>4) Consignes disponibles sur {{ ville_cons }} </b> </h5>
-        </div>
-        <div class="card-body" id="div-consigne">
-        </div>
+      <div class="card secondrow" id="div-consigne">
+
       </div>
     </div>
     <div class="col-xs-12 col-md-4">
@@ -466,3 +463,62 @@
 
   </div>
 </form>
+<script>
+  /*
+  mapboxgl.accessToken = 'pk.eyJ1Ijoib3Vzc2FtYWFpdGhiaWJpMTk5NyIsImEiOiJja3EyNWh6aWEwOGd5MnZrYTM5ZHB1MTUwIn0.uN6AcQ7cnmIzmZ1kTs7GqA';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'styleMap/style.json',
+    // style: 'mapbox://styles/oussamaaithbibi1997/ckq25pxf721ti17mg0agtyldh',
+    center: [-7, 33],
+    zoom: 6
+  });
+  mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js');
+  map.addControl(new MapboxLanguage({
+    defaultLanguage: 'mul'
+  }));
+*/
+  function consigneMap(id) {
+    $.ajax({
+      url: "gestion/getConsigne.php",
+      type: "POST",
+      data: {
+        id_cons: id
+      },
+      success: function(res) {
+        consigne = JSON.parse(res);
+        /*
+                var marker1 = document.createElement('div');
+                marker1.className = 'marker3';
+                var markerConsigneEnService = new mapboxgl.Marker(marker1);
+                $("#map-modal").modal("show");
+                setTimeout(function() {
+                  map.resize()
+                }, 200);
+                if (consigne.etat === "En Service") {
+                  var popupEnService = new mapboxgl.Popup({
+                    offset: 25
+                  }).setHTML("<h6>" + consigne.ville_affectation + "</h6><p>" + consigne.adresse + "</p><button class='btn btn-consigne' onclick='inputCheck(" + consigne.num_serie_consigne + ")' data-dismiss='modal'>Choisir cette consigne</button>");
+                  markerConsigneEnService.setLngLat([consigne.gps_latitude, consigne.gps_longitude]).setPopup(popupEnService).addTo(map);
+                  $(".marker3").addClass("marker3-animation");
+                }
+
+                if (consigne.etat === "Hors Service") {
+                  markerConsigne.setLngLat([consigne.gps_latitude, consigne.gps_longitude]).addTo(map);
+                  var popupHorsService = new mapboxgl.Popup({
+                    offset: 25
+                  }).setHTML("<h6>" + consigne.ville_affectation + "</h6><p>" + consigne.adresse + "</p>");
+                  markerConsigneHorsService.setLngLat([consigne.gps_latitude, consigne.gps_longitude]).setPopup(popupHorsService).addTo(map);
+
+                }
+
+                map.flyTo({
+                  center: [consigne.gps_latitude, consigne.gps_longitude],
+                  zoom: 15,
+                  // ,speed: 0.2
+                });
+        */
+      }
+    })
+  }
+</script>

@@ -12,24 +12,47 @@ if (isset($_POST['ajouter_declaration'])) {
     $declarations->id_adres = $result['id_adress'];
   }
   #Ajout de la déclarations
-  $declarations->colis = $_POST['colis'];
-  $declarations->poids = $_POST['poids'];
-  if (!empty($_POST['paletteA']))
-    $declarations->paletteA = $_POST['paletteA'];
-  if (!empty($_POST['paletteB']))
-    $declarations->paletteB = $_POST['paletteB'];
-  if (!empty($_POST['paletteC']))
-    $declarations->paletteC = $_POST['paletteC'];
-  if (!empty($_POST['long']))
-    $declarations->long = $_POST['long'];
-  if (!empty($_POST['larg']))
-    $declarations->larg = $_POST['larg'];
-  if (!empty($_POST['haut']))
-    $declarations->haut = $_POST['haut'];
-  if (!empty($_POST['valeur']))
-    $declarations->valeur = $_POST['valeur'];
   $declarations->livraison = $_POST['livraison'];
-
+  if ($declaration->livraison != 'p') {
+    $declarations->colis = $_POST['colis'];
+    $declarations->poids = $_POST['poids'];
+    $declarations->port = $_POST['port'];
+    $declarations->nature = $_POST['nature'];
+    if (!empty($_POST['Espece']))
+      $declarations->Espece = $_POST['Espece'];
+    if (!empty($_POST['Cheque']))
+      $declarations->Cheque = $_POST['Cheque'];
+    if (!empty($_POST['Traite']))
+      $declarations->Traite = $_POST['Traite'];
+    if ($_POST['BLstat'] == "Non") {
+      $_POST['BL'] = "";
+      $declarations->Nbre_BL = 0;
+    } else {
+      $nombres = explode(" | ", $_POST['BL']);
+      $declarations->Nbre_BL = -1;
+      foreach ($nombres as $nombre) {
+        $declarations->Nbre_BL += 1;
+      }
+    }
+    $declarations->BL = $_POST['BL'];
+    if (!empty($_POST['paletteA']))
+      $declarations->paletteA = $_POST['paletteA'];
+    if (!empty($_POST['paletteB']))
+      $declarations->paletteB = $_POST['paletteB'];
+    if (!empty($_POST['paletteC']))
+      $declarations->paletteC = $_POST['paletteC'];
+    if (!empty($_POST['long']))
+      $declarations->long = $_POST['long'];
+    if (!empty($_POST['larg']))
+      $declarations->larg = $_POST['larg'];
+    if (!empty($_POST['haut']))
+      $declarations->haut = $_POST['haut'];
+    if (!empty($_POST['valeur']))
+      $declarations->valeur = $_POST['valeur'];
+  } else {
+    $declarations->id_cons = $_POST['consigne'];
+    $declarations->typecase = $_POST['tail_consigne'];
+  }
   if ($_POST['courrier_typ'] == 'M') {
     $declarations->courrier_typ = 'M';
     $declarations->express = $_POST['typliv'];
@@ -37,25 +60,6 @@ if (isset($_POST['ajouter_declaration'])) {
     $declarations->express = NULL;
     $declarations->courrier_typ = $_POST['affrettyp'];
   }
-  $declarations->port = $_POST['port'];
-  $declarations->nature = $_POST['nature'];
-  if (!empty($_POST['Espece']))
-    $declarations->Espece = $_POST['Espece'];
-  if (!empty($_POST['Cheque']))
-    $declarations->Cheque = $_POST['Cheque'];
-  if (!empty($_POST['Traite']))
-    $declarations->Traite = $_POST['Traite'];
-  if ($_POST['BLstat'] == "Non") {
-    $_POST['BL'] = "";
-    $declarations->Nbre_BL = 0;
-  } else {
-    $nombres = explode(" | ", $_POST['BL']);
-    $declarations->Nbre_BL = -1;
-    foreach ($nombres as $nombre) {
-      $declarations->Nbre_BL += 1;
-    }
-  }
-  $declarations->BL = $_POST['BL'];
   $declarations->AjouterDeclaration();
 }
 

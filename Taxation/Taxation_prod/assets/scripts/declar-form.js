@@ -4,6 +4,8 @@ new Vue({
         codee: '',
         livr_typ:'',
         palstat:'',
+        blstat:'',
+        nbrbl:'',
         code_ville:'',
         ville_cons:''
     },
@@ -55,7 +57,6 @@ new Vue({
                 success: function (res) {
                     result = JSON.parse(res);
                   this.ville_cons = result.ville;
-                  console.log(this.ville_cons);
                   if (result.agence != null) {
                     $("#showdesti").html(
                         "<label class='alert alert-success col-12' role='alert'>Agence de destination: " + result.agence + "</label>"
@@ -68,7 +69,36 @@ new Vue({
                 },
               });
         }
-       }
+        if(this.livr_typ == 'p'){
+            $.ajax({
+                url: "gestion/getConsigne.php",
+                type: "POST",
+                data: { code_vil: this.code_ville },
+                success: function (res) {
+                    $('#div-consigne').html(res);
+                }
+              });
+        }
+       },
+       validerBL : function() {
+        var numsbl = "";
+          $("input[name='numBL[]']").each(function () {
+            if ($(this).val() != "") {
+              numsbl += $(this).val() + " | ";
+            }
+          });
+          $("#numsbl").val(numsbl);
+          $("#blocnumsbl").show();
+      },
+      AfficherBLmodal: function () {
+          var elem = $(".blres").empty();
+          var i = 0;
+          var divv = '<div class="form-group"><label>Numero de BL:</label>';
+          while (i < this.nbrbl) {
+            elem.append($(divv + '<input class="form-control" name="numBL[]">'));
+            i++;
+          }
+      }
     },
     watch: {
         codee: "checkCode",

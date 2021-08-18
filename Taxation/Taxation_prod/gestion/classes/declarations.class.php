@@ -7,7 +7,7 @@ use \PhpOffice\PhpSpreadsheet\Style\Font;
 
 class Declarations
 {
-  public $numero, $date, $facture_id, $colis, $poids, $palettes, $paletteA, $paletteB, $paletteC, $paletteAutre, $Nbre_palettes, $longueur, $hauteur, $largeur, $coef, $valeur, $client1_id, $client2_id, $livraison, $express, $port, $courrier_typ, $courrier_eta, $date_saisie, $userid, $nature, $Espece, $Cheque, $Traite, $Nbre_BL, $BL, $id_adres, $statut, $commentaire, $modifie_le, $supprime_le, $commit_par;
+  public $numero, $date, $facture_id, $colis, $poids, $palettes, $paletteA, $paletteB, $paletteC, $paletteAutre, $Nbre_palettes, $longueur, $hauteur, $largeur, $coef, $valeur, $client1_id, $client2_id, $livraison, $express, $port, $courrier_typ, $courrier_eta, $date_saisie, $userid, $nature, $Espece, $Cheque, $Traite, $Nbre_BL, $BL, $id_adres, $statut, $commentaire, $modifie_le, $supprime_le, $commit_par, $id_cons, $typecase;
   protected  $liste_donnees;
   function __construct()
   {
@@ -48,6 +48,7 @@ class Declarations
     $this->modifie_le = NULL;
     $this->supprime_le = NULL;
     $this->commit_par = NULL;
+    $this->id_cons = NULL;
     #$this->oldconnection = new PDO("mysql:host=localhost ;dbname=lvedbmobile", 'lve', 'adminlvedba');
   }
 
@@ -161,19 +162,49 @@ class Declarations
   {
     $clve = ClientLve::TrouverClient($this->client1_id);
     if ($clve) {
-      if ($clve->debinterval < $clve->fininterval) {
-        $interval = $clve->debinterval + 1;
-        $this->numero = trim((string)$clve->CLIENT_COD2) . trim((string)$interval);
-        $this->userid = $this->client1_id;
-        $this->ActualiserListe();
-        $inserer = Connection::getConnection()->prepare("INSERT INTO `declaration_v`(`numero`, `date`, `facture_id`, `colis`, `poids`, `palettes`, `paletteA`, `paletteB`, `paletteC`, `paletteAutre`, `Nbre_palettes`, `longueur`, `hauteur`, `largeur`, `coef`, `valeur`, `client1_id`, `client2_id`, `livraison`, `express`, `port`, `courrier_typ`, `courrier_eta`, `date_saisie`, `userid`, `nature`, `Espece`, `Cheque`, `Traite`, `Nbre_BL`, `BL`, `id_adres`, `statut`, `commentaire`,`commit_par`) VALUES (:numero,:date,:facture_id,:colis,:poids,:palettes,:paletteA,:paletteB,:paletteC,:paletteAutre,:Nbre_palettes,:longueur,:hauteur,:largeur,:coef,:valeur,:client1_id,:client2_id,:livraison,:express,:port,:courrier_typ,:courrier_eta,:date_saisie,:userid,:nature,:Espece,:Cheque,:Traite,:Nbre_BL,:BL,:id_adres,:statut,:commentaire,:commit_par)");
-        if ($inserer->execute($this->liste_donnees)) {
+      if ($this->livraison != 'p') {
+        #Livraison normale
+        if ($clve->debinterval < $clve->fininterval) {
+          $interval = $clve->debinterval + 1;
+          $this->numero = trim((string)$clve->CLIENT_COD2) . trim((string)$interval);
+        } else
+          return "Interval depassé! merci de communiquer LaVoieExpress.";
+      } else {
+        #Livraison via consigne
+        $cnt = self::conscount();
+        $this->numero = $clve->CLIENT_ID . date('Y') . $cnt;
+        $this->colis = 1;
+      }
+      $this->userid = $this->client1_id;
+      $this->ActualiserListe();
+      $inserer = Connection::getConnection()->prepare("INSERT INTO `declaration_v`(`numero`, `date`, `facture_id`, `colis`, `poids`, `palettes`, `paletteA`, `paletteB`, `paletteC`, `paletteAutre`, `Nbre_palettes`, `longueur`, `hauteur`, `largeur`, `coef`, `valeur`, `client1_id`, `client2_id`, `livraison`, `express`, `port`, `courrier_typ`, `courrier_eta`, `date_saisie`, `userid`, `nature`, `Espece`, `Cheque`, `Traite`, `Nbre_BL`, `BL`, `id_adres`, `statut`, `commentaire`,`commit_par`) VALUES (:numero,:date,:facture_id,:colis,:poids,:palettes,:paletteA,:paletteB,:paletteC,:paletteAutre,:Nbre_palettes,:longueur,:hauteur,:largeur,:coef,:valeur,:client1_id,:client2_id,:livraison,:express,:port,:courrier_typ,:courrier_eta,:date_saisie,:userid,:nature,:Espece,:Cheque,:Traite,:Nbre_BL,:BL,:id_adres,:statut,:commentaire,:commit_par)");
+
+      if ($inserer->execute($this->liste_donnees)) {
+        if ($this->livraison != 'p')
           Connection::getConnection()->query("UPDATE `client_lve` SET `debinterval`=$interval WHERE `CLIENT_ID`=" . $this->client1_id);
+        else {
+          $inst = Connection::getConnection()->prepare("INSERT INTO consigne_count(cmpt) VALUES (?)");
+          $inst->execute([$cnt]);
+          $reservation = new Consigne;
+          $reservation->numero_expedition = $this->numero;
+          $reservation->adresse_destination = $clve->adresse;
+          $reservation->email = $clve->mail;
+          $reservation->num_serie_consigne = $this->id_cons;
+          $reservation->tel = $this->telephone;
+          $reservation->type_case = $this->typecase;
+          $reservation->Reservation();
         }
-      } else
-        return "Interval depassé! merci de communiquer LaVoieExpress.";
+      }
     } else
       return "Client introuvable!";
+  }
+  public static function conscount()
+  {
+    $result1 = Connection::getConnection()->query("SELECT * FROM `consigne_count` ORDER BY `id` ASC LIMIT 1");
+    $count1 = $result1->fetch(PDO::FETCH_OBJ)->cmpt;
+    $result = Connection::getConnection()->query("SELECT * FROM `consigne_count` ORDER BY `id` DESC LIMIT 1");
+    $count = $result->fetch(PDO::FETCH_OBJ);
+    return ($result) ? $count1 . ($count->id + 1) : false;
   }
   public static function ListeDeclarations()
   {
@@ -448,9 +479,9 @@ class Declarations
       $count = $count + 1;
     }
 
-    $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($file, 'Xls');
+    $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($file, 'Xlsx');
 
-    $file_name = $nom . '_' . time() . '.' . strtolower('xls');
+    $file_name = $nom . '_' . time() . '.' . strtolower('xlsx');
 
     $writer->save($file_name);
 

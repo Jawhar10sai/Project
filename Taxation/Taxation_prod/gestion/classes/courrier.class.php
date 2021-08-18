@@ -281,9 +281,9 @@ class Courrier
             $count = $count + 1;
         }
 
-        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($file, 'Xls');
+        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($file, 'Xlsx');
 
-        $file_name = $nom . '_' . time() . '.' . strtolower('xls');
+        $file_name = $nom . '_' . time() . '.' . strtolower('xlsx');
 
         $writer->save($file_name);
 

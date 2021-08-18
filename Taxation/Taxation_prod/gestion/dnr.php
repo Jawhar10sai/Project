@@ -77,11 +77,11 @@
                   </div>
                   <form autocomplete="off" method="post" action="Modification">
                     <div class="modal-body" style="max-height:78vh;overflow:auto;">
-                      <input type="hidden" name="mnumero" id="mnumero" value="<?= $declarations->numero; ?>">
+                      <input type="hidden" name="mnumero" id="mnumero<?= $declarations->numero; ?>" value="<?= $declarations->numero; ?>">
                       <div class="form-row">
                         <div class="form-group col-md-12">
                           <label for="date2" class="col-form-label">Date</label>
-                          <input class="form-control" type="date" name="mdate" value="<?= $declarations->date; ?>" id="mdate2">
+                          <input class="form-control" type="date" name="mdate" value="<?= $declarations->date; ?>" id="mdate2<?= $declarations->numero; ?>">
                         </div>
                       </div>
                       <div class="card">
@@ -92,27 +92,27 @@
                           <div class="form-row">
                             <div class="form-group col-12">
                               <label for="client" class="col-form-label">Code client</label>
-                              <input type="text" id="mclient" class="form-control" name="mclient" value="<?= $sous_client->CLIENT_COD; ?>">
+                              <input type="text" id="mclient<?= $declarations->numero; ?>" class="form-control" name="mclient" value="<?= $sous_client->CLIENT_COD; ?>">
                             </div>
                           </div>
                           <div class="form-row">
                             <div class="form-group col-md-6 col-xs-12">
                               <label for="mmodnom">Nom</label>
-                              <input type="text" id="mmodnom" class="form-control" name="mmodnom" value="<?= $sous_client->NOM; ?>">
+                              <input type="text" id="mmodnom<?= $declarations->numero; ?>" class="form-control" name="mmodnom" value="<?= $sous_client->NOM; ?>">
                             </div>
                             <div class="form-group col-md-6 col-xs-12">
                               <label for="mmodpre">Prenom</label>
-                              <input type="text" id="mmodpre" class="form-control" name="mmodprenom" value="<?= $sous_client->PRENOM; ?>">
+                              <input type="text" id="mmodpre<?= $declarations->numero; ?>" class="form-control" name="mmodprenom" value="<?= $sous_client->PRENOM; ?>">
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="mmodadr">Adresse</label>
-                            <input type="text" id="mmodadr" class="form-control" name="mmodadresse" value="<?= $adresses->lib_adresse; ?>">
+                            <input type="text" id="mmodadr<?= $declarations->numero; ?>" class="form-control" name="mmodadresse" value="<?= $adresses->lib_adresse; ?>">
                           </div>
                           <div class="form-row">
                             <div class="form-group col-md-6 col-xs-12">
                               <label for="mmodvil">Ville</label>
-                              <select name="mmodville" class="form-control" id="mmodvil">
+                              <select name="mmodville" class="form-control" id="mmodvil<?= $declarations->numero; ?>">
                                 <option value="<?= $villes->VILLE_COD; ?>"><?= $villes->VILLE_LIB; ?>
                                   <?php foreach (Villes::ListeVilleExcept($villes->VILLE_COD) as $vil) : ?>
                                 <option value="<?= $vil->VILLE_COD; ?>"><?= $vil->VILLE_LIB; ?>
@@ -121,7 +121,7 @@
                             </div>
                             <div class="form-group col-md-6 col-xs-12">
                               <label for="mmodtel">Telephone</label>
-                              <input type="text" id="mmodtel" class="form-control nombres" name="mmodtelephone" value="<?= $sous_client->telephone; ?>">
+                              <input type="text" id="mmodtel<?= $declarations->numero; ?>" class="form-control nombres" name="mmodtelephone" value="<?= $sous_client->telephone; ?>">
                             </div>
                           </div>
                         </div>
@@ -134,11 +134,11 @@
                           <div class="form-row">
                             <div class="form-group col-md-6 col-xs-12">
                               <label for="mcolis" class="col-4 col-form-label">Colis:</label>
-                              <input class="form-control" type="number" min="0" step="1" name="mcolis" id="mcolis" value="<?= $declarations->colis; ?>">
+                              <input class="form-control" type="number" min="0" step="1" name="mcolis" id="mcolis<?= $declarations->numero; ?>" value="<?= $declarations->colis; ?>">
                             </div>
                             <div class="form-group col-md-6">
                               <label for="mpoids" class="col-4 col-form-label">Poids:</label>
-                              <input class="form-control chiffres" type="text" min="0" name="mpoids" id="mpoids" value="<?= $declarations->poids; ?>">
+                              <input class="form-control chiffres" type="text" min="0" name="mpoids" id="mpoids<?= $declarations->numero; ?>" value="<?= $declarations->poids; ?>">
                             </div>
                           </div>
                           <div class="form-row">
@@ -160,19 +160,19 @@
                               <legend>Livraison</legend>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input livr" name="mlivraison" id="mG" value="G" <?= $gchecked; ?>>
+                                  <input type="radio" class="form-check-input livr" name="mlivraison" id="mG<?= $declarations->numero; ?>" value="G" <?= $gchecked; ?>>
                                   En gare
                                 </label>
                               </div>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input livr" name="mlivraison" id="mD" value="D" <?= $dchecked; ?>>
+                                  <input type="radio" class="form-check-input livr" name="mlivraison" id="mDo<?= $declarations->numero; ?>" value="D" <?= $dchecked; ?>>
                                   à domicile
                                 </label>
                               </div>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input livr" disabled name="livraison" id="Pr" value="p" <?= $pchecked; ?>>
+                                  <input type="radio" class="form-check-input livr" disabled name="livraison" id="Pr<?= $declarations->numero; ?>" value="p" <?= $pchecked; ?>>
                                   Points relais
                                 </label>
                               </div>
@@ -189,13 +189,13 @@
                               ?>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input pay" name="mport" id="mP" value="P" <?= $pochecked; ?>>
+                                  <input type="radio" class="form-check-input pay" name="mport" id="mP<?= $declarations->numero; ?>" value="P" <?= $pochecked; ?>>
                                   Payé
                                 </label>
                               </div>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input pay" name="mport" id="mD" value="D" <?= $duchecked; ?>>
+                                  <input type="radio" class="form-check-input pay" name="mport" id="mD<?= $declarations->numero; ?>" value="D" <?= $duchecked; ?>>
                                   Dû
                                 </label>
                               </div>
@@ -219,19 +219,19 @@
                               <legend>Nature marchandises :</legend>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input natu" name="mnature" id="mNormal" value="Normal" <?= $norchecked; ?>>
+                                  <input type="radio" class="form-check-input natu" name="mnature" id="mNormal<?= $declarations->numero; ?>" value="Normal" <?= $norchecked; ?>>
                                   Normal
                                 </label>
                               </div>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input natu" name="mnature" id="mFragile" value="Fragile" <?= $fragchecked; ?>>
+                                  <input type="radio" class="form-check-input natu" name="mnature" id="mFragile<?= $declarations->numero; ?>" value="Fragile" <?= $fragchecked; ?>>
                                   Fragile
                                 </label>
                               </div>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input natu" name="mnature" id="mTrès fragile" value="Très fragile" <?= $trgchecked; ?>>
+                                  <input type="radio" class="form-check-input natu" name="mnature" id="mTrès fragile<?= $declarations->numero; ?>" value="Très fragile" <?= $trgchecked; ?>>
                                   Très fragile
                                 </label>
                               </div>
@@ -277,7 +277,7 @@
                               <legend>Produits et service :</legend>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input mtyp" name="mcourrier_typ" id="mM" value="M" <?= $mchecked; ?>>
+                                  <input type="radio" class="form-check-input mtyp" name="mcourrier_typ" id="mM<?= $declarations->numero; ?>" value="M" <?= $mchecked; ?>>
                                   Messagerie
                                 </label>
                               </div>
@@ -288,12 +288,12 @@
                                   <div class="col-12">
                                     <div class="form-check">
                                       <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" value="S" name="mtypliv" id="simple" <?= $checkedsimple; ?>>Simple
+                                        <input type="radio" class="form-check-input" value="S" name="mtypliv" id="simple<?= $declarations->numero; ?>" <?= $checkedsimple; ?>>Simple
                                       </label>
                                     </div>
                                     <div class="form-check">
                                       <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" value="X" name="mtypliv" id="express" <?= $checkedex; ?>>Express
+                                        <input type="radio" class="form-check-input" value="X" name="mtypliv" id="express<?= $declarations->numero; ?>" <?= $checkedex; ?>>Express
                                       </label>
                                     </div>
                                   </div>
@@ -301,7 +301,7 @@
                               </div>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="radio" class="form-check-input mtyp" name="mcourrier_typ" id="maffrtmnt" value="L" <?= $lchecked; ?>>
+                                  <input type="radio" class="form-check-input mtyp" name="mcourrier_typ" id="maffrtmnt<?= $declarations->numero; ?>" value="L" <?= $lchecked; ?>>
                                   Affrêtement
                                 </label>
                               </div>
@@ -311,25 +311,25 @@
                                                     padding-left:15px;">
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input affrt" name="affrettyp" id="25" value="25" <?= $fret25; ?>>
+                                      <input type="radio" class="form-check-input affrt" name="affrettyp" id="25<?= $declarations->numero; ?>" value="25" <?= $fret25; ?>>
                                       25t
                                     </label>
                                   </div>
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input affrt" name="affrettyp" id="14" value="14" <?= $fret14; ?>>
+                                      <input type="radio" class="form-check-input affrt" name="affrettyp" id="14<?= $declarations->numero; ?>" value="14" <?= $fret14; ?>>
                                       14t
                                     </label>
                                   </div>
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input affrt" name="affrettyp" id="5" value="5" <?= $fret5; ?>>
+                                      <input type="radio" class="form-check-input affrt" name="affrettyp" id="5<?= $declarations->numero; ?>" value="5" <?= $fret5; ?>>
                                       5t
                                     </label>
                                   </div>
                                   <div class="form-check">
                                     <label class="form-check-label">
-                                      <input type="radio" class="form-check-input affrt" name="affrettyp" id="U" value="U" <?= $fretU; ?>>
+                                      <input type="radio" class="form-check-input affrt" name="affrettyp" id="U<?= $declarations->numero; ?>" value="U" <?= $fretU; ?>>
                                       Utilitaires
                                     </label>
                                   </div>
@@ -368,7 +368,7 @@
                         <div class="card-body">
                           <div class="form-group">
                             <label for="mvaleur" class="col-form-label">Valeur declarée</label>
-                            <input class="form-control" type="text" min="0" name="mvaleur" id="mvaleur" value="<?= $declarations->valeur; ?>">
+                            <input class="form-control" type="text" min="0" name="mvaleur" id="mvaleur<?= $declarations->numero; ?>" value="<?= $declarations->valeur; ?>">
                           </div>
                         </div>
                       </div>
@@ -380,22 +380,22 @@
                           <div class="form-row">
                             <div class="form-group col-md-6 col-xs-12">
                               <label for="mEspece" class="col-form-label">Especes:</label>
-                              <input class="form-control" type="text" min="0" name="mEspece" id="mEspece" value="<?= $declarations->Espece; ?>">
+                              <input class="form-control" type="text" min="0" name="mEspece" id="mEspece<?= $declarations->numero; ?>" value="<?= $declarations->Espece; ?>">
 
                             </div>
                             <div class="form-group col-md-6 col-xs-12">
                               <label for="mCheque" class="col-form-label">Chèque:</label>
-                              <input class="form-control" type="text" min="0" name="mCheque" id="mCheque" value="<?= $declarations->Cheque; ?>">
+                              <input class="form-control" type="text" min="0" name="mCheque" id="mCheque<?= $declarations->numero; ?>" value="<?= $declarations->Cheque; ?>">
                             </div>
                           </div>
                           <div class="form-row">
                             <div class="form-group col-md-6 col-xs-12">
                               <label for="mTraite" class=" col-form-label">Traite:</label>
-                              <input class="form-control" type="text" min="0" name="mTraite" id="mTraite" value="<?= $declarations->Traite; ?>">
+                              <input class="form-control" type="text" min="0" name="mTraite" id="mTraite<?= $declarations->numero; ?>" value="<?= $declarations->Traite; ?>">
                             </div>
                             <div class="form-group col-md-6 col-xs-12">
                               <label for="mBL" class=" col-form-label">BL:</label>
-                              <input class="form-control" type="text" name="mBL" id="mBL" value="<?= $declarations->BL; ?>">
+                              <input class="form-control" type="text" name="mBL" id="mBL<?= $declarations->numero; ?>" value="<?= $declarations->BL; ?>">
                             </div>
                           </div>
                         </div>

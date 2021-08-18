@@ -87,17 +87,11 @@ require_once "includes/lve_navbar.php";
       try {
         $('#codecli').focus();
       } catch (e) {}
-
-      //codeVille();
-      //VilleEnGare();
       NombredanslePanier();
       getDeclarations();
       afficheaffretement();
       Nomsuggestions();
       emtyNomsuggestions();
-      AfficheBLoui();
-      AfficheBLmodal();
-      ValideBL();
     })
     .on('click', '.mtr', function() {
       $('.nom').val($('tr>td:first').text());

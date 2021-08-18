@@ -24,3 +24,6 @@
     <script type="text/javascript" src="assets/scripts/jquery.dataTables.min.js"></script>
     <script src="assets/scripts/bootstrap.min.js" charset="utf-8"></script>
     <script src="assets/scripts/sweetalert2.all.min.js" charset="utf-8"></script>
+
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css" />
