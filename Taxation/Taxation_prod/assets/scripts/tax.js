@@ -255,21 +255,6 @@ function CheckRamassage() {
     }
   });
 }
-
-function ValideBL() {
-  var numsbl = "";
-  $("#validBL").on("click", function () {
-    $("input[name='numBL[]']").each(function () {
-      if ($(this).val() != "") {
-        numsbl += $(this).val() + " | ";
-      }
-    });
-    $("#numsbl").val(numsbl);
-    $("#blocnumsbl").show();
-    //$('#blocbl').hide();
-    //$('#modalBL').modal('toggle');
-  });
-}
 //reclamations
 $("#form_reclam").on("submit", function (event) {
   event.preventDefault();

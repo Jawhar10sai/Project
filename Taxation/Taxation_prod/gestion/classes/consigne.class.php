@@ -35,7 +35,7 @@ class Consigne
 
     public static function CongisnesVille($ville)
     {
-        $result = Connection::getConsigneConnexion()->prepare("SELECT * FROM `consigne` WHERE `ville_affectation` LIKE ?");
+        $result = Connection::getConsigneConnexion()->prepare("SELECT * FROM `consigne` WHERE `ville_affectation` LIKE ? ORDER BY `etat`");
         return ($result->execute(["%" . $ville . "%"])) ? $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, __CLASS__) : false;
     }
 

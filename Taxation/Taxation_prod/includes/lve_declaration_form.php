@@ -80,6 +80,11 @@
                 <label for=""> Adresse:<span style="color:red;">*</span></label>
                 <input type="text" class="form-control form-control-sm" id="adresse" name="adresse" value="" required>
               </div>
+              <div class="form-group col-12" v-if="livr_typ == 'p'">
+                <label for="">Mail:<span style="color:red;">*</span></label>
+                <input type="text" class="form-control form-control-sm" id="mail_dest" name="mail_dest" value="" required>
+              </div>
+
             </div>
             <div class="form-row">
               <div class="form-group col-md-6 col-xs-12">
@@ -268,11 +273,11 @@
           <div class="form-group col-12" v-if="livr_typ == 'p'">
             <label>Taille de colis:</label>
             <select name="tail_consigne" id="tail_consigne" class="form-control">
-              <option value="s">S
-              <option value="m">M
-              <option value="l">L
-              <option value="xl">XL
-              <option value="xxl">XXL
+              <option value="S">Small (10, 40, 60)cm
+              <option value="M">Medium (25, 40, 60)cm
+              <option value="L">Large (40, 40, 60)cm
+              <option value="XL">XL (55, 40, 60)cm
+              <option value="XXL">XXL (70, 40, 60)cm
             </select>
           </div>
           <div class="col-12 text-center" v-if="livr_typ == 'p'">
@@ -451,7 +456,7 @@
           <a href="assets/documents/delais_livraison.pdf" download onclick="telecharger()">
             <div class="col-12 row mesdocs">
               <label class="col-lg-6 col-md-12"><i class="fa fa-download"></i></label>
-              <label class="h5 col-lg-6 col-md-12">Nos ville desservies</label>
+              <label class="h5 col-lg-6 col-md-12">Nos villes desservies</label>
             </div>
           </a>
         </div>

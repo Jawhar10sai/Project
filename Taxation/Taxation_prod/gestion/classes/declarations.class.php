@@ -185,14 +185,14 @@ class Declarations
         else {
           $inst = Connection::getConnection()->prepare("INSERT INTO consigne_count(cmpt) VALUES (?)");
           $inst->execute([$cnt]);
-          $reservation = new Consigne;
-          $reservation->numero_expedition = $this->numero;
-          $reservation->adresse_destination = $clve->adresse;
-          $reservation->email = $clve->mail;
-          $reservation->num_serie_consigne = $this->id_cons;
-          $reservation->tel = $this->telephone;
-          $reservation->type_case = $this->typecase;
-          $reservation->Reservation();
+          $consigne =  Consigne::TrouverConsigne($this->id_cons);
+          $consigne->numero_expedition = $this->numero;
+          $consigne->adresse_destination = $consigne->adresse;
+          $destinataire = $clve->MonClientParID($this->client2_id);
+          $consigne->email = $destinataire->mail;
+          $consigne->tel = $destinataire->telephone;
+          $consigne->type_case = $this->typecase;
+          $consigne->Reservation();
         }
       }
     } else

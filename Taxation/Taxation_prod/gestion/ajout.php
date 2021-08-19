@@ -13,7 +13,7 @@ if (isset($_POST['ajouter_declaration'])) {
   }
   #Ajout de la déclarations
   $declarations->livraison = $_POST['livraison'];
-  if ($declaration->livraison != 'p') {
+  if ($declarations->livraison != 'p') {
     $declarations->colis = $_POST['colis'];
     $declarations->poids = $_POST['poids'];
     $declarations->port = $_POST['port'];
@@ -50,6 +50,10 @@ if (isset($_POST['ajouter_declaration'])) {
     if (!empty($_POST['valeur']))
       $declarations->valeur = $_POST['valeur'];
   } else {
+    $sous_client = $client_lve->MonClientParID($declarations->client2_id);
+    $sous_client->mail = $_POST['mail_dest'];
+    $sous_client->commit_par = $client_lve->NOM;
+    $sous_client->Enregistrer();
     $declarations->id_cons = $_POST['consigne'];
     $declarations->typecase = $_POST['tail_consigne'];
   }
