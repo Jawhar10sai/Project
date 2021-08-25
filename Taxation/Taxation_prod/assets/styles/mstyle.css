@@ -3,6 +3,8 @@
 @import url("https://fonts.googleapis.com/css?family=Amiri|Montserrat|Nunito|Open+Sans|Raleway&display=swap");
 @import url("jquery-ui.css");
 @import url("jquery.dataTables.min.css");
+@import url("https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css");
+@import url("https://api.tiles.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css");
 input {
   margin-left: 2px;
 }
@@ -135,4 +137,74 @@ h6 {
 p {
   font-family: "Nunito", sans-serif;
   font-size: 1.2rem;
+}
+#map {
+  min-height: 70vh;
+}
+/*************************************************************************************************/
+.marker1 {
+  background-image: url("../../images/logo1.png");
+  background-size: cover;
+  width: 25px;
+  height: 35px;
+  cursor: pointer;
+  top: -20px;
+}
+.marker2 {
+  background-image: url("../../images/logo2.png");
+  background-size: cover;
+  width: 25px;
+  height: 35px;
+  cursor: pointer;
+  top: -20px;
+}
+.marker3 {
+  background-image: url("../../images/logo1.png");
+  background-size: cover;
+  width: 20px;
+  height: 25px;
+  cursor: pointer;
+  top: -20px;
+}
+.marker4 {
+  background-image: url("../../images/logo2.png");
+  background-size: cover;
+  width: 35px;
+  height: 49px;
+  cursor: pointer;
+  top: -20px;
+}
+
+@keyframes animat2 {
+  0% {
+    width: 35px;
+    height: 49px;
+    top: -20px;
+  }
+  50% {
+    width: 40px;
+    height: 56px;
+    top: -32px;
+  }
+  100% {
+    width: 35px;
+    height: 49px;
+    top: -20px;
+  }
+}
+
+.marker4-animation {
+  animation-name: animat2;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.marker3-animation {
+  animation-name: animat2;
+  animation-duration: 1500ms;
+  animation-timing-function: linear;
+  animation-delay: 500ms;
+  animation-iteration-count: infinite;
 }

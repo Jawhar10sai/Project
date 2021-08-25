@@ -102,7 +102,6 @@ new Vue({
     },
     watch: {
         codee: "checkCode",
-        code_ville :"codeVille",
-        ville_cons :"codeVille"
+        code_ville :"codeVille"
     }
 });

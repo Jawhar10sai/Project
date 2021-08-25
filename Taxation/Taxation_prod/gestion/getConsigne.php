@@ -4,7 +4,7 @@ if (isset($_POST['code_vil'])) :
     $ville = Villes::TrouverVille($_POST['code_vil'])
 ?>
     <div class="card-header" style="border-radius:  0.5rem 0.5rem 0 0;">
-        <h5><b>4) Consignes disponibles sur <?= $ville->VILLE_LIB ?> </b> </h5>
+        <h5><b class="col-11">4) Consignes disponibles sur <?= $ville->VILLE_LIB ?> </b> <i class="fas fa-map-marker-alt" OnClick="consigneVilleMap()"></i> </h5>
     </div>
     <div class="card-body" style="max-height:325px;overflow:auto;">
         <?php
@@ -48,11 +48,27 @@ if (isset($_POST['code_vil'])) :
                     <div class="col-2 mt-3">
                         <i class="fas fa-map-marker-alt fa-3x map-" style="color: #fff;" OnClick="consigneMap(<?= $consigne->num_serie_consigne; ?>)"></i>
                     </div>
+                    <div class="modal" tabindex="-1" role="dialog" id="map-modal">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Consigne: <span id="vilecons"></span></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="map">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         <?php
         } ?>
     </div>
+    <!--
     <div id="map-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div id="modal-map-container" class="modal-content" data-toggle="tooltip" title="clicker sur une Marker">
@@ -63,12 +79,16 @@ if (isset($_POST['code_vil'])) :
             </div>
         </div>
     </div>
+    -->
 <?php endif;
 if ($_POST['id_cons']) {
     $id = $_POST['id_cons'];
     $result = Connection::getConsigneConnexion()->prepare("SELECT * FROM consigne where `num_serie_consigne` = ?");
     if ($result->execute([$id]))
         echo json_encode($result->fetch());
+}
+if ($_POST['consigne_ville']) {
+    echo json_encode(Villes::TrouverVille($_POST['consigne_ville'])->ConsignesVille());
 }
 
 ?>

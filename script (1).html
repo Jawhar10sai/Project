@@ -1,0 +1,173 @@
+<script>
+    var listLocalisation=[];
+    var dataConsignes = new FormData();
+    dataConsignes.append("consignes" , "consignes");
+    $.ajax({
+        url:"consignes.php",
+        type:"post",
+        data:dataConsignes,
+        cache: false,
+        success:function(data){
+            listLocalisation=JSON.parse(data)
+            marker(listLocalisation);
+        },
+        processData: false,
+        contentType: false
+    })   
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoib3Vzc2FtYWFpdGhiaWJpMTk5NyIsImEiOiJja3EyNWh6aWEwOGd5MnZrYTM5ZHB1MTUwIn0.uN6AcQ7cnmIzmZ1kTs7GqA';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'styleMap/style.json',
+    center: [ -7, 33],
+        zoom:  6
+    });
+
+    mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js');
+    map.addControl(new MapboxLanguage({
+        defaultLanguage: 'mul'
+    }));
+
+    var geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl,
+    placeholder: 'Chercher votre secteur', // Placeholder text for the search bar
+    bbox: [-17, 21.40, -1.01076605166308, 35.9957864], // Boundary for Berkeley
+    });
+    map.addControl(geocoder,'top-left')
+
+    var geocoder1 = new MapboxGeocoder({accessToken: mapboxgl.accessToken,mapboxgl: mapboxgl,bbox: [-17, 21.40, -1.01076605166308, 35.9957864],});
+    map.addControl(geocoder1);
+    geocoder1.container.hidden=true;
+
+    var geocoder2 = new MapboxGeocoder({accessToken: mapboxgl.accessToken,mapboxgl: mapboxgl,bbox: [-17, 21.40, -1.01076605166308, 35.9957864],});
+    map.addControl(geocoder2)
+    geocoder2.container.hidden=true
+
+    var marker1 = document.createElement('div');
+        marker1.className = 'marker3';
+    var markerConsigneEnService = new mapboxgl.Marker(marker1)
+
+    var marker2 = document.createElement('div');
+        marker2.className = 'marker4';
+    var markerConsigneHorsService = new mapboxgl.Marker(marker2)
+
+function marker(listLocation){
+    for (var i = 0; i < listLocation.length; i++) {
+        if(listLocation[i].etat==="En Service"){
+            var el = document.createElement('div');
+            el.className = 'marker1';
+
+            var popup = new mapboxgl.Popup({ offset: 25 }).setHTML("<h6>"+listLocation[i].ville_affectation+"</h6><p>"+listLocation[i].adresse+"</p><button class='btn  btn-consigne' onclick='inputCheck("+listLocation[i].num_serie_consigne+")' data-dismiss='modal'>Choisir cette consigne</button>");
+        }
+        else{
+            var el = document.createElement('div');
+            el.className = 'marker2';
+
+        var popup = new mapboxgl.Popup({ offset: 25 }).setHTML("<h6>"+listLocation[i].ville_affectation+"</h6><p>"+listLocation[i].adresse+"</p>");
+        }
+        var mark = new mapboxgl.Marker(el).setLngLat([ listLocation[i].gps_latitude,listLocation[i].gps_longitude] ).setPopup(popup).addTo(map);
+    }
+}
+
+function modaleShow(){
+    $("#map-modal").modal("show")
+    villeZone();
+    setTimeout(function(){map.resize()},200);
+    markerConsigneHorsService.remove();
+    markerConsigneEnService.remove();
+}
+
+function consigneMap(id){
+    $("#map-modal").modal("show");
+    setTimeout(function(){map.resize()},200);
+    
+    var index = listLocalisation.findIndex(x=> x.num_serie_consigne==id);
+    var consigne = listLocalisation[index];
+    if(consigne.etat==="En Service"){
+        var popupEnService = new mapboxgl.Popup({ offset: 25 }).setHTML("<h6>"+consigne.ville_affectation+"</h6><p>"+consigne.adresse+"</p><button class='btn btn-consigne' onclick='inputCheck("+consigne.num_serie_consigne+")' data-dismiss='modal'>Choisir cette consigne</button>");
+        markerConsigneEnService.setLngLat([consigne.gps_latitude, consigne.gps_longitude]).setPopup(popupEnService).addTo(map);
+        $(".marker3").addClass("marker3-animation");
+    }
+    
+    if(consigne.etat==="Hors Service"){
+        var popupHorsService = new mapboxgl.Popup({ offset: 25 }).setHTML("<h6>"+consigne.ville_affectation+"</h6><p>"+consigne.adresse+"</p>");
+        markerConsigneHorsService.setLngLat([consigne.gps_latitude, consigne.gps_longitude]).setPopup(popupHorsService).addTo(map);
+        $(".marker4").addClass("marker4-animation");
+    }
+
+    map.flyTo({
+        center: [consigne.gps_latitude, consigne.gps_longitude],
+        zoom: 15,
+        });
+}
+
+function villeZone(){
+    var ville =document.getElementById("ville").value;
+    geocoder1.setInput(ville);
+    geocoder1.on("results",function(results){
+        map.fitBounds([
+            [results.features[0].bbox[0],results.features[0].bbox[1]], 
+            [results.features[0].bbox[2],results.features[0].bbox[3]] 
+        ]);
+        geocoder.setBbox([results.features[0].bbox[0],results.features[0].bbox[1],results.features[0].bbox[2],results.features[0].bbox[3]])
+    })
+}
+</script>
+
+<style>
+    .marker1 {
+        background-image: url('images/logo1.png');
+        background-size: cover;
+        width: 25px;
+        height: 35px;
+        cursor: pointer;
+        top :-20px;
+    }
+    .marker2 {
+        background-image: url('images/logo2.png');
+        background-size: cover;
+        width: 25px;
+        height: 35px;
+        cursor: pointer;
+        top :-20px;
+    }
+    .marker3 {
+        background-image: url('images/logo1.png');
+        background-size: cover;
+        width: 35px;
+        height: 49px;
+        cursor: pointer;
+        top :-20px;
+    }
+    .marker4 {
+        background-image: url('images/logo2.png');
+        background-size: cover;
+        width: 35px;
+        height: 49px;
+        cursor: pointer;
+        top :-20px;
+    }
+
+    @keyframes animat2{
+        0% {width: 35px;  height: 49px; top :-20px;}
+        50% {width: 40px;  height: 56px; top :-32px;}
+        100% {width: 35px;  height: 49px; top :-20px;}
+    }
+
+    .marker4-animation{
+        animation-name: animat2;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+    .marker3-animation{
+        animation-name: animat2;
+        animation-duration: 1500ms;
+        animation-timing-function: linear;
+        animation-delay: 500ms;
+        animation-iteration-count: infinite;
+    }
+</style>
