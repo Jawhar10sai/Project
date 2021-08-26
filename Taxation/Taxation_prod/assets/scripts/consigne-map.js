@@ -13,23 +13,34 @@ function consigneVilleMap() {
           style: 'mapbox://styles/oussamaaithbibi1997/ckq25pxf721ti17mg0agtyldh'
         });
         map.flyTo({
-          center: [-7, 33],
+          center: [-7.60, 33.50],
           zoom: 10,
         });
         for (var i = 0; i < consigne.length; i++) {
+            var popupEnService = new mapboxgl.Popup({
+                offset: 25
+              })
+              .setHTML("<h6>Consigne :" + consigne[i].num_serie_consigne + "</h6><p>" + consigne[i].adresse + "</p><button class='btn btn-consigne' onclick='ChooseConsigne("+consigne[i].num_serie_consigne+")' data-dismiss='modal'>Choisir cette consigne</button>");
           var marker1 = document.createElement('div');
           if (consigne[i].etat == "En Service")
             marker1.className = 'marker1';
           else
             marker1.className = 'marker2';
 
-          var markerConsigneEnService = new mapboxgl.Marker(marker1)
+          var markerConsigneEnService = new mapboxgl.Marker(marker1);
+          markerConsigneEnService
             .setLngLat([parseFloat(consigne[i].gps_latitude), parseFloat(consigne[i].gps_longitude)])
+            .setPopup(popupEnService)
             .addTo(map);
-        }
+    }
       }
     });
   }
+
+function ChooseConsigne(id){
+    $("#map-modal").modal("toggle");
+    $("#cons-"+id).prop("checked",true);
+}
 
   function OpenMap(position) {
     var map = new mapboxgl.Map({
@@ -50,11 +61,18 @@ function consigneVilleMap() {
     map.addControl(new MapboxLanguage({
       defaultLanguage: 'mul'
     }));*/
+    var popupEnService = new mapboxgl.Popup({
+        offset: 25
+      })
+      .setHTML("<h6>Consigne: " + consigne.num_serie_consigne + "</h6><p>" + consigne.adresse + "</p><button class='btn btn-consigne' onclick='ChooseConsigne("+consigne.num_serie_consigne+")' data-dismiss='modal'>Choisir cette consigne</button>");
     var marker1 = document.createElement('div');
     marker1.className = 'marker3';
-    var markerConsigneEnService = new mapboxgl.Marker(marker1)
+    var markerConsigneEnService = new mapboxgl.Marker(marker1);
+    markerConsigneEnService
       .setLngLat(position)
+      .setPopup(popupEnService)
       .addTo(map);
+      /******************************************* */      
   }
   mapboxgl.accessToken = 'pk.eyJ1Ijoib3Vzc2FtYWFpdGhiaWJpMTk5NyIsImEiOiJja3EyNWh6aWEwOGd5MnZrYTM5ZHB1MTUwIn0.uN6AcQ7cnmIzmZ1kTs7GqA';
 

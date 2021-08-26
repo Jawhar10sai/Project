@@ -4,7 +4,7 @@ if (isset($_POST['code_vil'])) :
     $ville = Villes::TrouverVille($_POST['code_vil'])
 ?>
     <div class="card-header" style="border-radius:  0.5rem 0.5rem 0 0;">
-        <h5><b class="col-11">4) Consignes disponibles sur <?= $ville->VILLE_LIB ?> </b> <i class="fas fa-map-marker-alt" OnClick="consigneVilleMap()"></i> </h5>
+        <h5><b class="col-11">4) Consignes disponibles sur <?= $ville->VILLE_LIB ?> </b> <i style="margin-left: 565px;" class="fas fa-map-marker-alt" OnClick="consigneVilleMap()"></i> </h5>
     </div>
     <div class="card-body" style="max-height:325px;overflow:auto;">
         <?php

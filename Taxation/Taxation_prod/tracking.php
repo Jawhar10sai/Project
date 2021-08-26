@@ -16,12 +16,10 @@ $suivisenvois = 'active';
           <h4><b>Suivis des envois</b></h4>
         </div>
         <div class="card-body">
-          <h5>Compte Client: <?= $nom_d_utilisateur; ?></h5>
           <div class="container">
             <div class="row">
               <div class="col-12">
                 <form id="form-tracking" action="" method="post">
-                  <input type="hidden" class="form-control" name="filtrer" value="<?= $client_lve->CLIENT_COD; ?>">
                   <div class="form-row">
                     <div class="form-group col-md-3 col-xs-12">
                       <label for="">Du</label>
@@ -40,29 +38,28 @@ $suivisenvois = 'active';
                         <option value="Retournée">Retournées
                       </select>
                     </div>
+                    <?php if ($client_lve->CLIENT_TYP == "TRL") : ?>
+                      <div class="form-group col-md-3 col-xs-12">
+                        <label for="">Type</label>
+                        <select name="type_dec" class="form-control">
+                          <option value="">Toutes
+                          <option value="Commerciales">Commerciales
+                          <option value="proactif">Proactif
+                        </select>
+                      </div>
+                    <?php endif; ?>
                   </div>
-                  <?php if ($client_lve->CLIENT_TYP == "TRL") : ?>
-                    <div class="form-group col-md-3 col-xs-12">
-                      <label for="">Type</label>
-                      <select name="type_dec" class="form-control">
-                        <option value="">Toutes
-                        <option value="Commerciales">Commerciales
-                        <option value="proactif">Proactif
-                      </select>
-                    </div>
-                  <?php endif; ?>
-                  <div class="form-group col-md-3 col-xs-12">
-                    <button type="submit" class="btn btn-success btn-lg col-md-12 col-xs-12 btn-lve" id="btn-filter" style="margin-top:25px;"> <span class="fa fa-filter"></span> Filtrer</button>
+                  <div class="form-group col-md-12 col-xs-12">
+                    <button type="submit" class="btn btn-success btn-lg col-md-6 col-xs-12 btn-lve" id="btn-filter" style="margin-top:25px;"> <span class="fa fa-filter"></span> Filtrer</button>
                   </div>
+                </form>
               </div>
-              </form>
-              <form method="post" action="Exportation_Excel">
-                <div>
-                  <a href="ImprimerTracking" target="_blank" class="btn btn-danger col-md-4 col-xs-12 btn-lve" style="margin-top:10px;"><i class="fas fa-file-pdf"></i> Expoerter vers PDF</a>
-                  <button type="submit" class="btn btn-info col-md-4 col-xs-12 btn-lve" style="margin-top:10px;" name="export_tracking"> <i class="fas fa-file-excel"></i> Exporter vers Excel</button>
-                </div>
-              </form>
-
+              <div class="row">
+                <form method="post" action="Exportation_Excel">
+                  <button type="submit" class="btn btn-lg btn-info col-xs-12 btn-lve" style="margin-top:10px;" id="export_tracking" name="export_tracking"> <i class="fas fa-file-excel"></i> Exporter vers Excel</button>
+                  <a href="ImprimerTracking" target="_blank" class="btn btn-lg btn-danger col-xs-12 btn-lve" style="margin-top:10px;"><i class="fas fa-file-pdf"></i> Exporter vers PDF</a>
+                </form>
+              </div>
             </div>
           </div>
         </div>
