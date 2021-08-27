@@ -17,16 +17,20 @@ function consigneVilleMap() {
           zoom: 10,
         });
         for (var i = 0; i < consigne.length; i++) {
-            var popupEnService = new mapboxgl.Popup({
-                offset: 25
-              })
-              .setHTML("<h6>Consigne :" + consigne[i].num_serie_consigne + "</h6><p>" + consigne[i].adresse + "</p><button class='btn btn-consigne' onclick='ChooseConsigne("+consigne[i].num_serie_consigne+")' data-dismiss='modal'>Choisir cette consigne</button>");
           var marker1 = document.createElement('div');
-          if (consigne[i].etat == "En Service")
+          var html = '';
+          if (consigne[i].etat == "En Service"){
             marker1.className = 'marker1';
-          else
+            html = "<h6>Consigne :" + consigne[i].num_serie_consigne + "</h6><p>" + consigne[i].adresse + "</p><button class='btn btn-consigne' onclick='ChooseConsigne("+consigne[i].num_serie_consigne+")' data-dismiss='modal'>Choisir cette consigne</button>";
+          }
+          else{
             marker1.className = 'marker2';
-
+           html = "<h6>Consigne :" + consigne[i].num_serie_consigne + "</h6><p>" + consigne[i].adresse + "</p>";
+          }
+          var popupEnService = new mapboxgl.Popup({
+            offset: 25
+          })
+          .setHTML(html);
           var markerConsigneEnService = new mapboxgl.Marker(marker1);
           markerConsigneEnService
             .setLngLat([parseFloat(consigne[i].gps_latitude), parseFloat(consigne[i].gps_longitude)])
@@ -38,7 +42,7 @@ function consigneVilleMap() {
   }
 
 function ChooseConsigne(id){
-    $("#map-modal").modal("toggle");
+    //$("#map-modal").modal("toggle");
     $("#cons-"+id).prop("checked",true);
 }
 
@@ -48,7 +52,6 @@ function ChooseConsigne(id){
       //style: 'assets/styleMap/style.json',
       style: 'mapbox://styles/oussamaaithbibi1997/ckq25pxf721ti17mg0agtyldh',
       //center: position,
-      //[position.gps_longitude, position.gps_latitude],
       //zoom: 10
     });
     map.flyTo({
@@ -68,6 +71,20 @@ function ChooseConsigne(id){
     var marker1 = document.createElement('div');
     marker1.className = 'marker3';
     var markerConsigneEnService = new mapboxgl.Marker(marker1);
+
+    if (consigne.etat == "En Service"){
+        marker1.className = 'marker1';
+        html = "<h6>Consigne :" + consigne.num_serie_consigne + "</h6><p>" + consigne.adresse + "</p><button class='btn btn-consigne' onclick='ChooseConsigne("+consigne.num_serie_consigne+")' data-dismiss='modal'>Choisir cette consigne</button>";
+      }
+      else{
+        marker1.className = 'marker2';
+       html = "<h6>Consigne :" + consigne.num_serie_consigne + "</h6><p>" + consigne.adresse + "</p>";
+      }
+      var popupEnService = new mapboxgl.Popup({
+        offset: 25
+      })
+      .setHTML(html);
+      var markerConsigneEnService = new mapboxgl.Marker(marker1);
     markerConsigneEnService
       .setLngLat(position)
       .setPopup(popupEnService)
@@ -87,32 +104,7 @@ function ChooseConsigne(id){
       success: function(res) {
         consigne = JSON.parse(res);
         OpenMap([parseFloat(consigne.gps_latitude), parseFloat(consigne.gps_longitude)]);
-        //OpenMap([consigne.gps_longitude, consigne.gps_latitude]);
-        console.log(consigne);
         $('#vilecons').html(consigne.num_serie_consigne);
-
-        /* $("#map-modal").modal("show");
-         setTimeout(function() {
-           map.resize()
-         }, 200);*/
-        /*
-        if (consigne.etat === "En Service") {
-          var popupEnService = new mapboxgl.Popup({
-            offset: 25
-          }).setHTML("<h6>" + consigne.ville_affectation + "</h6><p>" + consigne.adresse + "</p><button class='btn btn-consigne' onclick='inputCheck(" + consigne.num_serie_consigne + ")' data-dismiss='modal'>Choisir cette consigne</button>");
-          markerConsigneEnService.setLngLat([consigne.gps_latitude, consigne.gps_longitude]).setPopup(popupEnService).addTo(map);
-          $(".marker3").addClass("marker3-animation");
-        }
-
-        if (consigne.etat === "Hors Service") {
-          markerConsigne.setLngLat([consigne.gps_latitude, consigne.gps_longitude]).addTo(map);
-          var popupHorsService = new mapboxgl.Popup({
-            offset: 25
-          }).setHTML("<h6>" + consigne.ville_affectation + "</h6><p>" + consigne.adresse + "</p>");
-          markerConsigneHorsService.setLngLat([consigne.gps_latitude, consigne.gps_longitude]).setPopup(popupHorsService).addTo(map);
-
-        }
-        */
       }
     })
   }
