@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../vue.js" ></script>
+    <script src="../jquery.js" ></script>
+<div class="form-dec">
+    <select name="id" id="id" v-model="codee">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    <button @click="codeVille(codee)">click it</button>
+        <select name="declaration" id="" v-model="numeroo">
+            <option  v-for="declaration in declarations" v-bind:value="declaration.numero">{{declaration.numero}}
+
+        </select>
+
+
+</div>    
+<script >
+    vm =    new Vue({
+    el: '.form-dec',
+    data: {
+        codee: '',
+        livr_typ:'',
+        numeroo:'',
+        declarations : []
+    },
+    created: function () {
+       // this.codeVille();
+    },
+    methods: {
+       codeVille(idd){
+        //console.log(this.codee)
+           $.ajax({
+                url: "test.php",
+                type: "POST",
+                data: { id: idd },
+                success: function (res) {
+                    vm.declarations = JSON.parse(res)
+                    /*declarations.map(declaration => 
+                    console.log(declaration.numero)
+                    )*/
+                    //console.log(declaration)
+                    //vm.livr_typ = declaration.livraison
+                    //$('#div-consigne').html(res);
+                }
+              });
+       }
+
+    },
+    watch: {
+        livr_typ :"codeVille"
+    }
+});
+    </script>
+</body>
+</html>
