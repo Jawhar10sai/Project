@@ -11,6 +11,7 @@ if (isset($_POST['code_client']) && $_POST['code_client'] != '0') {
     $infosclient['PRENOM'] = $sous_client->PRENOM;
     $infosclient['ADRESSE'] = $adresses->lib_adresse;
     $infosclient['telephone'] = $sous_client->telephone;
+    $infosclient['mail'] = $sous_client->mail;
     $infosclient['VILLE_LIB'] = $villes->VILLE_LIB;
     $infosclient['VILLE_COD'] = $villes->VILLE_COD;
     echo json_encode($infosclient);

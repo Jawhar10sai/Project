@@ -1,4 +1,4 @@
-$('#mess').hide();
+//$('#mess').hide();
 $('#codecli').val('');
 $('.agdiv').hide();
 $('.vildes').hide();

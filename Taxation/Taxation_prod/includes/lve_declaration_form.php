@@ -65,24 +65,24 @@
             <div class="form-row">
               <div class="form-group col-md-6 col-xs-12">
                 <label for=""> Nom:<span style="color:red;">*</span></label>
-                <input type="text" class="form-control form-control-sm" id="nom" name="nom" required>
+                <input type="text" class="form-control form-control-sm" id="nom" name="nom" required v-model="nom">
                 <div class="segg">
 
                 </div>
               </div>
               <div class="form-group col-md-6 col-xs-12">
                 <label> Prénom:</label>
-                <input type="text" class="form-control form-control-sm" id="prenom" name="prenom" value="">
+                <input type="text" class="form-control form-control-sm" id="prenom" name="prenom" v-model="prenom">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-12">
                 <label for=""> Adresse:<span style="color:red;">*</span></label>
-                <input type="text" class="form-control form-control-sm" id="adresse" name="adresse" value="" required>
+                <input type="text" class="form-control form-control-sm" id="adresse" name="adresse" required v-model="adresse">
               </div>
               <div class="form-group col-12" v-if="livr_typ == 'p'">
                 <label for="">Mail:<span style="color:red;">*</span></label>
-                <input type="text" class="form-control form-control-sm" id="mail_dest" name="mail_dest" value="" required>
+                <input type="text" class="form-control form-control-sm" id="mail_dest" name="mail_dest" required v-model="mail">
               </div>
 
             </div>
@@ -98,11 +98,11 @@
               </div>
               <div class="form-group col-md-6 col-xs-12">
                 <label for=""> Téléphone:<span style="color:red;">*</span></label>
-                <input type="tel" maxlength="10" placeholder="05XXXXXXXX" class="form-control form-control-sm nombres" id="telephone" name="telephone" value="" required>
+                <input type="tel" maxlength="10" placeholder="05XXXXXXXX" class="form-control form-control-sm nombres" id="telephone" name="telephone" value="" required v-model="telephone">
               </div>
             </div>
 
-            <div id="mess" style="width:100%;">
+            <div style="width:100%;" v-if="message">
               <label class="form-group col-12 alert alert-warning" role="alert">Client inexistant, veuillez-vous remplir les autres champs!</label>
             </div>
 
@@ -280,7 +280,7 @@
               <option value="XXL">XXL (70, 40, 60)cm
             </select>
           </div>
-          <div class="col-12 text-center" v-if="livr_typ == 'p'">
+          <div class="col-12 text-center" v-if="livr_typ === 'p'">
             <img src="images/logo_evex.JPG" width="400px;">
           </div>
         </div>
@@ -436,7 +436,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-12 col-md-6 col-lg-8" v-if="livr_typ == 'p'">
+    <div class="col-xs-12 col-md-6 col-lg-8" v-if="livr_typ === 'p'">
       <div class="card secondrow" id="div-consigne">
 
       </div>

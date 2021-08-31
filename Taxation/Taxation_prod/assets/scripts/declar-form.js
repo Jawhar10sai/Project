@@ -1,4 +1,4 @@
-new Vue({
+vm = new Vue({
     el: '.form-dec',
     data: {
         codee: '',
@@ -7,7 +7,16 @@ new Vue({
         blstat:'',
         nbrbl:'',
         code_ville:'',
-        ville_cons:''
+        /* infos client */
+        nom:'',
+        prenom:'',
+        adresse:'',
+        mail:'',
+        telephone:'',
+        ville_cod:'',
+        /* fin infos client */
+        ville_cons:'',
+        message : false
     },
     created: function () {
         this.checkCode();
@@ -23,28 +32,27 @@ new Vue({
                     data: 'code_client=' + this.codee,
                     success: function (res) {
                         try {
-                            $('#mess').hide();
                             result = JSON.parse(res);
-                            $('#nom').val(result.NOM);
-                            $('#prenom').val(result.PRENOM);
-                            $('#adresse').val(result.ADRESSE);
-                            $('#firstval').text(result.VILLE_LIB);
-                            $('#firstval').val(result.VILLE_COD);
-                            $('#telephone').val(result.telephone);
+                            vm.nom = result.NOM;
+                            vm.prenom = result.PRENOM;
+                            vm.adresse = result.ADRESSE;
+                            vm.telephone = result.telephone;
+                            vm.mail = result.mail;
+                            vm.code_ville = result.VILLE_COD;
+                            vm.message = false;
 
                         } catch (e) {
-                            $('#mess').show();
-                            $('#nom').val("");
-                            $('#prenom').val("");
-                            $('#adresse').val("");
-                            $('#firstval').text("");
-                            $('#firstval').val("");
-                            $('#telephone').val("");
+                            vm.nom = '';
+                            vm.prenom = '';
+                            vm.adresse = '';
+                            vm.telephone = '';
+                            vm.code_ville = '';
+                            vm.message = true;
                         }
                     }
                 });
             } else {
-                $('#mess').hide();
+                this.message = false;
             }
         
        },
@@ -53,10 +61,10 @@ new Vue({
             $.ajax({
                 url: "gestion/getAgence.php",
                 type: "POST",
-                data: { code_vil: this.code_ville },
+                data: { code_vil: vm.code_ville },
                 success: function (res) {
                     result = JSON.parse(res);
-                  this.ville_cons = result.ville;
+                  vm.ville_cons = result.ville;
                   if (result.agence != null) {
                     $("#showdesti").html(
                         "<label class='alert alert-success col-12' role='alert'>Agence de destination: " + result.agence + "</label>"
@@ -68,17 +76,17 @@ new Vue({
                   }
                 },
               });
-        }
-        if(this.livr_typ == 'p'){
-            $.ajax({
-                url: "gestion/getConsigne.php",
-                type: "POST",
-                data: { code_vil: this.code_ville },
-                success: function (res) {
-                    $('#div-consigne').html(res);
-                }
-              });
-        }
+              if(this.livr_typ == 'p'){
+                $.ajax({
+                    url: "gestion/getConsigne.php",
+                    type: "POST",
+                    data: { code_vil: vm.code_ville },
+                    success: function (res) {
+                        $('#div-consigne').html(res);
+                    }
+                  });
+            }
+            }
        },
        validerBL : function() {
         var numsbl = "";
@@ -99,6 +107,10 @@ new Vue({
             i++;
           }
       }
+      /*S,
+      characterOnclick(){
+
+      }*/
     },
     watch: {
         codee: "checkCode",

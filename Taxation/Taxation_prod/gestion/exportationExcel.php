@@ -7,12 +7,12 @@ if (isset($_POST['export_tracking'])) {
   $donnees = file_get_contents($client_lve->CLIENT_COD . "excel_tracking.json");
   $donnees = json_decode($donnees, true);
   $client_lve->ExporterMesCourriers($donnees);
-  unlink($client_lve->CLIENT_COD . "excel_tracking.json");
+  //unlink($client_lve->CLIENT_COD . "excel_tracking.json");
 }
 if (isset($_POST['export_declaration'])) {
   #Exportation du tableau de Consultation
   $donnees = file_get_contents($client_lve->NOM . "excel_declaration.json");
   $donnees = json_decode($donnees, true);
   $client_lve->ExporterMesDeclarations($donnees);
-  unlink($client_lve->NOM . "excel_declaration.json");
+  //unlink($client_lve->NOM . "excel_declaration.json");
 }
