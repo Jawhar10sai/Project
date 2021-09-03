@@ -60,6 +60,5 @@
 </section>
 </div>
 <script src="assets/scripts/lve-gestion.js" charset="utf-8"></script>
-<script src="assets/scripts/lve-validation.js" charset="utf-8"></script>
 <script src="assets/scripts/tax.js" charset="utf-8"></script>
 </body>

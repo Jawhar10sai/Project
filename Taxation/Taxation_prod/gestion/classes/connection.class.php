@@ -29,6 +29,11 @@ class Connection
     {
         return  new PDO("mysql:dbname=api_service;host=localhost", 'root', '');
     }
+    public static function getConnexionVex()
+    {
+        return new PDO("sqlsrv:Server=100.64.10.29,1433;Database=VEXINITIALRecette", 'dmz', 'P@sslve2021');
+    }
+
     public static function VerifierLigneConnection($utilisateur, $motdepasse)
     {
         $result = self::getConnection()->prepare("SELECT * FROM `client_lve` WHERE `login`=? AND `mot_de_passe`=? AND `supprime_le` IS NULL");
