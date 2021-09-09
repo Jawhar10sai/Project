@@ -13,16 +13,16 @@ $statistique = $client_lve->MonCourrierToJson($result);
 <h5 style="color:#4ABB00;" class="mb-2 text-center">Livrée: <?= $statistique['dec_liv'] . '/ ' . count($result); ?></h5>
 <h5 style="color:#E87400;" class="mb-2 text-center">En cours: <?= $statistique['dec_ret'] . '/ ' . count($result); ?></h5>
 <h5 style="color:#E82300;" class="mb-2 text-center">Retournée: <?= $statistique['dec_enc'] . '/ ' . count($result); ?></h5>
-<table class="table table-bordered col-12 tracktable table-striped" id="tracktable">
+<table class="table table-bordered col-12 tracktable table-striped table-responsive" id="tracktable">
   <thead>
     <tr>
       <th class="text-center h6" width="100">Déclaration</th>
-      <th class="text-center h6">Date d'expedition</th>
-      <th class="text-center h6">Date de livraison</th>
+      <th class="text-center h6" style="width: 119.656px;">Date d'expedition</th>
+      <th class="text-center h6" style="width: 119.656px;">Date de livraison</th>
       <?php if ($client_lve->CLIENT_COD == 9588) : ?>
-        <th class="text-center h6">Date prévue de livraison</th>
+        <th class="text-center h6" style="width: 119.656px;">Date prévue de livraison</th>
       <?php endif; ?>
-      <th class="text-center h6">Statut de livraison</th>
+      <th class="text-center h6" style="width: 100px;">Statut de livraison</th>
       <th class="text-center h6">Motifs</th>
       <?php if ($client_lve->CLIENT_COD == 15038) : ?>
         <th class="text-center h6">Code detaillant</th>
@@ -44,7 +44,7 @@ $statistique = $client_lve->MonCourrierToJson($result);
         <th class="text-center h6">City</th>
         <th class="text-center h6">ILOT</th>
       <?php endif; ?>
-      <th class="text-center h6">Documents</th>
+      <th class="text-center h6"> </th>
     </tr>
   </thead>
   <?php if (count($result) > 0) {   ?>
@@ -78,27 +78,14 @@ $statistique = $client_lve->MonCourrierToJson($result);
         ?>
 
         <td style="background-color:<?= $btncolor; ?>;cursor: hand;color:#3f3f3f; " class="text-center">
-          <a style="color: <?= $btncolor; ?>;" class="dropdown-item" id="supprimer" data-toggle="modal" data-target="#trackmodal<?= trim($value->Numero); ?>">
-            <div class="row">
-              <div class="col-8">
-                <?php
-                $conditions = array('En saisie', 'En preparation', 'Préparée', 'Livrée', 'Retournée');
-                if (in_array(utf8_encode($value->statut_suivis), $conditions))
-                  echo utf8_encode($value->statut_suivis);
-                else
-                  echo 'En cours';
-                ?>
-              </div>
-              <div class="col-2">
-                <?php /*
-              <button type="button" data-toggle="modal" data-target="#trackmodal<?= trim($value->Numero); ?>" style="padding: 8;border-radius:50%;color:<?= $btncolor; ?>" class="btn btn-outline-info btn-sm">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-              </button>
-              <?php #require "track_state.php"; 
-              */
-                ?>
-              </div>
-            </div>
+          <a style="color:#3f3f3f;" class="dropdown-item" id="supprimer" data-toggle="modal" data-target="#trackmodal<?= trim($value->Numero); ?>">
+            <?php
+            $conditions = array('En saisie', 'En preparation', 'Préparée', 'Livrée', 'Retournée');
+            if (in_array(utf8_encode($value->statut_suivis), $conditions))
+              echo utf8_encode($value->statut_suivis);
+            else
+              echo 'En cours';
+            ?>
           </a>
         </td>
         <td><?= (utf8_encode($value->statut_suivis) === "Livrée") ? "" : utf8_encode($value->Motif); ?>
@@ -136,93 +123,88 @@ $statistique = $client_lve->MonCourrierToJson($result);
             <i class="fas fa-ellipsis-h"></i>
           </button>
           <div class="dropdown-menu" aria-labelledby="drop<?= trim($value->Numero); ?>">
+            <?php /*
             <a style="color: #0099ff;" class="dropdown-item" id="modifier" data-toggle="modal" data-target="#contract-<?= trim($value->Numero); ?>">
               <span><i class="fa fa-print" aria-hidden="true"></i></span> Imprimer déclaration
-            </a>
-            <a style="color: #0099ff;" class="dropdown-item" id="supprimer" data-toggle="modal" data-target="#supmodal-<?= $declarations->numero; ?>">
-              <span><i class="fa fa-print" aria-hidden="true"></i></span> Imprimer etiquette
-            </a>
-            <a style="color: #c60101;" class="dropdown-item" id="supprimer" data-toggle="modal" data-target="#supmodal-<?= $declarations->numero; ?>">
-              <span><i class="far fa-images"></i></span> Documents scannés
-            </a>
+            </a>*/ ?>
+            <?php if ($client_lve->CLIENT_COD == '15443' && utf8_encode($value->statut_suivis) != 'Livrée') : ?>
+              <a style="color: #0099ff;" class="dropdown-item" id="supprimer" data-toggle="modal" data-target="#supmodal-<?= $declarations->numero; ?>" onClick="javascript:window.open('etiquettes_courrier/<?= $value->Numero; ?>','_blank','status=yes,resizable=no,top=0,left=0,width=280,height=130');">
+                <span><i class="fa fa-print" aria-hidden="true"></i></span> Imprimer etiquette
+              </a>
+            <?php endif; ?>
+            <?php if (utf8_encode($value->statut_suivis) == 'Livrée') : ?>
+              <?php $scan = Declarations::GetScanBL($value->courrier_id);
+              if ($scan != false) :
+              ?>
+                <a style="color: #17a2b8;" class="dropdown-item" id="idcontract" data-toggle="modal" data-target="#contract-<?= trim($value->Numero); ?>">
+                  <span><i class="far fa-images"></i></span> Documents scannés
+                </a>
+              <?php else : ?>
+                <a style="color: #c60101;" class="dropdown-item disabled" href="#">
+                  <span><i class="far fa-images"></i></span> Documents non-scannés
+                </a>
+              <?php endif; ?>
+            <?php endif; ?>
             <a style="color: <?= $btncolor; ?>;" class="dropdown-item" id="supprimer" data-toggle="modal" data-target="#trackmodal<?= trim($value->Numero); ?>">
               <span><i class="fa fa-map-marker" aria-hidden="true"></i></span> Détecter l'emplacement
             </a>
           </div>
         </div>
         <?php require "track_state.php"; ?>
-
-
-        <?php if (utf8_encode($value->statut_suivis) == 'Livrée') : ?>
-          <?php
-          $scan = Declarations::GetScanBL($value->courrier_id);
-          if ($scan != false) : ?>
-            <button style="border-radius: 50%;width: 30px;height: 30px;" class="btn btn-info btn-sm" id="idcontract" data-toggle="modal" data-target=""></button>
-          <?php else : ?>
-            <button style="border-radius: 50%;width: 30px;height: 30px;" class="btn btn-danger btn-sm disabled"> </button>
-          <?php endif; ?>
-          <!--#######################################################################################################-->
-          <div class="modal contract" tabindex="-1" role="dialog" id="contract-<?= trim($value->Numero); ?>">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title"></h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" style="
+        <!--#######################################################################################################-->
+        <div class="modal contract" tabindex="-1" role="dialog" id="contract-<?= trim($value->Numero); ?>">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="
                     background-color: red;
                     color: #fff;
                     border-radius: 50%;
                     padding: 0px 10px 7px 10px;
                     ">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                      <?php if (count($scan) > 0) {
-                        foreach ($scan as $image) : ?>
-                          <?php
-                          $active = ($scan[0] == $image) ? "active" : "";
-                          ?>
-                          <div class="carousel-item <?= $active; ?>">
-                            <img class="d-block w-100" src="http://46.18.132.236:8089/upload_mobile_BL/<?= trim($value->courrier_id) . '/' . $image; ?>" alt="" height="600px;" width="400px;">
-                          </div>
-                        <?php endforeach; ?>
-                    </div>
-                    <?php if (count($scan) > 1) { ?>
-                      <a style="border-radius:50%;background-color:red;width:50px;height:50px;" class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                      </a>
-                      <a style="border-radius:50%;background-color:red;width:50px;height:50px;" class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                      </a>
-                  <?php
-                        }
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="carouselExampleControls-<?= trim($value->Numero); ?>" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <?php if (count($scan) > 0) {
+                      foreach ($scan as $image) : ?>
+                        <?php
+                        $active = ($scan[0] == $image) ? "active" : "";
+                        ?>
+                        <div class="carousel-item <?= $active; ?>">
+                          <img class="d-block w-100" src="http://46.18.132.236:8089/upload_mobile_BL/<?= trim($value->courrier_id) . '/' . $image; ?>" alt="" height="600px;" width="400px;">
+                        </div>
+                      <?php endforeach; ?>
+                  </div>
+                  <?php if (count($scan) > 1) { ?>
+                    <a style="border-radius:50%;background-color:red;width:50px;height:50px;" class="carousel-control-prev" href="#carouselExampleControls-<?= trim($value->Numero); ?>" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a style="border-radius:50%;background-color:red;width:50px;height:50px;" class="carousel-control-next" href="#carouselExampleControls-<?= trim($value->Numero); ?>" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                <?php
                       }
-                  ?>
-                  </div>
-                  <div class="modal-footer">
-                    <?php /*
-                  <a target="_blank" type="button" class="btn btn-success btn-lve" href="http://46.18.132.236:8089/upload_mobile_BL/<?=$value->courrier_id.'/'.$declarations->GetScanBL($value->courrier_id);?>" download >Voir en taille réelle</a>
-                */ ?>
+                    }
+                ?>
+                </div>
+                <div class="modal-footer">
+                  <?php /*
+                      <a target="_blank" type="button" class="btn btn-success btn-lve" href="http://46.18.132.236:8089/upload_mobile_BL/<?=$value->courrier_id.'/'.$declarations->GetScanBL($value->courrier_id);?>" download >Voir en taille réelle</a>
+                      
                     <button class="btn btn-danger btn-lve" id="rotate-<?= $value->courrier_id; ?>"><i class="fas fa-snowboarding fa-flip-both"></i> Pivoter l'image</button>
-                    <button type="button" class="btn btn-danger btn-lve" data-dismiss="modal"><i class="fas fa-times"></i> Fermer</button>
-                  </div>
+                    */ ?>
+                  <button type="button" class="btn btn-danger btn-lve" data-dismiss="modal"><i class="fas fa-times"></i> Fermer</button>
                 </div>
               </div>
             </div>
           </div>
-        <?php else : ?>
-          <?= ""; ?>
-        <?php endif; ?>
-        <?php if ($client_lve->CLIENT_COD == '15443' && utf8_encode($value->statut_suivis) != 'Livrée') : ?>
-          <button type="button" class="btn btn-info btn-sm btn-lve" style="padding: 8px;" name="button" onClick="javascript:window.open('etiquettes_courrier/<?= $value->Numero; ?>','_blank','status=yes,resizable=no,top=0,left=0,width=280,height=130');">
-            <i class="fa fa-print" aria-hidden="true"></i> Etiquettes
-          </button>
-        <?php endif; ?>
-
+        </div>
       </td>
       </tr>
     <?php endforeach; ?>

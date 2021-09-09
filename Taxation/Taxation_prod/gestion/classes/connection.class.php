@@ -43,4 +43,9 @@ class Connection
         elseif ($result_prod->execute([$utilisateur, $motdepasse]))
             return self::getConnectiontest();
     }
+
+    public static function getVexConnection()
+    {
+        return new PDO("sqlsrv:Server=100.64.10.29,1433;Database=VEXINITIALRecette", 'dmz', 'P@sslve2021');
+    }
 }
